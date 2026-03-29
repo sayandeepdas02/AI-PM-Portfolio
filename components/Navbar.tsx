@@ -76,7 +76,7 @@ export default function Navbar() {
                             Book a Call
                         </a>
                         <a
-                            href="https://drive.google.com/file/d/1T77FYg8U7HAIzrjffSiRsd5PMq_-n_3E/view?usp=sharing"
+                            href="https://drive.google.com/file/d/1U_3TLj_0-y_AmwbRI_7tx6D0XlrKTNvn/view?usp=sharing"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center gap-2 px-3 py-1.5 text-[13px] font-medium bg-foreground text-background hover:bg-foreground/90 transition-colors rounded-md"
