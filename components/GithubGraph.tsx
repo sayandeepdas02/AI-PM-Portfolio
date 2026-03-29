@@ -23,7 +23,7 @@ export function GithubGraph() {
             <div className="w-full overflow-x-auto pb-4 pt-4 scrollbar-hide border-l border-dashed border-edge">
                 <div className="flex min-w-max justify-center text-xs px-4">
                     <GitHubCalendar
-                        username="sayandeepdas02"
+                        username="hkirat"
                         colorScheme={theme === "dark" ? "dark" : "light"}
                         blockSize={10}
                         blockMargin={4}
