@@ -14,12 +14,5 @@ export const education: Education[] = [
         location: "Guwahati, INDIA",
         logo: "/logos/iitg.png",
     },
-    {
-        degree: "Bachelor of Science in Mathematics (Hons), Computer Science & Physics",
-        institution: "WB State University",
-        year: "2022 - 2026",
-        location: "Kolkata, INDIA",
-        logo: "/logos/wbsu.png",
-    },
 ];
 
