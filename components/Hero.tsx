@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Github, Linkedin, Youtube, Calendar, Mail, FileText, Bot, User, QrCode, X, Music, Pause } from "lucide-react";
+import { Github, Linkedin, Youtube, Calendar, Mail, FileText, Bot, User, QrCode, X, Music, Pause, Mic, MicOff } from "lucide-react";
 import { useState, useEffect, useMemo, useRef } from "react";
 import { useTheme } from "next-themes";
 import { motion, AnimatePresence } from "framer-motion";
@@ -12,6 +12,7 @@ export default function Hero() {
     const [showEasterEgg, setShowEasterEgg] = useState(false);
     const [isLofiPlaying, setIsLofiPlaying] = useState(false);
     const [lofiVolume, setLofiVolume] = useState(1);
+    const [isMuted, setIsMuted] = useState(true);
     const lofiRef = useRef<HTMLAudioElement | null>(null);
 
     useEffect(() => {
@@ -76,21 +77,34 @@ export default function Hero() {
     return (
         <div className="screen-line-after flex border-x border-edge">
             <div className="shrink-0 border-r border-edge relative">
-                <div className="mx-0.5 my-0.75">
+                <div className="mx-0.5 my-0.75 relative">
                     <button
                         onClick={() => setShowEasterEgg(!showEasterEgg)}
                         className="group relative h-32 w-32 sm:h-40 sm:w-40 grayscale filter overflow-hidden cursor-pointer transition-all duration-500 hover:grayscale-0 active:scale-95 rounded-full ring-1 ring-border ring-offset-2 ring-offset-background"
                         aria-label="Toggle Aura Mode"
                     >
-                        <Image
-                            src="/poly-profile.png"
-                            alt="Sayandeep Das"
-                            fill
-                            className={`object-cover transition-all duration-700 ${showEasterEgg ? 'grayscale-0 scale-105' : 'grayscale'}`}
-                            priority
+                        <video
+                            src="/profile-video.mp4"
+                            autoPlay
+                            loop
+                            muted={isMuted}
+                            playsInline
+                            className={`object-cover w-full h-full transition-all duration-700 ${showEasterEgg ? 'grayscale-0 scale-105' : 'grayscale'}`}
                         />
                         {/* Subtle Glow on Hover */}
                         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-[inset_0_0_20px_rgba(59,130,246,0.3)] pointer-events-none" />
+                    </button>
+                    
+                    <button
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            setIsMuted(!isMuted);
+                        }}
+                        className="absolute bottom-2 left-2 p-1.5 rounded-full bg-background/80 backdrop-blur-md border border-edge text-muted-foreground hover:text-foreground z-10 transition-all duration-300 hover:scale-110 shadow-sm"
+                        aria-label="Toggle Audio"
+                        title={isMuted ? "Unmute" : "Mute"}
+                    >
+                        {isMuted ? <MicOff size={14} /> : <Mic size={14} />}
                     </button>
                 </div>
 
