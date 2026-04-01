@@ -1,7 +1,7 @@
 "use client";
 
 import { projects } from "@/data/projects";
-import { LinkIcon } from "lucide-react";
+import { LinkIcon, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import Image from "next/image";
 import { Panel, PanelHeader, PanelTitle, PanelTitleSup } from "@/components/ui/panel";
@@ -59,28 +59,41 @@ export default function Projects() {
                             <div className="flex-1 border-l border-dashed border-edge">
                                 <div className="flex w-full items-center gap-2 p-4 pr-2">
                                     <div className="flex-1">
-                                        <h3 className="mb-1 leading-snug font-medium text-balance">
+                                        <h3 className="mb-2 leading-snug font-medium text-balance">
                                             {project.name}
                                         </h3>
 
-                                        <p className="text-sm text-muted-foreground mb-2">
-                                            {project.description}
-                                        </p>
+                                        {/* Expand/Collapse Button */}
+                                        {project.details && project.details.length > 0 && (
+                                            <button
+                                                onClick={() => toggleProject(index)}
+                                                className="w-auto flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors mb-3"
+                                            >
+                                                <span>{isExpanded ? "Hide details" : "Show details"}</span>
+                                                <ChevronDown className={`size-3.5 transition-transform duration-300 ${isExpanded ? "rotate-180" : ""}`} />
+                                            </button>
+                                        )}
 
                                         {/* Expandable Details */}
-                                        {isExpanded && project.details && project.details.length > 0 && (
-                                            <ul className="mb-2 space-y-1">
-                                                {project.details.map((detail, i) => (
-                                                    <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
-                                                        <span className="mt-1.5 w-1 h-1 rounded-full flex-shrink-0 bg-muted-foreground" />
-                                                        <span>{detail}</span>
-                                                    </li>
-                                                ))}
-                                            </ul>
+                                        {project.details && project.details.length > 0 && (
+                                            <div 
+                                                className={`grid transition-all duration-300 ease-in-out ${isExpanded ? "grid-rows-[1fr] opacity-100 mb-4" : "grid-rows-[0fr] opacity-0"}`}
+                                            >
+                                                <div className="overflow-hidden">
+                                                    <ul className="space-y-1.5">
+                                                        {project.details.map((detail, i) => (
+                                                            <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
+                                                                <span className="mt-1.5 w-1 h-1 rounded-full flex-shrink-0 bg-muted-foreground" />
+                                                                <span>{detail}</span>
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                </div>
+                                            </div>
                                         )}
 
                                         {/* Tech Stack */}
-                                        <div className="flex flex-wrap gap-1.5 mb-2">
+                                        <div className="flex flex-wrap gap-1.5 mt-2">
                                             {project.techStack.map((tech) => (
                                                 <span
                                                     key={tech}
@@ -90,16 +103,6 @@ export default function Projects() {
                                                 </span>
                                             ))}
                                         </div>
-
-                                        {/* Expand/Collapse Button */}
-                                        {project.details && project.details.length > 0 && (
-                                            <button
-                                                onClick={() => toggleProject(index)}
-                                                className="text-xs font-medium text-muted-foreground hover:text-foreground transition-colors"
-                                            >
-                                                {isExpanded ? "Show less" : "Show more"}
-                                            </button>
-                                        )}
                                     </div>
 
                                     {/* Link Icon */}

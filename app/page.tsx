@@ -21,17 +21,16 @@ export default function Home() {
         <Experience />
         <Separator />
 
-
-        <Education />
+        <GithubGraph />
         <Separator />
 
         <Projects />
         <Separator />
 
-        <GithubGraph />
+        <TechStack />
         <Separator />
 
-        <TechStack />
+       <Education /> 
         <Separator />
 
         <Certifications />
