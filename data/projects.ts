@@ -68,7 +68,7 @@ export const projects: Project[] = [
         ],
         image: "/logos/notemind-logo.png",
         techStack: ["React.js", "Node.js", "Google Meet API", "OpenAI API", "Tailwind CSS"],
-        githubUrl: "https://github.com/sayandeepdas02/Notemind",
+        githubUrl: "https://github.com/sayandeepdas02/Notemind-ai",
     },
 ];
 
