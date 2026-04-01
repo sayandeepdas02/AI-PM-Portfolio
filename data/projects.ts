@@ -21,6 +21,7 @@ export const projects: Project[] = [
         image: "/logos/flux-hire-logo.png",
         techStack: ["React.js", "Redux", "Node.js", "OpenAI API", "Tailwind CSS"],
         githubUrl: "https://github.com/sayandeepdas02/Interview-AI",
+        liveUrl: "https://interview-ai.sayandeep.space/",
     },
     {
         name: "Plixa Meetups - A collaborative app for discussions, planning and more",
@@ -33,6 +34,7 @@ export const projects: Project[] = [
         image: "/logos/plixa-logo.png",
         techStack: ["JavaScript", "React.js", "Node.js", "Socket.io", "Express.js", "Tailwind CSS"],
         githubUrl: "https://github.com/sayandeepdas02/Plixa-Meetups",
+        liveUrl: "https://plixa.sayandeep.space/",
     },
     {
         name: "Swift Invoice - Modern invoicing for the next-gen freelancers & businesses",
@@ -45,6 +47,7 @@ export const projects: Project[] = [
         image: "/logos/swift-invoice-logo.png",
         techStack: ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
         githubUrl: "https://github.com/sayandeepdas02/Swift-Invoice",
+        liveUrl: "https://invoices.sayandeep.space/",
     },
     {
         name: "Altresume - Custom Resume for every job application",
@@ -57,6 +60,7 @@ export const projects: Project[] = [
         image: "/logos/alt-resume-logo.png",
         techStack: ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
         githubUrl: "https://github.com/sayandeepdas02/Altresume",
+        liveUrl: "https://altresume.sayandeep.space/",
     },
     {
         name: "Notemind - AI Notetaker for GMeets",
@@ -69,6 +73,7 @@ export const projects: Project[] = [
         image: "/logos/notemind-logo.png",
         techStack: ["React.js", "Node.js", "Google Meet API", "OpenAI API", "Tailwind CSS"],
         githubUrl: "https://github.com/sayandeepdas02/Notemind-ai",
+        liveUrl: "https://notemind.sayandeep.space/",
     },
 ];
 

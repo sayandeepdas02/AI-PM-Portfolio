@@ -1,7 +1,7 @@
 "use client";
 
 import { projects } from "@/data/projects";
-import { LinkIcon, ChevronDown } from "lucide-react";
+import { Github, Globe, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import Image from "next/image";
 import { Panel, PanelHeader, PanelTitle, PanelTitleSup } from "@/components/ui/panel";
@@ -105,18 +105,31 @@ export default function Projects() {
                                         </div>
                                     </div>
 
-                                    {/* Link Icon */}
-                                    {(project.githubUrl || project.liveUrl) && (
-                                        <a
-                                            className="relative flex size-6 shrink-0 items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
-                                            href={project.liveUrl || project.githubUrl}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                        >
-                                            <LinkIcon className="size-4" />
-                                            <span className="sr-only">Open Project Link</span>
-                                        </a>
-                                    )}
+                                    {/* Links */}
+                                    <div className="flex gap-2 shrink-0 items-center">
+                                        {project.githubUrl && (
+                                            <a
+                                                className="relative flex size-6 shrink-0 items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
+                                                href={project.githubUrl}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                <Github className="size-4" />
+                                                <span className="sr-only">Open Source Code on GitHub</span>
+                                            </a>
+                                        )}
+                                        {project.liveUrl && (
+                                            <a
+                                                className="relative flex size-6 shrink-0 items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
+                                                href={project.liveUrl}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                <Globe className="size-4" />
+                                                <span className="sr-only">Open Live Project</span>
+                                            </a>
+                                        )}
+                                    </div>
                                 </div>
                             </div>
                         </div>
