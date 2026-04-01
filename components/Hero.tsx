@@ -79,7 +79,7 @@ export default function Hero() {
                 <div className="mx-0.5 my-0.75 relative">
                     <button
                         onClick={() => setShowEasterEgg(!showEasterEgg)}
-                        className="group relative h-32 w-32 sm:h-40 sm:w-40 grayscale filter overflow-hidden cursor-pointer transition-all duration-500 hover:grayscale-0 active:scale-95 rounded-full ring-1 ring-border ring-offset-2 ring-offset-background"
+                        className="group relative h-32 w-32 sm:h-40 sm:w-40 overflow-hidden cursor-pointer transition-all duration-500 active:scale-95 rounded-full ring-1 ring-border ring-offset-2 ring-offset-background"
                         aria-label="Toggle Aura Mode"
                     >
                         <video
@@ -88,7 +88,7 @@ export default function Hero() {
                             loop
                             muted
                             playsInline
-                            className={`object-cover w-full h-full transition-all duration-700 ${showEasterEgg ? 'grayscale-0 scale-105' : 'grayscale'}`}
+                            className={`object-cover w-full h-full transition-all duration-700 ${showEasterEgg ? 'scale-105' : ''}`}
                         />
                         {/* Subtle Glow on Hover */}
                         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-[inset_0_0_20px_rgba(59,130,246,0.3)] pointer-events-none" />

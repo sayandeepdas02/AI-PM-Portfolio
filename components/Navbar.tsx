@@ -3,10 +3,13 @@
 import Link from "next/link";
 import { Github, Moon, Sun, Calendar, Menu, X, Linkedin, Twitter, FileText } from "lucide-react";
 import { useState, useEffect } from "react";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function Navbar() {
     const [isDark, setIsDark] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const pathname = usePathname();
+    const router = useRouter();
 
     useEffect(() => {
         // Check for saved theme preference or default to light
@@ -29,6 +32,11 @@ export default function Navbar() {
     };
 
     const scrollToSection = (sectionId: string) => {
+        if (pathname !== '/') {
+            router.push(`/#${sectionId}`);
+            return;
+        }
+        
         const element = document.getElementById(sectionId);
         if (element) {
             element.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -75,15 +83,13 @@ export default function Navbar() {
                             <Calendar size={14} strokeWidth={2} />
                             Book a Call
                         </a>
-                        <a
-                            href="https://drive.google.com/file/d/1U_3TLj_0-y_AmwbRI_7tx6D0XlrKTNvn/view?usp=sharing"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                        <Link
+                            href="/resume"
                             className="flex items-center gap-2 px-3 py-1.5 text-[13px] font-medium bg-foreground text-background hover:bg-foreground/90 transition-colors rounded-md"
                         >
                             <FileText size={14} strokeWidth={2} />
                             Resume
-                        </a>
+                        </Link>
                     </div>
 
                     {/* Right: GitHub, Dark Mode & Mobile Menu */}
