@@ -31,7 +31,7 @@ function PanelTitle({
     return (
         <h2
             data-slot="panel-title"
-            className={cn("text-3xl font-semibold", className)}
+            className={cn("text-7xl font-semibold", className)}
             {...props}
         />
     );

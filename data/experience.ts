@@ -10,14 +10,14 @@ export interface Experience {
 
 export const experiences: Experience[] = [
     {
-        role: "Software Engineer Intern",
+        role: "Software Engineer",
         company: "SuperAGI",
-        period: "Oct 2025 - Present (6 Months)",
+        period: "Jul 2025 - Present",
         location: "Bengaluru, INDIA",
         description: [
-            "Designed and implemented AI-driven variable templating with contextual runtime resolution, powering 5,000+ LinkedIn actions/month and increasing lead conversion by 40%.",
-            "Architected event-driven outreach pipelines using Kafka, Redis queues, and Sidekiq workers to process delivery/open/reply webhooks at scale, reducing account suspension rates by 80% across 500+ daily active users.",
-            "Automated domain and mailbox provisioning via Infraforge APIs, reducing campaign setup time by 30% and enabling 700+ AI SDR campaigns per month."
+            "Engineered AI-driven dynamic templating system with contextual runtime resolution, powering 5,000+ LinkedIn automation actions/month and improving lead conversion by 40%.",
+            "Designed distributed background job processing with retry strategies and idempotent workers supporting 500+ DAUs.",
+            "Automated domain and mailbox provisioning via Infraforge APIs, decreasing campaign setup time by 30% and enabling 700+ AI SDR campaigns/month."
         ],
         techStack: ["Next.js", "Vue.js", "Go", "Typescript"],
         logo: "/logos/superagi.png"
