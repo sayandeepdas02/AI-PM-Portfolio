@@ -74,7 +74,7 @@ export default function Hero() {
     return (
         <div className="screen-line-after flex border-x border-edge">
             <div className="shrink-0 border-r border-edge relative">
-                <div className="mx-3 my-4 relative">
+                <div className="m-0 relative">
                     <button
                         onClick={() => setShowEasterEgg(!showEasterEgg)}
                         className="group relative h-32 w-32 sm:h-40 sm:w-40 overflow-hidden cursor-pointer transition-all duration-500 active:scale-95 rounded-full ring-1 ring-border ring-offset-2 ring-offset-background"
