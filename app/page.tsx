@@ -30,7 +30,7 @@ export default function Home() {
         <TechStack />
         <Separator />
 
-       <Education /> 
+        <Education />
         <Separator />
 
         <Certifications />
