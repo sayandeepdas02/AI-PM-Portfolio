@@ -11,7 +11,7 @@ export interface Project {
 
 export const projects: Project[] = [
     {
-        name: "Interview AI - Automating Screening for Hiring Talent",
+        name: "Fluxberry AI - Automating Screening for Hiring Talent",
         description: "",
         details: [
             "Developed AI-driven interview automation system with resume parsing, dynamic Q&A generation, and automated candidate scoring using LLM APIs.",
@@ -21,7 +21,7 @@ export const projects: Project[] = [
         image: "/logos/flux-hire-logo.png",
         techStack: ["React.js", "Redux", "Node.js", "OpenAI API", "Tailwind CSS"],
         githubUrl: "https://github.com/sayandeepdas02/Interview-AI",
-        liveUrl: "https://interview-ai.sayandeep.space/",
+        liveUrl: "https://fluxberry.in",
     },
     {
         name: "Plixa Meetups - A collaborative app for discussions, planning and more",

@@ -15,10 +15,13 @@ export const experiences: Experience[] = [
         period: "Jul 2025 - Present",
         location: "Bengaluru, INDIA",
         description: [
-            "Engineered AI-driven dynamic templating system with contextual runtime resolution, powering 5,000+ LinkedIn automation actions/month and improving lead conversion by 40%.",
-            "Designed distributed background job processing with retry strategies and idempotent workers supporting 500+ DAUs.",
-            "Automated domain and mailbox provisioning via Infraforge APIs, decreasing campaign setup time by 30% and enabling 700+ AI SDR campaigns/month."
+            "Architected distributed campaign orchestration system using Golang microservices and Redis queues, enabling 700+ SDR campaigns/month with idempotent workers, retry strategies, and token-bucket rate limiting.",
+            "Designed AI-driven templating and execution engine (Ruby + Golang) with context-aware runtime resolution and dependency graph evaluation, powering 5,000+ actions/month with deterministic outputs under concurrent updates.",
+            "Built high-throughput async job pipelines using Redis queues, implementing deduplication, backpressure handling, and priority scheduling, supporting 500+ DAUs with predictable latency and fault-tolerant execution.",
+            "Developed AI voice agent infrastructure integrating LLMs with Twilio/Plivo APIs, enabling real-time call streaming, transcription pipelines, and structured data extraction with low-latency and resilient failure handling.",
+            "Led frontend architecture using Next.js (SSR/CSR hybrid), building real-time dashboards and campaign builders with modular components and API-driven state, improving performance and developer velocity."
         ],
+        
         techStack: ["Next.js", "Vue.js", "Go", "Typescript"],
         logo: "/logos/superagi.png"
     },

@@ -53,16 +53,16 @@ export default function Navbar() {
                     {/* Desktop: Center Navigation Links */}
                     <div className="hidden md:flex items-center gap-6">
                         <button
-                            onClick={() => scrollToSection('projects')}
-                            className="text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors"
-                        >
-                            Projects
-                        </button>
-                        <button
                             onClick={() => scrollToSection('experience')}
                             className="text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors"
                         >
                             Experience
+                        </button>
+                        <button
+                            onClick={() => scrollToSection('projects')}
+                            className="text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors"
+                        >
+                            Projects
                         </button>
                         <button
                             onClick={() => scrollToSection('education')}
