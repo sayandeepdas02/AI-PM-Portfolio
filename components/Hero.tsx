@@ -82,12 +82,11 @@ export default function Hero() {
                         className="group relative h-32 w-32 sm:h-40 sm:w-40 overflow-hidden cursor-pointer transition-all duration-500 active:scale-95 rounded-full ring-1 ring-border ring-offset-2 ring-offset-background"
                         aria-label="Toggle Aura Mode"
                     >
-                        <video
-                            src="/profile-video.mp4"
-                            autoPlay
-                            loop
-                            muted
-                            playsInline
+                        <Image
+                            src="/profile.jpg"
+                            alt="Sayandeep Das"
+                            fill
+                            priority
                             className={`object-cover w-full h-full transition-all duration-700 ${showEasterEgg ? 'scale-105' : ''}`}
                         />
                         {/* Subtle Glow on Hover */}
