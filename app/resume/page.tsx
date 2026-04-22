@@ -1,7 +1,9 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Download, FileText } from "lucide-react";
+import { Download } from "lucide-react";
 import { Metadata } from 'next';
+import { Panel, PanelHeader, PanelTitle } from "@/components/ui/panel";
+import { Separator } from "@/components/ui/separator";
 
 export const metadata: Metadata = {
   title: 'Resume | Sayandeep Das',
@@ -10,42 +12,34 @@ export const metadata: Metadata = {
 
 export default function ResumePage() {
   return (
-    <main className="min-h-screen bg-background">
-      <div className="mx-auto w-full md:max-w-3xl flex flex-col min-h-screen px-0">
+    <main className="min-h-screen">
+      <div className="mx-auto md:max-w-3xl *:[[id]]:scroll-mt-22">
         <Navbar />
         
-        <div className="flex-1 py-10 px-4 md:px-0 flex flex-col gap-6">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <div className="p-2.5 bg-secondary/50 rounded-lg border border-edge">
-                <FileText className="text-foreground/80" size={22} strokeWidth={1.5} />
-              </div>
-              <div className="flex flex-col">
-                <h1 className="text-xl font-bold tracking-tight text-foreground">My Resume</h1>
-                <p className="text-[13px] text-muted-foreground mt-0.5">Updated Document</p>
-              </div>
-            </div>
-            
+        <Panel id="resume">
+          <PanelHeader className="flex items-center justify-between py-4">
+            <PanelTitle>My Resume</PanelTitle>
             <a 
               href="https://drive.google.com/file/d/1U_3TLj_0-y_AmwbRI_7tx6D0XlrKTNvn/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 text-sm font-medium bg-foreground text-background hover:bg-foreground/90 transition-colors rounded-md shadow-sm"
+              className="flex items-center gap-2 px-3 py-1.5 text-sm font-medium bg-foreground text-background hover:bg-foreground/90 transition-colors rounded shadow-sm"
             >
-              <Download size={15} strokeWidth={2} />
+              <Download size={14} strokeWidth={2} />
               Download PDF
             </a>
-          </div>
+          </PanelHeader>
           
-          <div className="w-full h-[800px] rounded-xl overflow-hidden border border-edge shadow-sm ring-1 ring-border/30 bg-secondary/20">
+          <div className="w-full h-[800px] bg-secondary/20 relative">
             <iframe 
               src="https://drive.google.com/file/d/1U_3TLj_0-y_AmwbRI_7tx6D0XlrKTNvn/preview" 
-              className="w-full h-full border-none"
+              className="w-full h-full border-none absolute inset-0"
               title="Resume PDF Viewer"
               allow="autoplay"
             />
           </div>
-        </div>
+        </Panel>
+        <Separator />
         
         <Footer />
       </div>
