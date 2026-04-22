@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Github, Moon, Sun, Calendar, Menu, X, Linkedin, Twitter, FileText } from "lucide-react";
+import { Moon, Sun, Calendar, Menu, X, FileText } from "lucide-react";
 import { useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 
@@ -92,35 +92,8 @@ export default function Navbar() {
                         </Link>
                     </div>
 
-                    {/* Right: GitHub, Dark Mode & Mobile Menu */}
+                    {/* Right: Dark Mode & Mobile Menu */}
                     <div className="flex items-center gap-3">
-                        <a
-                            href="https://github.com/sayandeepdas02/portfolio"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="p-2 text-muted-foreground hover:text-foreground transition-colors"
-                            aria-label="GitHub"
-                        >
-                            <Github size={18} strokeWidth={1.5} />
-                        </a>
-                        <a
-                            href="https://www.linkedin.com/in/sayandeep02/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="p-2 text-muted-foreground hover:text-foreground transition-colors"
-                            aria-label="LinkedIn"
-                        >
-                            <Linkedin size={18} strokeWidth={1.5} />
-                        </a>
-                        <a
-                            href="https://x.com/lifeofsayan"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="p-2 text-muted-foreground hover:text-foreground transition-colors"
-                            aria-label="Twitter"
-                        >
-                            <Twitter size={18} strokeWidth={1.5} />
-                        </a>
                         <button
                             onClick={toggleTheme}
                             className="p-2 text-muted-foreground hover:text-foreground transition-colors"
