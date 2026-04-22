@@ -1,24 +1,11 @@
 "use client";
 
 import { projects } from "@/data/projects";
-import { Github, Globe, ChevronDown } from "lucide-react";
-import { useState } from "react";
+import { Github, Globe } from "lucide-react";
 import Image from "next/image";
 import { Panel, PanelHeader, PanelTitle, PanelTitleSup } from "@/components/ui/panel";
 
 export default function Projects() {
-    const [expandedProjects, setExpandedProjects] = useState<Set<number>>(new Set());
-
-    const toggleProject = (index: number) => {
-        const newExpanded = new Set(expandedProjects);
-        if (newExpanded.has(index)) {
-            newExpanded.delete(index);
-        } else {
-            newExpanded.add(index);
-        }
-        setExpandedProjects(newExpanded);
-    };
-
     return (
         <Panel id="projects">
             <PanelHeader>
@@ -28,113 +15,117 @@ export default function Projects() {
                 </PanelTitle>
             </PanelHeader>
 
-            <div>
-                {projects.map((project, index) => {
-                    const isExpanded = expandedProjects.has(index);
-                    return (
-                        <div
-                            key={index}
-                            className="flex items-center hover:bg-accent2 transition-colors"
-                        >
-                            {/* Project Icon/Logo */}
+            {/* 3-column card grid — border-based, no shadows, flat to match design system */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border-t border-edge">
+                {projects.map((project, index) => (
+                    <article
+                        key={index}
+                        className={`
+                            flex flex-col border-b border-edge transition-colors duration-150 hover:bg-accent2
+                            ${index % 3 !== 2 ? "lg:border-r lg:border-edge" : ""}
+                            ${index % 2 !== 1 ? "sm:border-r sm:border-edge lg:border-r-0" : "sm:border-r-0"}
+                            ${index % 3 === 2 ? "lg:border-r-0" : ""}
+                            ${index % 2 === 1 ? "sm:border-r-0" : ""}
+                        `}
+                    >
+                        {/* ── Banner ── */}
+                        <div className="relative h-36 bg-muted border-b border-edge flex items-center justify-center overflow-hidden shrink-0">
+                            {/* subtle grid dot pattern */}
+                            <div
+                                className="absolute inset-0 opacity-[0.06]"
+                                style={{
+                                    backgroundImage:
+                                        "radial-gradient(circle, currentColor 1px, transparent 1px)",
+                                    backgroundSize: "18px 18px",
+                                }}
+                            />
                             {project.image ? (
-                                <div className="mx-4 flex size-6 shrink-0 select-none relative overflow-hidden rounded">
+                                <div className="relative z-10 size-16 rounded overflow-hidden ring-1 ring-edge">
                                     <Image
                                         src={project.image}
                                         alt={project.name}
-                                        width={24}
-                                        height={24}
+                                        fill
                                         className="object-cover"
                                         unoptimized
                                     />
                                 </div>
                             ) : (
-                                <div
-                                    className="mx-4 flex size-6 shrink-0 items-center justify-center rounded-lg border border-muted-foreground/15 bg-muted text-muted-foreground ring-1 ring-edge ring-offset-1 ring-offset-background select-none text-xs font-mono"
-                                >
+                                <div className="relative z-10 size-16 rounded flex items-center justify-center bg-background ring-1 ring-edge text-2xl font-serif font-normal italic text-muted-foreground select-none">
                                     {project.name.charAt(0)}
                                 </div>
                             )}
+                        </div>
 
-                            <div className="flex-1 border-l border-dashed border-edge">
-                                <div className="flex w-full items-center gap-2 p-4 pr-2">
-                                    <div className="flex-1">
-                                        <h3 className="mb-2 leading-snug font-medium text-balance">
-                                            {project.name}
-                                        </h3>
+                        {/* ── Body ── */}
+                        <div className="flex flex-col flex-1 p-4 gap-3">
+                            {/* Category pill */}
+                            <span className="self-start px-2 py-0.5 text-[10px] font-mono uppercase tracking-wider rounded border border-muted-foreground/20 bg-muted text-muted-foreground select-none">
+                                {project.category}
+                            </span>
 
-                                        {/* Expand/Collapse Button */}
-                                        {project.details && project.details.length > 0 && (
-                                            <button
-                                                onClick={() => toggleProject(index)}
-                                                className="w-auto flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors mb-3"
-                                            >
-                                                <span>{isExpanded ? "Hide details" : "Show details"}</span>
-                                                <ChevronDown className={`size-3.5 transition-transform duration-300 ${isExpanded ? "rotate-180" : ""}`} />
-                                            </button>
-                                        )}
+                            {/* Title */}
+                            <h3 className="text-sm font-medium leading-snug text-balance">
+                                {project.name}
+                            </h3>
 
-                                        {/* Expandable Details */}
-                                        {project.details && project.details.length > 0 && (
-                                            <div 
-                                                className={`grid transition-all duration-300 ease-in-out ${isExpanded ? "grid-rows-[1fr] opacity-100 mb-4" : "grid-rows-[0fr] opacity-0"}`}
-                                            >
-                                                <div className="overflow-hidden">
-                                                    <ul className="space-y-1.5">
-                                                        {project.details.map((detail, i) => (
-                                                            <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
-                                                                <span className="mt-1.5 w-1 h-1 rounded-full flex-shrink-0 bg-muted-foreground" />
-                                                                <span>{detail}</span>
-                                                            </li>
-                                                        ))}
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        )}
+                            {/* Description */}
+                            {project.description && (
+                                <p className="text-xs text-muted-foreground leading-relaxed line-clamp-3">
+                                    {project.description}
+                                </p>
+                            )}
 
-                                        {/* Tech Stack */}
-                                        <div className="flex flex-wrap gap-1.5 mt-2">
-                                            {project.techStack.map((tech) => (
-                                                <span
-                                                    key={tech}
-                                                    className="px-2 py-0.5 text-xs rounded border border-muted-foreground/15 bg-muted text-muted-foreground"
-                                                >
-                                                    {tech}
-                                                </span>
-                                            ))}
-                                        </div>
-                                    </div>
-
-                                    {/* Links */}
-                                    <div className="flex gap-2 shrink-0 items-center">
-                                        {project.githubUrl && (
-                                            <a
-                                                className="relative flex size-6 shrink-0 items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
-                                                href={project.githubUrl}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            >
-                                                <Github className="size-4" />
-                                                <span className="sr-only">Open Source Code on GitHub</span>
-                                            </a>
-                                        )}
-                                        {project.liveUrl && (
-                                            <a
-                                                className="relative flex size-6 shrink-0 items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
-                                                href={project.liveUrl}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            >
-                                                <Globe className="size-4" />
-                                                <span className="sr-only">Open Live Project</span>
-                                            </a>
-                                        )}
-                                    </div>
-                                </div>
+                            {/* Tech Stack */}
+                            <div className="flex flex-wrap gap-1 mt-auto pt-1">
+                                {project.techStack.slice(0, 4).map((tech) => (
+                                    <span
+                                        key={tech}
+                                        className="px-1.5 py-0.5 text-[10px] font-mono rounded border border-muted-foreground/15 bg-muted text-muted-foreground"
+                                    >
+                                        {tech}
+                                    </span>
+                                ))}
+                                {project.techStack.length > 4 && (
+                                    <span className="px-1.5 py-0.5 text-[10px] font-mono rounded border border-muted-foreground/15 bg-muted text-muted-foreground">
+                                        +{project.techStack.length - 4}
+                                    </span>
+                                )}
                             </div>
                         </div>
-                    );
-                })}
+
+                        {/* ── Footer ── */}
+                        <div className="border-t border-edge flex shrink-0">
+                            {project.githubUrl && (
+                                <a
+                                    href={project.githubUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label={`${project.name} on GitHub`}
+                                    className={`
+                                        flex flex-1 items-center justify-center gap-1.5 py-2.5 text-xs font-mono text-muted-foreground
+                                        transition-colors duration-150 hover:text-foreground hover:bg-accent
+                                        ${project.liveUrl ? "border-r border-edge" : ""}
+                                    `}
+                                >
+                                    <Github className="size-3.5" strokeWidth={1.5} />
+                                    <span>GitHub</span>
+                                </a>
+                            )}
+                            {project.liveUrl && (
+                                <a
+                                    href={project.liveUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label={`${project.name} live demo`}
+                                    className="flex flex-1 items-center justify-center gap-1.5 py-2.5 text-xs font-mono text-muted-foreground transition-colors duration-150 hover:text-foreground hover:bg-accent"
+                                >
+                                    <Globe className="size-3.5" strokeWidth={1.5} />
+                                    <span>Live</span>
+                                </a>
+                            )}
+                        </div>
+                    </article>
+                ))}
             </div>
         </Panel>
     );
