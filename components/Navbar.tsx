@@ -45,7 +45,7 @@ export default function Navbar() {
 
     return (
         <>
-            <nav className="sticky top-0 z-50 backdrop-blur-md border-b border-edge bg-background/80">
+            <nav className="sticky top-0 z-50 backdrop-blur-md screen-line-after border-x border-edge bg-background/80">
                 <div className="px-4 h-14 flex items-center justify-between">
                     {/* Left: Portfolio Title */}
 
@@ -54,19 +54,19 @@ export default function Navbar() {
                     <div className="hidden md:flex items-center gap-6">
                         <button
                             onClick={() => scrollToSection('experience')}
-                            className="text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors"
+                            className="text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-foreground after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100"
                         >
                             Experience
                         </button>
                         <button
                             onClick={() => scrollToSection('projects')}
-                            className="text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors"
+                            className="text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-foreground after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100"
                         >
                             Projects
                         </button>
                         <button
                             onClick={() => scrollToSection('education')}
-                            className="text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors"
+                            className="text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-foreground after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100"
                         >
                             Education
                         </button>

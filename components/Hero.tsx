@@ -94,23 +94,6 @@ export default function Hero() {
                     </button>
                 </div>
 
-                {/* Indian Flag */}
-                <a
-                    href="https://www.india.gov.in/"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="absolute top-0 -left-px z-[60]"
-                >
-                    <div className="h-8 sm:h-9 w-12 sm:w-14 rounded-br-md overflow-hidden border-r border-b border-edge bg-background">
-                        <Image
-                            src="/indian-flag.png"
-                            alt="India"
-                            width={56}
-                            height={36}
-                            className="object-cover w-full h-full"
-                        />
-                    </div>
-                </a>
             </div>
 
             <div className="flex flex-1 flex-col justify-end pb-0">
