@@ -8,6 +8,7 @@ export interface Project {
     githubUrl?: string;
     liveUrl?: string;
     date?: string;
+    comingSoon?: boolean;
 }
 
 export const projects: Project[] = [
@@ -93,6 +94,7 @@ export const projects: Project[] = [
         image: "/logos/wolf-pixel.jpg",
         techStack: ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
         githubUrl: "https://github.com/sayandeepdas02",
+        comingSoon: true,
     },
 ];
 

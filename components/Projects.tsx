@@ -45,7 +45,13 @@ export default function Projects() {
                                         backgroundSize: "150px 150px",
                                     }}
                                 />
-                                {project.image ? (
+                                {/* ── Coming Soon badge ── */}
+                            {project.comingSoon && (
+                                <span className="absolute top-3 right-3 z-20 px-2 py-0.5 text-[10px] font-mono font-semibold uppercase tracking-wider rounded-full bg-amber-400/90 text-amber-950 select-none backdrop-blur-sm">
+                                    Coming Soon
+                                </span>
+                            )}
+                            {project.image ? (
                                     <div className="relative z-10 size-20 rounded-2xl overflow-hidden ring-2 ring-white/20 shadow-lg">
                                         <Image
                                             src={project.image}
@@ -101,33 +107,41 @@ export default function Projects() {
 
                             {/* ── Footer ── */}
                             <div className="border-t border-edge flex shrink-0 mt-1">
-                                {project.githubUrl && (
-                                    <a
-                                        href={project.githubUrl}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        aria-label={`${project.name} on GitHub`}
-                                        className={[
-                                            "flex flex-1 items-center justify-center gap-1.5 py-2.5 text-xs font-mono",
-                                            "text-muted-foreground transition-colors duration-150 hover:text-foreground hover:bg-accent",
-                                            project.liveUrl ? "border-r border-edge" : "",
-                                        ].join(" ")}
-                                    >
-                                        <Github className="size-3.5" strokeWidth={1.5} />
-                                        <span>GitHub</span>
-                                    </a>
-                                )}
-                                {project.liveUrl && (
-                                    <a
-                                        href={project.liveUrl}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        aria-label={`${project.name} live demo`}
-                                        className="flex flex-1 items-center justify-center gap-1.5 py-2.5 text-xs font-mono text-muted-foreground transition-colors duration-150 hover:text-foreground hover:bg-accent"
-                                    >
-                                        <Globe className="size-3.5" strokeWidth={1.5} />
-                                        <span>Live</span>
-                                    </a>
+                                {project.comingSoon ? (
+                                    <span className="flex flex-1 items-center justify-center gap-1.5 py-2.5 text-xs font-mono text-muted-foreground/50 select-none">
+                                        In Development
+                                    </span>
+                                ) : (
+                                    <>
+                                        {project.githubUrl && (
+                                            <a
+                                                href={project.githubUrl}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                aria-label={`${project.name} on GitHub`}
+                                                className={[
+                                                    "flex flex-1 items-center justify-center gap-1.5 py-2.5 text-xs font-mono",
+                                                    "text-muted-foreground transition-colors duration-150 hover:text-foreground hover:bg-accent",
+                                                    project.liveUrl ? "border-r border-edge" : "",
+                                                ].join(" ")}
+                                            >
+                                                <Github className="size-3.5" strokeWidth={1.5} />
+                                                <span>GitHub</span>
+                                            </a>
+                                        )}
+                                        {project.liveUrl && (
+                                            <a
+                                                href={project.liveUrl}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                aria-label={`${project.name} live demo`}
+                                                className="flex flex-1 items-center justify-center gap-1.5 py-2.5 text-xs font-mono text-muted-foreground transition-colors duration-150 hover:text-foreground hover:bg-accent"
+                                            >
+                                                <Globe className="size-3.5" strokeWidth={1.5} />
+                                                <span>Live</span>
+                                            </a>
+                                        )}
+                                    </>
                                 )}
                             </div>
                         </article>
