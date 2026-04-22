@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
-import { Manrope } from "next/font/google";
+import { Roboto_Flex, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 
-const manrope = Manrope({
+const robotoFlex = Roboto_Flex({
   subsets: ["latin"],
-  variable: "--font-manrope",
+  variable: "--font-roboto-flex",
+});
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  variable: "--font-instrument",
 });
 
 export const metadata: Metadata = {
@@ -18,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${manrope.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${robotoFlex.variable} ${instrumentSerif.variable}`} suppressHydrationWarning>
       <body>{children}</body>
     </html>
   );

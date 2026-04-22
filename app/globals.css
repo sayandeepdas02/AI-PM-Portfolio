@@ -31,8 +31,9 @@
   --color-selection: var(--selection);
   --color-selection-foreground: var(--selection-foreground);
 
-  --font-sans: var(--font-manrope);
-  --font-mono: var(--font-manrope);
+  --font-sans: var(--font-roboto-flex);
+  --font-mono: var(--font-roboto-flex);
+  --font-serif: var(--font-instrument);
 
   --animate-fade-in: fade-in var(--tw-duration, 200ms) ease-out;
   --animate-fade-out: fade-out var(--tw-duration, 200ms) ease-out;

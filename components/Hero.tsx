@@ -117,7 +117,7 @@ export default function Hero() {
             <div className="flex flex-1 flex-col justify-end pb-0">
                 <div className="border-t border-edge">
                     <div className="flex items-center gap-2 pl-4 py-2">
-                        <h1 className="-translate-y-px text-3xl font-semibold">
+                        <h1 className="-translate-y-px text-4xl font-serif font-normal italic">
                             Sayandeep Das
                         </h1>
 
