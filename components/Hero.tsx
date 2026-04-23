@@ -108,8 +108,8 @@ export default function Hero() {
 
     return (
         <div className="screen-line-after flex border-x border-edge">
-            {/* Avatar column — p-3 keeps the ring clear of border-r; border-r preserved */}
-            <div className="shrink-0 border-r border-edge flex items-center justify-center p-3">
+            {/* Avatar column — explicit square so the circle is perfectly centred with equal padding */}
+            <div className="shrink-0 self-stretch border-r border-edge flex items-center justify-center p-4">
                 <button
                     onClick={() => setShowEasterEgg(!showEasterEgg)}
                     className="group relative h-32 w-32 sm:h-40 sm:w-40 flex-shrink-0 rounded-full overflow-hidden cursor-pointer transition-all duration-500 active:scale-95 ring-1 ring-border"
@@ -262,7 +262,7 @@ export default function Hero() {
                         </a>
                         {/* X (Twitter) — official outlined X logo */}
                         <a
-                            href="https://x.com/lifeofsayan"
+                            href="https://x.com/sayan_not_deep"
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="X (Twitter)"
