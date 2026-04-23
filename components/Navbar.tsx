@@ -36,22 +36,46 @@ export default function Navbar() {
             router.push(`/#${sectionId}`);
             return;
         }
-        
+
         const element = document.getElementById(sectionId);
         if (element) {
             element.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     };
 
+    const scrollToTop = () => {
+        if (pathname !== '/') {
+            router.push('/');
+            return;
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
     return (
         <>
             <nav className="sticky top-0 z-50 backdrop-blur-md screen-line-after border-x border-edge bg-background/80">
-                <div className="px-4 h-14 flex items-center justify-between">
-                    {/* Left: Portfolio Title */}
+                <div className="px-4 h-14 flex items-center justify-between gap-4">
 
+                    {/* Left: SD Logo — clicks scroll to top */}
+                    <button
+                        onClick={scrollToTop}
+                        aria-label="Back to top"
+                        className="flex-shrink-0 cursor-pointer"
+                    >
+                        <div className="w-8 h-8 rounded-lg overflow-hidden border border-edge shadow-sm hover:opacity-80 transition-opacity">
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img
+                                src="/sd-logo.png"
+                                alt="SD"
+                                width={32}
+                                height={32}
+                                className="w-full h-full object-cover"
+                            />
+                        </div>
+                    </button>
 
-                    {/* Desktop: Center Navigation Links */}
-                    <div className="hidden md:flex items-center gap-6">
+                    {/* Center: Navigation Links (desktop) */}
+                    <div className="hidden md:flex items-center gap-6 flex-1 justify-center">
                         <button
                             onClick={() => scrollToSection('experience')}
                             className="text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-foreground after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100"
@@ -72,28 +96,30 @@ export default function Navbar() {
                         </button>
                     </div>
 
-                    {/* Desktop: Book a Call Button */}
-                    <div className="hidden md:flex items-center gap-2">
-                        <a
-                            href="https://cal.com/sayandeep-3n4b6i"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-2 px-3 py-1.5 text-[13px] font-medium bg-foreground text-background hover:bg-foreground/90 transition-colors rounded-md relative overflow-hidden before:absolute before:inset-0 before:rounded-[inherit] before:bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.7)_50%,transparent_75%,transparent_100%)] before:bg-[length:250%_250%,100%_100%] before:bg-[position:200%_0,0_0] before:bg-no-repeat before:transition-[background-position_0s_ease] before:duration-1000 hover:before:bg-[position:-100%_0,0_0] dark:before:bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.5)_50%,transparent_75%,transparent_100%)] cursor-pointer"
-                        >
-                            <Calendar size={14} strokeWidth={2} />
-                            Book a Call
-                        </a>
-                        <Link
-                            href="/resume"
-                            className="flex items-center gap-2 px-3 py-1.5 text-[13px] font-medium bg-foreground text-background hover:bg-foreground/90 transition-colors rounded-md relative overflow-hidden before:absolute before:inset-0 before:rounded-[inherit] before:bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.7)_50%,transparent_75%,transparent_100%)] before:bg-[length:250%_250%,100%_100%] before:bg-[position:200%_0,0_0] before:bg-no-repeat before:transition-[background-position_0s_ease] before:duration-1000 hover:before:bg-[position:-100%_0,0_0] dark:before:bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.5)_50%,transparent_75%,transparent_100%)] cursor-pointer"
-                        >
-                            <FileText size={14} strokeWidth={2} />
-                            Resume
-                        </Link>
-                    </div>
+                    {/* Right group: CTA buttons + theme toggle */}
+                    <div className="flex items-center gap-2 flex-shrink-0">
 
-                    {/* Right: Dark Mode & Mobile Menu */}
-                    <div className="flex items-center gap-3">
+                        {/* CTA Buttons (desktop only) */}
+                        <div className="hidden md:flex items-center gap-2">
+                            <a
+                                href="https://cal.com/sayandeep-3n4b6i"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-2 px-3 py-1.5 text-[13px] font-medium bg-foreground text-background hover:bg-foreground/90 transition-colors rounded-md relative overflow-hidden before:absolute before:inset-0 before:rounded-[inherit] before:bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.7)_50%,transparent_75%,transparent_100%)] before:bg-[length:250%_250%,100%_100%] before:bg-[position:200%_0,0_0] before:bg-no-repeat before:transition-[background-position_0s_ease] before:duration-1000 hover:before:bg-[position:-100%_0,0_0] dark:before:bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.5)_50%,transparent_75%,transparent_100%)] cursor-pointer"
+                            >
+                                <Calendar size={14} strokeWidth={2} />
+                                Book a Call
+                            </a>
+                            <Link
+                                href="/resume"
+                                className="flex items-center gap-2 px-3 py-1.5 text-[13px] font-medium bg-foreground text-background hover:bg-foreground/90 transition-colors rounded-md relative overflow-hidden before:absolute before:inset-0 before:rounded-[inherit] before:bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.7)_50%,transparent_75%,transparent_100%)] before:bg-[length:250%_250%,100%_100%] before:bg-[position:200%_0,0_0] before:bg-no-repeat before:transition-[background-position_0s_ease] before:duration-1000 hover:before:bg-[position:-100%_0,0_0] dark:before:bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.5)_50%,transparent_75%,transparent_100%)] cursor-pointer"
+                            >
+                                <FileText size={14} strokeWidth={2} />
+                                Resume
+                            </Link>
+                        </div>
+
+                        {/* Theme Toggle */}
                         <button
                             onClick={toggleTheme}
                             className="p-2 text-muted-foreground hover:text-foreground transition-colors"
@@ -119,21 +145,21 @@ export default function Navbar() {
                         <div className="mx-4 my-3 p-4 bg-background rounded-lg border border-edge shadow-sm">
                             <button
                                 onClick={() => {
-                                    scrollToSection('projects');
-                                    setIsMobileMenuOpen(false);
-                                }}
-                                className="block w-full text-left py-3 text-base font-medium text-foreground hover:text-muted-foreground transition-colors"
-                            >
-                                Projects
-                            </button>
-                            <button
-                                onClick={() => {
                                     scrollToSection('experience');
                                     setIsMobileMenuOpen(false);
                                 }}
                                 className="block w-full text-left py-3 text-base font-medium text-foreground hover:text-muted-foreground transition-colors"
                             >
                                 Experience
+                            </button>
+                            <button
+                                onClick={() => {
+                                    scrollToSection('projects');
+                                    setIsMobileMenuOpen(false);
+                                }}
+                                className="block w-full text-left py-3 text-base font-medium text-foreground hover:text-muted-foreground transition-colors"
+                            >
+                                Projects
                             </button>
                             <button
                                 onClick={() => {
@@ -144,6 +170,26 @@ export default function Navbar() {
                             >
                                 Education
                             </button>
+                            <div className="pt-2 mt-2 border-t border-edge flex flex-col gap-2">
+                                <a
+                                    href="https://cal.com/sayandeep-3n4b6i"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                    className="flex items-center gap-2 py-2 text-base font-medium text-foreground hover:text-muted-foreground transition-colors"
+                                >
+                                    <Calendar size={16} strokeWidth={2} />
+                                    Book a Call
+                                </a>
+                                <Link
+                                    href="/resume"
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                    className="flex items-center gap-2 py-2 text-base font-medium text-foreground hover:text-muted-foreground transition-colors"
+                                >
+                                    <FileText size={16} strokeWidth={2} />
+                                    Resume
+                                </Link>
+                            </div>
                         </div>
                     </div>
                 )}
