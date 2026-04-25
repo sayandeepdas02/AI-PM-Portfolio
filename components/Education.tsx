@@ -20,18 +20,18 @@ export default function Education() {
                     >
                         {/* Logo */}
                         {edu.logo ? (
-                            <div className="mx-4 flex size-6 shrink-0 select-none relative overflow-hidden rounded">
+                            <div className="mx-4 flex size-10 shrink-0 select-none relative overflow-hidden rounded-lg">
                                 <Image
                                     src={edu.logo}
                                     alt={edu.institution}
-                                    width={24}
-                                    height={24}
+                                    width={40}
+                                    height={40}
                                     className="object-cover"
                                     unoptimized
                                 />
                             </div>
                         ) : (
-                            <div className="mx-4 flex size-6 shrink-0 items-center justify-center rounded-lg border border-muted-foreground/15 bg-muted text-muted-foreground ring-1 ring-edge ring-offset-1 ring-offset-background select-none text-xs font-mono">
+                            <div className="mx-4 flex size-10 shrink-0 items-center justify-center rounded-lg border border-muted-foreground/15 bg-muted text-muted-foreground ring-1 ring-edge ring-offset-1 ring-offset-background select-none text-xs font-mono">
                                 {edu.institution.split(' ').map(word => word.charAt(0)).slice(0, 2).join('')}
                             </div>
                         )}

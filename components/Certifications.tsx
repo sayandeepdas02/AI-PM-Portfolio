@@ -21,18 +21,18 @@ export default function Certifications() {
                     >
                         {/* Logo */}
                         {cert.logo ? (
-                            <div className="mx-4 flex size-6 shrink-0 select-none relative overflow-hidden rounded">
+                            <div className="mx-4 flex size-10 shrink-0 select-none relative overflow-hidden rounded-lg">
                                 <Image
                                     src={cert.logo}
                                     alt={cert.issuer}
-                                    width={24}
-                                    height={24}
+                                    width={40}
+                                    height={40}
                                     className="object-cover"
                                     unoptimized
                                 />
                             </div>
                         ) : (
-                            <div className="mx-4 flex size-6 shrink-0 items-center justify-center rounded-lg border border-muted-foreground/15 bg-muted text-muted-foreground ring-1 ring-edge ring-offset-1 ring-offset-background select-none text-xs font-mono">
+                            <div className="mx-4 flex size-10 shrink-0 items-center justify-center rounded-lg border border-muted-foreground/15 bg-muted text-muted-foreground ring-1 ring-edge ring-offset-1 ring-offset-background select-none text-xs font-mono">
                                 {cert.icon || cert.issuer.charAt(0)}
                             </div>
                         )}
