@@ -1,5 +1,6 @@
 export interface Project {
     name: string;
+    slug: string;
     description: string;
     category: string;
     details?: string[];
@@ -7,6 +8,7 @@ export interface Project {
     techStack: string[];
     githubUrl?: string;
     liveUrl?: string;
+    demoUrl?: string;
     date?: string;
     comingSoon?: boolean;
 }
@@ -14,6 +16,7 @@ export interface Project {
 export const projects: Project[] = [
     {
         name: "Fluxberry AI - Automating Screening for Hiring Talent",
+        slug: "fluxberry-ai",
         description: "AI-driven interview automation with resume parsing, dynamic Q&A generation, and automated candidate scoring — reducing manual review effort by 70%.",
         category: "AI / SaaS",
         details: [
@@ -25,9 +28,11 @@ export const projects: Project[] = [
         techStack: ["React.js", "Redux", "Node.js", "OpenAI API", "Tailwind CSS"],
         githubUrl: "https://github.com/sayandeepdas02/Interview-AI",
         liveUrl: "https://fluxberry.in",
+        demoUrl: "https://www.youtube.com/embed/y3-m6mOWieA",
     },
     {
         name: "Plixa Meetups - Collaborative app for discussions & planning",
+        slug: "plixa-meetups",
         description: "Real-time collaboration platform with synchronized whiteboards and peer-to-peer video streaming via WebRTC with STUN/TURN server integration.",
         category: "Collaboration",
         details: [
@@ -39,9 +44,11 @@ export const projects: Project[] = [
         techStack: ["React.js", "Node.js", "Socket.io", "WebRTC", "Express.js"],
         githubUrl: "https://github.com/sayandeepdas02/Plixa-Meetups",
         liveUrl: "https://plixa.sayandeep.space/",
+        demoUrl: "https://www.youtube.com/embed/80WvvgniL8I",
     },
     {
         name: "Swift Invoice - Modern invoicing for freelancers & businesses",
+        slug: "swift-invoice",
         description: "Full-stack MERN invoicing platform with dynamic PDF generation, QR code payments, and automated pipelines that cut payment times by 50%.",
         category: "FinTech",
         details: [
@@ -53,9 +60,11 @@ export const projects: Project[] = [
         techStack: ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
         githubUrl: "https://github.com/sayandeepdas02/Swift-Invoice",
         liveUrl: "https://invoices.sayandeep.space/",
+        demoUrl: "https://www.youtube.com/embed/n4QU8n5zCBA",
     },
     {
         name: "Altresume - Custom Resume for every job application",
+        slug: "altresume",
         description: "Scalable resume builder that generates ATS-friendly, job-tailored resumes with real-time preview, modular templates, and polished PDF export.",
         category: "Productivity",
         details: [
@@ -70,6 +79,7 @@ export const projects: Project[] = [
     },
     {
         name: "Notemind - AI Notetaker for GMeets",
+        slug: "notemind",
         description: "Intelligent Google Meet integration that transcribes live audio, synthesizes notes, and extracts action items using advanced LLM APIs.",
         category: "AI / Productivity",
         details: [
@@ -84,6 +94,7 @@ export const projects: Project[] = [
     },
     {
         name: "CRM Software - Smart Customer Relationship Management",
+        slug: "crm-software",
         description: "Full-featured CRM platform with pipeline management, contact tracking, activity logs, and analytics dashboard for sales-driven teams.",
         category: "Enterprise",
         details: [

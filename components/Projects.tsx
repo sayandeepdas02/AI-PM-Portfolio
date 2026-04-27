@@ -1,8 +1,9 @@
 "use client";
 
 import { projects } from "@/data/projects";
-import { Github, Globe } from "lucide-react";
+import { Github, Globe, PlaySquare } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { Panel, PanelHeader, PanelTitle, PanelTitleSup } from "@/components/ui/panel";
 
 /** Per-category banner gradients — vibrant but still tasteful */
@@ -37,7 +38,7 @@ export default function Projects() {
                             className="flex flex-col rounded-xl border border-edge overflow-hidden bg-background transition-colors duration-150 hover:bg-accent2"
                         >
                             {/* ── Banner ── */}
-                            <div className={`relative h-44 bg-gradient-to-br ${gradient} flex items-center justify-center overflow-hidden shrink-0`}>
+                            <Link href={`/projects/${project.slug}`} className={`relative h-44 bg-gradient-to-br ${gradient} flex items-center justify-center overflow-hidden shrink-0 group`}>
                                 {/* subtle radial noise overlay for depth */}
                                 <div className="absolute inset-0 opacity-20 mix-blend-overlay"
                                     style={{
@@ -52,7 +53,7 @@ export default function Projects() {
                                     </span>
                                 )}
                                 {project.image ? (
-                                    <div className="relative z-10 size-20 rounded-2xl overflow-hidden ring-2 ring-white/20 shadow-lg">
+                                    <div className="relative z-10 size-20 rounded-2xl overflow-hidden ring-2 ring-white/20 shadow-lg transition-transform duration-300 group-hover:scale-105">
                                         <Image
                                             src={project.image}
                                             alt={project.name}
@@ -62,11 +63,11 @@ export default function Projects() {
                                         />
                                     </div>
                                 ) : (
-                                    <div className="relative z-10 size-20 rounded-2xl flex items-center justify-center bg-white/10 ring-2 ring-white/20 text-3xl font-serif font-normal italic text-white select-none">
+                                    <div className="relative z-10 size-20 rounded-2xl flex items-center justify-center bg-white/10 ring-2 ring-white/20 text-3xl font-serif font-normal italic text-white select-none transition-transform duration-300 group-hover:scale-105">
                                         {project.name.charAt(0)}
                                     </div>
                                 )}
-                            </div>
+                            </Link>
 
                             {/* ── Body ── */}
                             <div className="flex flex-col flex-1 px-4 pt-4 pb-3 gap-2.5">
@@ -76,9 +77,11 @@ export default function Projects() {
                                 </span>
 
                                 {/* Title */}
-                                <h3 className="text-sm font-medium leading-snug text-balance">
-                                    {project.name}
-                                </h3>
+                                <Link href={`/projects/${project.slug}`} className="hover:underline">
+                                    <h3 className="text-sm font-medium leading-snug text-balance">
+                                        {project.name}
+                                    </h3>
+                                </Link>
 
                                 {/* Description */}
                                 {project.description && (
@@ -122,7 +125,7 @@ export default function Projects() {
                                                 className={[
                                                     "flex flex-1 items-center justify-center gap-1.5 py-2.5 text-xs font-mono",
                                                     "text-muted-foreground transition-colors duration-150 hover:text-foreground hover:bg-accent",
-                                                    project.liveUrl ? "border-r border-edge" : "",
+                                                    (project.liveUrl || project.demoUrl) ? "border-r border-edge" : "",
                                                 ].join(" ")}
                                             >
                                                 <Github className="size-3.5" strokeWidth={1.5} />
@@ -135,11 +138,24 @@ export default function Projects() {
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 aria-label={`${project.name} live demo`}
-                                                className="flex flex-1 items-center justify-center gap-1.5 py-2.5 text-xs font-mono text-muted-foreground transition-colors duration-150 hover:text-foreground hover:bg-accent"
+                                                className={[
+                                                    "flex flex-1 items-center justify-center gap-1.5 py-2.5 text-xs font-mono",
+                                                    "text-muted-foreground transition-colors duration-150 hover:text-foreground hover:bg-accent",
+                                                    project.demoUrl ? "border-r border-edge" : "",
+                                                ].join(" ")}
                                             >
                                                 <Globe className="size-3.5" strokeWidth={1.5} />
                                                 <span>Live</span>
                                             </a>
+                                        )}
+                                        {project.demoUrl && (
+                                            <Link
+                                                href={`/projects/${project.slug}`}
+                                                className="flex flex-1 items-center justify-center gap-1.5 py-2.5 text-xs font-mono text-muted-foreground transition-colors duration-150 hover:text-foreground hover:bg-accent"
+                                            >
+                                                <PlaySquare className="size-3.5" strokeWidth={1.5} />
+                                                <span>Demo</span>
+                                            </Link>
                                         )}
                                     </>
                                 )}
