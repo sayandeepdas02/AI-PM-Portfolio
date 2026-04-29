@@ -27,7 +27,7 @@ export const projects: Project[] = [
         image: "/logos/flux-hire-logo.png",
         techStack: ["React.js", "Redux", "Node.js", "OpenAI API", "Tailwind CSS"],
         githubUrl: "https://github.com/sayandeepdas02/Interview-AI",
-        liveUrl: "https://fluxberry.in",
+        liveUrl: "https://fluxberry.sayandeep.space/",
         demoUrl: "https://www.youtube.com/embed/y3-m6mOWieA",
     },
     {
