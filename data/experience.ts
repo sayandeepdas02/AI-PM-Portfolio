@@ -20,6 +20,7 @@ export const experiences: Experience[] = [
             "Led performance marketing and customer discovery across LinkedIn, outbound email, and user interviews, reducing CAC by 42% and translating customer insights into high-impact product and retention improvements."
         ],
         techStack: ["Product Analytics", "A/B Testing", "SEO", "User Research", "Conversion Optimization"],
+        logo: "/logos/trelium.png"
     },
     {
         role: "Associate Product Manager",
