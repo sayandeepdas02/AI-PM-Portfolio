@@ -12,7 +12,7 @@ export const experiences: Experience[] = [
     {
         role: "Software Engineer",
         company: "SuperAGI",
-        period: "Jul 2025 - Present",
+        period: "May 2025 - Apr 2026",
         location: "Bengaluru, INDIA",
         description: [
             "Architected distributed campaign orchestration system using Golang microservices and Redis queues, enabling 700+ SDR campaigns/month with idempotent workers, retry strategies, and token-bucket rate limiting.",
@@ -28,7 +28,7 @@ export const experiences: Experience[] = [
     {
         role: "Data Science Intern",
         company: "Graphy Inc. (Unacademy)",
-        period: "Feb 2025 - Apr 2025 (3 Months)",
+        period: "Nov 2024 - Apr 2025 (6 Months)",
         location: "Bengaluru, INDIA",
         description: [
             "Built end-to-end data pipelines and analysis workflows using Python (Pandas, NumPy) to process 100K+ user records, reducing manual data processing effort by ~40% and improving data reliability.",
@@ -37,17 +37,5 @@ export const experiences: Experience[] = [
         ],
         techStack: ["Python", "Pandas", "NumPy", "Jupyter", "Scikit-learn", "PostgreSQL"],
         logo: "/logos/graphy.png"
-    },
-    {
-        role: "Software Engineer Intern",
-        company: "Wolf Pixel Ltd.",
-        period: "Dec 2024 - Feb 2025 (3 Months)",
-        location: "Remote (London, UK)",
-        description: [
-            "Built and deployed end-to-end full-stack web applications using React.js, Node.js, and REST APIs, improving system scalability and reducing feature development time by 30%.",
-            "Designed and launched 4 high-conversion landing pages for international clients (Australia & UAE), optimizing UI/UX and contributing to a 15% average increase in lead generation."
-        ],
-        techStack: ["React.js", "Next.js", "MongoDB", "Node.js", "REST APIs", "Typescript"],
-        logo: "/logos/wolf-pixel.jpg"
     },
 ];
