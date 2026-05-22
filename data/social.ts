@@ -21,11 +21,6 @@ export const socialLinks: SocialLink[] = [
         icon: "Twitter",
     },
     {
-        name: "LeetCode",
-        url: "https://leetcode.com/u/dsayandeep02/",
-        icon: "Code2",
-    },
-    {
         name: "Email",
         url: "mailto:reachsayandeep@gmail.com",
         icon: "Mail",
