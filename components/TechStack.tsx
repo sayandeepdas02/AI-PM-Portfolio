@@ -2,72 +2,99 @@
 
 import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import * as Icons from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Panel, PanelHeader, PanelTitle } from "@/components/ui/panel";
 
-const categories = [
+interface SkillItem {
+    name: string;
+    slug?: string;
+    iconName?: string;
+}
+
+interface Category {
+    name: string;
+    skills: SkillItem[];
+}
+
+const categories: Category[] = [
     {
-        name: "Languages",
+        name: "Product & Strategy",
         skills: [
-            { name: "Go", slug: "go" },
-            { name: "Python", slug: "python" },
-            { name: "TypeScript", slug: "typescript" },
-            { name: "JavaScript", slug: "javascript" },
-            { name: "C++", slug: "cplusplus" },
+            { name: "0→1 Development", iconName: "Milestone" },
+            { name: "Product Strategy", iconName: "Compass" },
+            { name: "Roadmapping", iconName: "Map" },
+            { name: "User Research", iconName: "Users" },
+            { name: "Growth Funnels", iconName: "TrendingUp" },
+            { name: "A/B Testing", iconName: "GitCompare" },
+            { name: "PRDs", iconName: "FileText" },
+            { name: "Stakeholder Management", iconName: "Handshake" },
         ]
     },
     {
-        name: "Frontend",
+        name: "Core Technical Stack",
         skills: [
-            { name: "React", slug: "react" },
-            { name: "Next.js", slug: "nextdotjs" },
-            { name: "Tailwind CSS", slug: "tailwindcss" },
-            { name: "Shadcn UI", slug: "shadcnui" },
-            { name: "Framer Motion", slug: "framer" },
-        ]
-    },
-    {
-        name: "Backend & DB",
-        skills: [
-            { name: "FastAPI", slug: "fastapi" },
-            { name: "Node.js", slug: "nodedotjs" },
+            { name: "AWS (EC2, S3, Lambda)", slug: "amazonwebservices" },
+            { name: "Docker", slug: "docker" },
+            { name: "Kubernetes", slug: "kubernetes" },
+            { name: "Redis", slug: "redis" },
             { name: "PostgreSQL", slug: "postgresql" },
             { name: "MongoDB", slug: "mongodb" },
-            { name: "Redis", slug: "redis" },
-            { name: "FireBase", slug: "firebase" },
+            { name: "Python", slug: "python" },
+            { name: "SQL", slug: "sqlite" },
         ]
     },
     {
-        name: "Infra & Tools",
+        name: "AI & ML / Data",
         skills: [
-            { name: "Docker", slug: "docker" },
-            { name: "Google Cloud", slug: "googlecloud" },
-            { name: "Vercel", slug: "vercel" },
-            { name: "Git", slug: "git" },
-            { name: "GitHub", slug: "github" },
-            { name: "Linux", slug: "linux" },
-            { name: "Nginx", slug: "nginx" },
-        ]
-    },
-    {
-        name: "AI & ML",
-        skills: [
-            { name: "Hugging Face", slug: "huggingface" },
-            { name: "PyTorch", slug: "pytorch" },
+            { name: "LLM Applications", slug: "openai" },
+            { name: "Prompt Engineering", slug: "openai" },
+            { name: "NLP", slug: "huggingface" },
             { name: "Pandas", slug: "pandas" },
+            { name: "NumPy", slug: "numpy" },
+        ]
+    },
+    {
+        name: "Architecture",
+        skills: [
+            { name: "Distributed Systems", iconName: "Network" },
+            { name: "Microservices", iconName: "Boxes" },
+            { name: "REST APIs", iconName: "Webhook" },
+            { name: "System Design", iconName: "Cpu" },
+            { name: "Scalable Architectures", iconName: "Server" },
         ]
     }
 ];
 
-const marqueeSkills = categories.flatMap(c => c.skills);
+const marqueeSkills = categories.flatMap(c => c.skills).filter(s => s.slug);
 
 export function TechStack() {
     const [isExpanded, setIsExpanded] = useState(false);
 
+    const renderIcon = (skill: SkillItem) => {
+        if (skill.slug) {
+            return (
+                <img
+                    src={`https://cdn.simpleicons.org/${skill.slug}`}
+                    alt={skill.name}
+                    className="h-full w-full object-contain opacity-50 group-hover:opacity-100 transition-all duration-300 brightness-0 group-hover:brightness-100 dark:brightness-0 dark:invert dark:group-hover:invert-0 dark:group-hover:brightness-100"
+                    loading="lazy"
+                />
+            );
+        }
+        if (skill.iconName) {
+            const LucideIcon = (Icons as any)[skill.iconName];
+            if (LucideIcon) {
+                return <LucideIcon className="h-4 w-4 text-muted-foreground group-hover:text-foreground transition-colors" />;
+            }
+        }
+        return <span className="text-xs">✨</span>;
+    };
+
     return (
         <Panel id="tech-stack">
             <PanelHeader>
-                <PanelTitle>Tech Stack</PanelTitle>
+                <PanelTitle>Skills & Tech Stack</PanelTitle>
             </PanelHeader>
 
             <div className="w-full space-y-4 pt-4 pb-4 border-l border-dashed border-edge">
@@ -131,27 +158,22 @@ export function TechStack() {
                             transition={{ duration: 0.4, ease: "circOut" }}
                             className="overflow-hidden"
                         >
-                            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 pt-4">
+                            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-2 pt-4 px-4">
                                 {categories.map((category) => (
                                     <div key={category.name} className="space-y-4">
                                         <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground border-b border-edge pb-2">
                                             {category.name}
                                         </h3>
-                                        <div className="grid grid-cols-1 gap-2">
+                                        <div className="grid grid-cols-2 gap-2">
                                             {category.skills.map((skill) => (
                                                 <div
                                                     key={skill.name}
                                                     className="group flex items-center gap-3 rounded-lg border border-transparent p-2 transition-all hover:border-edge hover:bg-accent2"
                                                 >
-                                                    <div className="h-5 w-5 shrink-0 transition-all duration-300">
-                                                        <img
-                                                            src={`https://cdn.simpleicons.org/${skill.slug}`}
-                                                            alt={skill.name}
-                                                            className="h-full w-full object-contain opacity-50 group-hover:opacity-100 transition-all duration-300 brightness-0 group-hover:brightness-100 dark:brightness-0 dark:invert dark:group-hover:invert-0 dark:group-hover:brightness-100"
-                                                            loading="lazy"
-                                                        />
+                                                    <div className="h-5 w-5 shrink-0 flex items-center justify-center transition-all duration-300">
+                                                        {renderIcon(skill)}
                                                     </div>
-                                                    <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">
+                                                    <span className="text-xs font-medium text-muted-foreground group-hover:text-foreground transition-colors">
                                                         {skill.name}
                                                     </span>
                                                 </div>

@@ -37,5 +37,5 @@ export const emailAddress = "reachsayandeep@gmail.com";
 export const location = "Bengaluru, KA, INDIA";
 export const gender = "he/him";
 export const mobileNumber = "+91 8100517829";
-export const role = "Full Stack Developer";
+export const role = "Product Manager";
 

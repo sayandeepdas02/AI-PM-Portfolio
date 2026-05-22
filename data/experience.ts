@@ -10,32 +10,41 @@ export interface Experience {
 
 export const experiences: Experience[] = [
     {
-        role: "Software Engineer",
+        role: "Member of GTM Staff",
+        company: "Trelium (YC F25)",
+        period: "Apr 2026 - Present",
+        location: "San Francisco, USA (Remote)",
+        description: [
+            "Owned the end-to-end growth funnel for an AI campaign automation platform, driving a 18% increase in qualified signups through SEO, onboarding optimization, and conversion-focused UX improvements.",
+            "Rebuilt core activation and onboarding flows using product analytics, session recordings, and customer interviews, improving activation rate by 27% and significantly reducing time-to-first-value.",
+            "Led performance marketing and customer discovery across LinkedIn, outbound email, and user interviews, reducing CAC by 42% and translating customer insights into high-impact product and retention improvements."
+        ],
+        techStack: ["Product Analytics", "A/B Testing", "SEO", "User Research", "Conversion Optimization"],
+    },
+    {
+        role: "Associate Product Manager",
         company: "SuperAGI",
         period: "May 2025 - Apr 2026",
-        location: "Bengaluru, INDIA",
+        location: "Bengaluru, India",
         description: [
-            "Architected distributed campaign orchestration system using Golang microservices and Redis queues, enabling 700+ SDR campaigns/month with idempotent workers, retry strategies, and token-bucket rate limiting.",
-            "Designed AI-driven templating and execution engine (Ruby + Golang) with context-aware runtime resolution and dependency graph evaluation, powering 5,000+ actions/month with deterministic outputs under concurrent updates.",
-            "Built high-throughput async job pipelines using Redis queues, implementing deduplication, backpressure handling, and priority scheduling, supporting 500+ DAUs with predictable latency and fault-tolerant execution.",
-            "Developed AI voice agent infrastructure integrating LLMs with Twilio/Plivo APIs, enabling real-time call streaming, transcription pipelines, and structured data extraction with low-latency and resilient failure handling.",
-            "Led frontend architecture using Next.js (SSR/CSR hybrid), building real-time dashboards and campaign builders with modular components and API-driven state, improving performance and developer velocity."
+            "Owned the 0→1 roadmap for campaign automation across SuperAGI's AI-native CRM and Voice Agent suite, shipping workflows that handled 5,000+ automated actions/month.",
+            "Designed and optimized AI agent workflows that reduced manual sales operations effort, improved automation reliability, and supported growth to 500+ DAUs.",
+            "Defined product architecture for multi-channel AI workflows spanning email, LinkedIn, and voice outreach, translating GTM requirements into scalable engineering execution.",
+            "Led customer discovery across SMB and mid-market users, identifying adoption bottlenecks and prioritizing product improvements that increased retention, engagement, and CSAT."
         ],
-
-        techStack: ["Go", "Typescript", "Ruby on Rails", "PostgreSQL", "Redis", "Kafka", "Docker", "Next.js"],
+        techStack: ["Roadmapping", "Product Strategy", "User Research", "Agile", "PRDs", "System Design"],
         logo: "/logos/superagi.png"
     },
     {
         role: "Data Science Intern",
-        company: "Graphy Inc. (Unacademy)",
-        period: "Nov 2024 - Apr 2025 (6 Months)",
-        location: "Bengaluru, INDIA",
+        company: "Graphy (Unacademy)",
+        period: "Nov 2024 - Apr 2025",
+        location: "Bengaluru, India",
         description: [
-            "Built end-to-end data pipelines and analysis workflows using Python (Pandas, NumPy) to process 100K+ user records, reducing manual data processing effort by ~40% and improving data reliability.",
-            "Conducted EDA and statistical analysis on user engagement data, identifying key behavioral patterns that contributed to a 10–15% improvement in retention/conversion metrics through data-driven product changes.",
-            "Partnered with product and engineering teams to translate insights into implemented features and optimizations, improving overall workflow efficiency by ~20% and enabling faster decision-making cycles."
+            "Built end-to-end data pipelines processing 100K+ user records, reducing manual processing effort by 40% and enabling faster analytics.",
+            "Analyzed user behavior and flow patterns, driving insights that improved conversion rates by 10-15%."
         ],
-        techStack: ["Python", "Pandas", "NumPy", "Jupyter", "Scikit-learn", "PostgreSQL"],
+        techStack: ["Python", "Pandas", "NumPy", "SQL", "PostgreSQL", "EDA"],
         logo: "/logos/graphy.png"
-    },
+    }
 ];

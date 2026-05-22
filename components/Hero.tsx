@@ -5,7 +5,7 @@ import { MapPin, Clock, Music, Pause } from "lucide-react";
 import { useState, useEffect, useMemo, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const ROLES = ["Software Engineer", "Full Stack Engineer", "AI Engineer"];
+const ROLES = ["Product Manager", "Technical Product Manager", "Growth Product Manager"];
 
 export default function Hero() {
     const [time, setTime] = useState<string>("");

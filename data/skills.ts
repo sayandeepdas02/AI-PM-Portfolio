@@ -4,25 +4,32 @@ export interface Skill {
 }
 
 export const skills: Skill[] = [
-  { name: "HTML", category: "Frontend" },
-  { name: "CSS", category: "Frontend" },
-  { name: "JavaScript", category: "Frontend" },
-  { name: "TypeScript", category: "Frontend" },
-  { name: "Python", category: "Backend" },
-  { name: "React.js", category: "Frontend" },
-  { name: "Redux", category: "Frontend" },
-  { name: "Next.js", category: "Frontend" },
-  { name: "Tailwind CSS", category: "Frontend" },
-  { name: "Node.js", category: "Backend" },
-  { name: "Express.js", category: "Backend" },
-  { name: "MongoDB", category: "Database" },
-  { name: "SQL", category: "Database" },
-  { name: "REST APIs", category: "Backend" },
-  { name: "Git/GitHub", category: "Tools" },
-  { name: "Vite", category: "Tools" },
-  { name: "Postman", category: "Tools" },
-  { name: "Socket.io", category: "Backend" },
-  { name: "WebRTC", category: "Backend" },
-  { name: "OpenAI API", category: "Tools" },
-];
+  // Product Skills
+  { name: "0→1 Development", category: "Product" },
+  { name: "Product Strategy", category: "Product" },
+  { name: "Roadmapping", category: "Product" },
+  { name: "User Research", category: "Product" },
+  { name: "Growth Funnels", category: "Product" },
+  { name: "A/B Testing", category: "Product" },
+  { name: "PRDs", category: "Product" },
+  { name: "Stakeholder Management", category: "Product" },
 
+  // Technical Skills
+  { name: "AWS (EC2, S3, Lambda)", category: "Technical" },
+  { name: "Docker", category: "Technical" },
+  { name: "Kubernetes", category: "Technical" },
+  { name: "Redis", category: "Technical" },
+  { name: "PostgreSQL", category: "Technical" },
+  { name: "MongoDB", category: "Technical" },
+  { name: "LLM Applications", category: "Technical" },
+  { name: "Prompt Engineering", category: "Technical" },
+  { name: "Retrieval Systems", category: "Technical" },
+  { name: "NLP", category: "Technical" },
+  { name: "SQL", category: "Technical" },
+  { name: "Python (Pandas, NumPy)", category: "Technical" },
+  { name: "Distributed Systems", category: "Technical" },
+  { name: "Microservices", category: "Technical" },
+  { name: "REST APIs", category: "Technical" },
+  { name: "System Design", category: "Technical" },
+  { name: "Scalable Architectures", category: "Technical" }
+];

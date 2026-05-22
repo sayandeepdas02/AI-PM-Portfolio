@@ -15,98 +15,46 @@ export interface Project {
 
 export const projects: Project[] = [
     {
-        name: "Fluxberry AI - Automating Screening for Hiring Talent",
+        name: "Glork AI: AI Voice Agents for Medical Professionals",
+        slug: "glork-ai",
+        description: "AI voice agents for clinics to automate inbound calls, appointment booking, and scheduling.",
+        category: "AI / Healthcare",
+        details: [
+            "Built AI voice agents for clinics to automate inbound calls, appointment booking, and scheduling.",
+            "Engineered a low-latency conversational pipeline using LLMs, RAG, speech-to-text, and Voice AI to handle real-time patient interactions, contextual responses, and automated appointment booking."
+        ],
+        image: "/logos/glork-logo.png",
+        techStack: ["LLMs", "RAG", "Speech-to-Text", "Voice AI", "Python", "FastAPI"],
+        githubUrl: "https://github.com/sayandeepdas02/Glork-AI",
+        liveUrl: "https://glork.sayandeep.space/"
+    },
+    {
+        name: "Notemind AI: AI Notetaker for Google Meeting",
+        slug: "notemind-ai",
+        description: "AI Notetaker for transcription and summarization, reducing manual note-taking effort by 60%.",
+        category: "AI / Productivity",
+        details: [
+            "AI Notetaker for transcription and summarization, reducing manual note-taking effort by 60%.",
+            "Designed structured workflows for retrieving meeting insights, improving post-meeting productivity."
+        ],
+        image: "/logos/notemind-logo.png",
+        techStack: ["React.js", "Node.js", "Google Meet API", "OpenAI API", "Tailwind CSS"],
+        githubUrl: "https://github.com/sayandeepdas02/Notemind-ai",
+        liveUrl: "https://notemind.sayandeep.space/"
+    },
+    {
+        name: "Fluxberry AI: AI Native Automation for Technical Hiring",
         slug: "fluxberry-ai",
-        description: "AI-driven interview automation with resume parsing, dynamic Q&A generation, and automated candidate scoring — reducing manual review effort by 70%.",
+        description: "Designed end-to-end interview automation workflows, enabling resume parsing, assessments, and candidate scoring.",
         category: "AI / SaaS",
         details: [
-            "Developed AI-driven interview automation system with resume parsing, dynamic Q&A generation, and automated candidate scoring using LLM APIs.",
-            "Reduced manual interviewer review effort by 70% through automated evaluation workflows.",
-            "Integrated OpenAI GPT models for intelligent question generation and response analysis, enhancing interview quality and scalability.",
+            "Designed end-to-end interview automation workflows, enabling resume parsing, assessments, and candidate scoring.",
+            "Automated technical rounds and onboarding, evaluation pipelines and structured feedback loops."
         ],
         image: "/logos/flux-hire-logo.png",
         techStack: ["React.js", "Redux", "Node.js", "OpenAI API", "Tailwind CSS"],
         githubUrl: "https://github.com/sayandeepdas02/Interview-AI",
         liveUrl: "https://fluxberry.sayandeep.space/",
-        demoUrl: "https://www.youtube.com/embed/y3-m6mOWieA",
-    },
-    {
-        name: "Plixa Meetups - Collaborative app for discussions & planning",
-        slug: "plixa-meetups",
-        description: "Real-time collaboration platform with synchronized whiteboards and peer-to-peer video streaming via WebRTC with STUN/TURN server integration.",
-        category: "Collaboration",
-        details: [
-            "Engineered real-time collaborative whiteboards with synchronized state updates and low-latency bi-directional communication.",
-            "Implemented peer-to-peer live video streaming using WebRTC with STUN/TURN server integration for reliable NAT traversal.",
-            "Delivered a highly responsive, cross-device interface for seamless real-time collaboration supporting concurrent users.",
-        ],
-        image: "/logos/plixa-logo.png",
-        techStack: ["React.js", "Node.js", "Socket.io", "WebRTC", "Express.js"],
-        githubUrl: "https://github.com/sayandeepdas02/Plixa-Meetups",
-        liveUrl: "https://plixa.sayandeep.space/",
-        demoUrl: "https://www.youtube.com/embed/80WvvgniL8I",
-    },
-    {
-        name: "Swift Invoice - Modern invoicing for freelancers & businesses",
-        slug: "swift-invoice",
-        description: "Full-stack MERN invoicing platform with dynamic PDF generation, QR code payments, and automated pipelines that cut payment times by 50%.",
-        category: "FinTech",
-        details: [
-            "Developed full-stack MERN application enabling seamless creation and management of customizable, dynamic PDF invoices.",
-            "Designed backend validation systems and robust transactional data pipelines to ensure secure and accurate payment processing.",
-            "Integrated automatic QR code generation for instant invoice resolution, reducing average payment times by 50%.",
-        ],
-        image: "/logos/swift-invoice-logo.png",
-        techStack: ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
-        githubUrl: "https://github.com/sayandeepdas02/Swift-Invoice",
-        liveUrl: "https://invoices.sayandeep.space/",
-        demoUrl: "https://www.youtube.com/embed/n4QU8n5zCBA",
-    },
-    {
-        name: "Altresume - Custom Resume for every job application",
-        slug: "altresume",
-        description: "Scalable resume builder that generates ATS-friendly, job-tailored resumes with real-time preview, modular templates, and polished PDF export.",
-        category: "Productivity",
-        details: [
-            "Architected a scalable application that dynamically generates tailored, ATS-friendly resumes matched to specific job descriptions.",
-            "Engineered customizable, modular resume templates with real-time visual preview and automated layout formatting logic.",
-            "Integrated robust PDF export pipelines to produce visually consistent and highly professional output documents.",
-        ],
-        image: "/logos/alt-resume-logo.png",
-        techStack: ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
-        githubUrl: "https://github.com/sayandeepdas02/Altresume",
-        liveUrl: "https://altresume.sayandeep.space/",
-    },
-    {
-        name: "Notemind - AI Notetaker for GMeets",
-        slug: "notemind",
-        description: "Intelligent Google Meet integration that transcribes live audio, synthesizes notes, and extracts action items using advanced LLM APIs.",
-        category: "AI / Productivity",
-        details: [
-            "Engineered an intelligent Google Meet integration to capture, transcribe, and synthesize live meeting audio into comprehensive notes.",
-            "Integrated advanced LLM APIs to automatically generate concise summaries, highlight key decisions, and extract actionable follow-up tasks.",
-            "Developed a responsive dashboard to seamlessly organize, search, and recall historical meeting insights with cross-platform sync.",
-        ],
-        image: "/logos/notemind-logo.png",
-        techStack: ["React.js", "Node.js", "Google Meet API", "OpenAI API", "Tailwind CSS"],
-        githubUrl: "https://github.com/sayandeepdas02/Notemind-ai",
-        liveUrl: "https://notemind.sayandeep.space/",
-    },
-    {
-        name: "CRM Software - Smart Customer Relationship Management",
-        slug: "crm-software",
-        description: "Full-featured CRM platform with pipeline management, contact tracking, activity logs, and analytics dashboard for sales-driven teams.",
-        category: "Enterprise",
-        details: [
-            "Built a comprehensive CRM with lead pipeline management, contact tagging, and deal-stage tracking across customizable sales funnels.",
-            "Engineered real-time activity feeds and automated follow-up reminders to minimize lead drop-off and boost conversion rates.",
-            "Designed an analytics dashboard with revenue forecasting, team performance metrics, and exportable reports for data-driven decisions.",
-        ],
-        image: "/logos/wolf-pixel.jpg",
-        techStack: ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
-        githubUrl: "https://github.com/sayandeepdas02",
-        comingSoon: true,
-    },
+        demoUrl: "https://www.youtube.com/embed/y3-m6mOWieA"
+    }
 ];
-
-

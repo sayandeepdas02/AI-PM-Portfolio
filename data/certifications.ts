@@ -16,6 +16,13 @@ export const certifications: Certification[] = [
         logo: "/logos/stanford.png",
     },
     {
+        name: "Project Management Specialisation",
+        issuer: "University of California Irvine",
+        date: "Oct 2024",
+        url: "https://drive.google.com/file/d/13d7E9tYryDtKQRLu1zTLYaRfjSAEonZ9/view?usp=sharing", // default placeholder / resume link
+        logo: "/logos/uci.png",
+    },
+    {
         name: "Full Stack Development Bootcamp 2024",
         issuer: "Angela Yu",
         date: "2024",
@@ -30,5 +37,3 @@ export const certifications: Certification[] = [
         logo: "/logos/google.png",
     },
 ];
-
-

@@ -16,25 +16,26 @@ const instrumentSerif = Instrument_Serif({
 
 export const metadata: Metadata = {
   title: {
-    default: "Sayandeep Das | Full Stack, Backend & AI Engineer",
+    default: "Sayandeep Das | Technical Product Manager",
     template: "%s | Sayandeep Das",
   },
   description:
-    "Sayandeep Das is a Software Engineer specializing in Full Stack, Backend Systems, and AI. Builds scalable distributed systems, LLM-powered applications, and high-performance web platforms using Golang, Next.js, and cloud infrastructure.",
+    "Sayandeep Das is a Technical Product Manager specializing in Agentic AI products, 0→1 roadmaps, and growth optimization. Experienced at Trelium (YC F25) and SuperAGI, with a BS in Data Science & AI from IIT Guwahati.",
 
   keywords: [
     "Sayandeep Das",
-    "Software Engineer India",
-    "Full Stack Developer",
-    "Backend Engineer",
-    "AI Engineer",
-    "Golang Developer",
-    "Next.js Developer",
-    "Distributed Systems",
-    "Microservices Architecture",
-    "LLM Applications",
-    "React Developer",
-    "System Design Engineer",
+    "Product Manager",
+    "Technical Product Manager",
+    "AI Product Manager",
+    "Agentic AI",
+    "0→1 Development",
+    "Product Strategy",
+    "Roadmapping",
+    "Growth Funnels",
+    "A/B Testing",
+    "IIT Guwahati",
+    "SuperAGI",
+    "Trelium",
   ],
 
   authors: [{ name: "Sayandeep Das", url: "https://sayandeep.space/" }],
@@ -44,9 +45,9 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://sayandeep.space"),
 
   openGraph: {
-    title: "Sayandeep Das | Full Stack, Backend & AI Engineer",
+    title: "Sayandeep Das | Technical Product Manager",
     description:
-      "Building scalable distributed systems, AI-powered applications, and real-time platforms using Golang, Next.js, and modern cloud infrastructure.",
+      "Building Agentic AI products, scaling to 120+ customers, 500+ DAUs, and 5,000+ monthly actions. Focused on 0→1 development, growth, and data-driven optimization.",
     url: "https://sayandeep.space",
     siteName: "Sayandeep Portfolio",
     images: [
@@ -63,9 +64,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Sayandeep Das | Full Stack, Backend & AI Engineer",
+    title: "Sayandeep Das | Technical Product Manager",
     description:
-      "Engineer building scalable backend systems, AI-driven platforms, and real-time applications.",
+      "Product Manager building Agentic AI products, scaling to 120+ customers, 500+ DAUs, and 5,000+ monthly actions.",
     images: ["https://sayandeep.space/og-image.png"],
   },
 
@@ -103,31 +104,30 @@ export default function RootLayout({
               name: "Sayandeep Das",
               url: "https://sayandeep.space",
               image: "https://sayandeep.space/og-image.png",
-              jobTitle: "Full Stack, Backend & AI Engineer",
+              jobTitle: "Technical Product Manager",
               sameAs: [
                 "https://github.com/sayandeepdas02",
                 "https://www.linkedin.com/in/sayandeep02",
               ],
               worksFor: {
                 "@type": "Organization",
-                name: "SuperAGI",
+                name: "Trelium",
               },
               alumniOf: {
                 "@type": "CollegeOrUniversity",
                 name: "IIT Guwahati",
               },
               knowsAbout: [
-                "Full Stack Development",
-                "Backend Engineering",
-                "Artificial Intelligence",
-                "Distributed Systems",
-                "Golang",
-                "Next.js",
-                "LLMs",
-                "Microservices",
-                "Redis",
-                "Kafka",
-                "AWS",
+                "Product Management",
+                "Product Strategy",
+                "Roadmapping",
+                "User Research",
+                "Growth Funnels",
+                "A/B Testing",
+                "Agentic AI",
+                "System Design",
+                "Data Science",
+                "AI Applications",
               ],
             }),
           }}
