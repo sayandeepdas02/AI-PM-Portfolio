@@ -5,7 +5,7 @@ import { MapPin, Clock, Music, Pause } from "lucide-react";
 import { useState, useEffect, useMemo, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const ROLES = ["Product Manager", "Technical Product Manager", "Growth Product Manager"];
+const ROLES = ["Product Manager", "AI Product Manager", "Growth Product Manager"];
 
 export default function Hero() {
     const [time, setTime] = useState<string>("");
@@ -254,7 +254,7 @@ export default function Hero() {
                                 <div className="pointer-events-none absolute inset-0 rounded-lg ring-1 ring-inset ring-black/10 dark:ring-white/15" />
                             </div>
                             <span className="flex-1 text-sm font-medium">GitHub</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-muted-foreground shrink-0" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-muted-foreground shrink-0" aria-hidden="true"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
                         </a>
 
                         {/* LinkedIn */}
@@ -274,7 +274,7 @@ export default function Hero() {
                                 <div className="pointer-events-none absolute inset-0 rounded-lg ring-1 ring-inset ring-black/10 dark:ring-white/15" />
                             </div>
                             <span className="flex-1 text-sm font-medium">LinkedIn</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-muted-foreground shrink-0" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-muted-foreground shrink-0" aria-hidden="true"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
                         </a>
 
                         {/* X (Twitter) */}
@@ -294,7 +294,7 @@ export default function Hero() {
                                 <div className="pointer-events-none absolute inset-0 rounded-lg ring-1 ring-inset ring-black/10 dark:ring-white/15" />
                             </div>
                             <span className="flex-1 text-sm font-medium">X.com</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-muted-foreground shrink-0" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-muted-foreground shrink-0" aria-hidden="true"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
                         </a>
 
                     </div>

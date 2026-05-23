@@ -16,16 +16,16 @@ const instrumentSerif = Instrument_Serif({
 
 export const metadata: Metadata = {
   title: {
-    default: "Sayandeep Das | Technical Product Manager",
+    default: "Sayandeep Das | Product Manager",
     template: "%s | Sayandeep Das",
   },
   description:
-    "Sayandeep Das is a Technical Product Manager specializing in Agentic AI products, 0→1 roadmaps, and growth optimization. Experienced at Trelium (YC F25) and SuperAGI, with a BS in Data Science & AI from IIT Guwahati.",
+    "Sayandeep Das is a Product Manager specializing in Agentic AI products, 0→1 roadmaps, and growth optimization. Experienced at Trelium (YC F25) and SuperAGI, with a BS in Data Science & AI from IIT Guwahati.",
 
   keywords: [
     "Sayandeep Das",
     "Product Manager",
-    "Technical Product Manager",
+    "Product Manager",
     "AI Product Manager",
     "Agentic AI",
     "0→1 Development",
@@ -45,14 +45,14 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://sayandeep.space"),
 
   openGraph: {
-    title: "Sayandeep Das | Technical Product Manager",
+    title: "Sayandeep Das | Product Manager",
     description:
       "Building Agentic AI products, scaling to 120+ customers, 500+ DAUs, and 5,000+ monthly actions. Focused on 0→1 development, growth, and data-driven optimization.",
     url: "https://sayandeep.space",
     siteName: "Sayandeep Portfolio",
     images: [
       {
-        url: "https://sayandeep.space/og-image.png",
+        url: "https://sayandeep.space/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Sayandeep Das Portfolio",
@@ -64,10 +64,10 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Sayandeep Das | Technical Product Manager",
+    title: "Sayandeep Das | Product Manager",
     description:
       "Product Manager building Agentic AI products, scaling to 120+ customers, 500+ DAUs, and 5,000+ monthly actions.",
-    images: ["https://sayandeep.space/og-image.png"],
+    images: ["https://sayandeep.space/og-image.jpg"],
   },
 
   robots: {
@@ -103,8 +103,8 @@ export default function RootLayout({
               "@type": "Person",
               name: "Sayandeep Das",
               url: "https://sayandeep.space",
-              image: "https://sayandeep.space/og-image.png",
-              jobTitle: "Technical Product Manager",
+              image: "https://sayandeep.space/og-image.jpg",
+              jobTitle: "Product Manager",
               sameAs: [
                 "https://github.com/sayandeepdas02",
                 "https://www.linkedin.com/in/sayandeep02",
