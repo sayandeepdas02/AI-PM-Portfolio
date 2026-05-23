@@ -27,7 +27,7 @@ export const socialLinks: SocialLink[] = [
     },
 ];
 
-export const resumeUrl = "https://drive.google.com/file/d/13d7E9tYryDtKQRLu1zTLYaRfjSAEonZ9/view?usp=sharing";
+export const resumeUrl = "https://drive.google.com/file/d/1q2pcu34_ZpH5y4a_WTIk7M6NEdmdCE31/view?usp=sharing";
 export const emailAddress = "reachsayandeep@gmail.com";
 export const location = "Bengaluru, KA, INDIA";
 export const gender = "he/him";

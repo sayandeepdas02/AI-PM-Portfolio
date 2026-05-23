@@ -19,7 +19,7 @@ export const certifications: Certification[] = [
         name: "Project Management Specialisation",
         issuer: "University of California Irvine",
         date: "Oct 2024",
-        url: "https://drive.google.com/file/d/13d7E9tYryDtKQRLu1zTLYaRfjSAEonZ9/view?usp=sharing", // default placeholder / resume link
+        url: "https://drive.google.com/file/d/1q2pcu34_ZpH5y4a_WTIk7M6NEdmdCE31/view?usp=sharing", // default placeholder / resume link
         logo: "/logos/uci.png",
     },
     {
