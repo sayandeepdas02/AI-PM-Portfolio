@@ -115,7 +115,7 @@ export const projects: Project[] = [
             "Identified drop-offs in guest information selection screens through funnel audits and usability reviews.",
             "Designed wireframes for a progressive disclosure checkout flow to streamline hotel room bookings."
         ],
-        image: "",
+        image: "/logos/makemytrip-logo.png",
         techStack: ["Funnel Analysis", "User Personas", "A/B Testing Strategy", "UX Auditing"],
         liveUrl: "https://drive.google.com/file/d/1Xn8egJo1DxJZSO4Pq0EGRz95aiScDum1/view?usp=sharing"
     },
