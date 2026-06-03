@@ -18,8 +18,8 @@ export interface Project {
 
 export const projects: Project[] = [
     {
-        name: "Glork AI: AI Voice Agents for Medical Professionals",
-        slug: "glork-ai",
+        name: "Hyperglork AI: AI Voice Agents for Medical Professionals",
+        slug: "hyperglork-ai",
         description: "AI voice agents for clinics to automate inbound calls, appointment booking, and scheduling.",
         category: "AI / Healthcare",
         type: "tech",
@@ -27,7 +27,7 @@ export const projects: Project[] = [
             "Built AI voice agents for clinics to automate inbound calls, appointment booking, and scheduling.",
             "Engineered a low-latency conversational pipeline using LLMs, RAG, speech-to-text, and Voice AI to handle real-time patient interactions, contextual responses, and automated appointment booking."
         ],
-        image: "/logos/glork-logo.png",
+        image: "/logos/hyperglork-logo.png",
         techStack: ["LLMs", "RAG", "Speech-to-Text", "Voice AI", "Python", "FastAPI"],
         githubUrl: "https://github.com/sayandeepdas02/Glork-AI",
         liveUrl: "https://glork.sayandeep.space/"

@@ -22,7 +22,7 @@ const CATEGORY_GRADIENTS: Record<string, string> = {
 /** Brand-matching banner gradients for specific projects */
 const PROJECT_GRADIENTS: Record<string, string> = {
     // Existing projects
-    "glork-ai": "from-indigo-500 via-blue-500 to-violet-600",
+    "hyperglork-ai": "from-yellow-300 via-yellow-400 to-amber-300",
     "notemind-ai": "from-teal-500 via-emerald-500 to-cyan-600",
     "fluxberry-ai": "from-indigo-500 via-blue-500 to-violet-600",
     
