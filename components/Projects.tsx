@@ -19,6 +19,26 @@ const CATEGORY_GRADIENTS: Record<string, string> = {
     "Enterprise": "from-orange-500 via-amber-500 to-orange-600",
 };
 
+/** Brand-matching banner gradients for specific projects */
+const PROJECT_GRADIENTS: Record<string, string> = {
+    // Existing projects
+    "glork-ai": "from-indigo-500 via-blue-500 to-violet-600",
+    "notemind-ai": "from-teal-500 via-emerald-500 to-cyan-600",
+    "fluxberry-ai": "from-indigo-500 via-blue-500 to-violet-600",
+    
+    // Data Science projects
+    "walmart-sql-python-analysis": "from-blue-600 via-sky-500 to-blue-700",
+    "coffee-brand-expansion-analysis": "from-stone-800 via-amber-900 to-amber-950",
+    
+    // Case Studies
+    "rapido-case-study": "from-yellow-400 via-amber-400 to-yellow-500",
+    "makemytrip-case-study": "from-red-500 via-rose-500 to-red-600",
+    "meesho-case-study": "from-fuchsia-900 via-pink-950 to-purple-950",
+    "razorpay-case-study": "from-blue-500 via-cyan-500 to-indigo-600",
+    "groww-case-study": "from-emerald-500 via-teal-500 to-emerald-600",
+    "firstclub-case-study": "from-green-950 via-emerald-900 to-stone-900",
+};
+
 const DEFAULT_GRADIENT = "from-zinc-400 via-zinc-500 to-zinc-600";
 
 export default function Projects() {
@@ -111,7 +131,7 @@ export default function Projects() {
                             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-5"
                         >
                             {filteredProjects.map((project, index) => {
-                                const gradient = CATEGORY_GRADIENTS[project.category] ?? DEFAULT_GRADIENT;
+                                const gradient = PROJECT_GRADIENTS[project.slug] ?? CATEGORY_GRADIENTS[project.category] ?? DEFAULT_GRADIENT;
                                 return (
                                     <article
                                         key={index}
