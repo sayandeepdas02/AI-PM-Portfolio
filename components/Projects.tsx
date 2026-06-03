@@ -24,7 +24,7 @@ const PROJECT_GRADIENTS: Record<string, string> = {
     // Existing projects
     "hyperglork-ai": "from-yellow-300 via-yellow-400 to-amber-300",
     "notemind-ai": "from-[#FAF6EE] via-[#F7F3E9] to-[#EFECE1]",
-    "fluxberry-ai": "from-indigo-500 via-blue-500 to-violet-600",
+    "fluxberry-ai": "from-lime-300 via-lime-400 to-lime-500",
     
     // Data Science projects
     "walmart-sql-python-analysis": "from-blue-600 via-sky-500 to-blue-700",
