@@ -3,6 +3,7 @@
 import { Github, Linkedin, Mail, Twitter, Code2, Calendar } from "lucide-react";
 import { socialLinks, emailAddress } from "@/data/social";
 import { Panel } from "@/components/ui/panel";
+import VisitorCounter from "@/components/VisitorCounter";
 
 export default function Footer() {
     const getIcon = (iconName: string) => {
@@ -61,7 +62,9 @@ export default function Footer() {
                     </a>
                 </div>
 
-                <p className="text-xs text-muted-foreground">
+                <VisitorCounter />
+
+                <p className="text-xs text-muted-foreground mt-4">
                     © {new Date().getFullYear()} All rights reserved
                 </p>
             </div>
