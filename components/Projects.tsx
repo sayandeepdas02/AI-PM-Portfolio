@@ -213,20 +213,34 @@ export default function Projects() {
                                                         </a>
                                                       )}
                                                       {project.liveUrl && (
-                                                          <a
-                                                              href={project.liveUrl}
-                                                              target="_blank"
-                                                              rel="noopener noreferrer"
-                                                              aria-label={`${project.name} live demo`}
-                                                              className={[
-                                                                  "flex flex-1 items-center justify-center gap-1.5 py-2.5 text-xs font-mono",
-                                                                  "text-muted-foreground transition-colors duration-150 hover:text-foreground hover:bg-accent",
-                                                                  project.demoUrl ? "border-r border-edge" : "",
-                                                              ].join(" ")}
-                                                          >
-                                                              <Globe className="size-3.5" strokeWidth={1.5} />
-                                                              <span>{project.type === "case-study" ? "View Case Study" : "Live"}</span>
-                                                          </a>
+                                                          project.type === "case-study" ? (
+                                                              <Link
+                                                                  href={`/projects/${project.slug}`}
+                                                                  className={[
+                                                                      "flex flex-1 items-center justify-center gap-1.5 py-2.5 text-xs font-mono",
+                                                                      "text-muted-foreground transition-colors duration-150 hover:text-foreground hover:bg-accent",
+                                                                      project.demoUrl ? "border-r border-edge" : "",
+                                                                  ].join(" ")}
+                                                              >
+                                                                  <Globe className="size-3.5" strokeWidth={1.5} />
+                                                                  <span>View Case Study</span>
+                                                              </Link>
+                                                          ) : (
+                                                              <a
+                                                                  href={project.liveUrl}
+                                                                  target="_blank"
+                                                                  rel="noopener noreferrer"
+                                                                  aria-label={`${project.name} live demo`}
+                                                                  className={[
+                                                                      "flex flex-1 items-center justify-center gap-1.5 py-2.5 text-xs font-mono",
+                                                                      "text-muted-foreground transition-colors duration-150 hover:text-foreground hover:bg-accent",
+                                                                      project.demoUrl ? "border-r border-edge" : "",
+                                                                  ].join(" ")}
+                                                              >
+                                                                  <Globe className="size-3.5" strokeWidth={1.5} />
+                                                                  <span>Live</span>
+                                                              </a>
+                                                          )
                                                       )}
                                                       {project.demoUrl && (
                                                           <Link
