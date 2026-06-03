@@ -73,7 +73,7 @@ export const projects: Project[] = [
             "Ingested and cleaned 10K+ sales records using Pandas and SQLAlchemy, resolving data inconsistencies and type mismatches.",
             "Designed complex SQL queries in PostgreSQL to analyze weekly department sales, revenue growth, and seasonal peaks."
         ],
-        image: "",
+        image: "/logos/walmart-logo.png",
         techStack: ["Python", "SQL", "Pandas", "PostgreSQL", "SQLAlchemy", "Kaggle API"],
         githubUrl: "https://github.com/sayandeepdas02/Walmart-SQL-Python-Project"
     },
@@ -87,7 +87,7 @@ export const projects: Project[] = [
             "Analyzed regional customer transactions and sales volumes using PostgreSQL queries.",
             "Engineered population density projections and consumer demand models (estimated at 25% coffee drinkers) to identify the highest ROI cities."
         ],
-        image: "",
+        image: "/logos/coffee-logo.png",
         techStack: ["SQL", "PostgreSQL", "Market Sizing", "Data Analysis", "Excel"],
         githubUrl: "https://github.com/sayandeepdas02/Coffee-Brand-Expansion-SQL-Project"
     },
@@ -129,7 +129,7 @@ export const projects: Project[] = [
             "Mapped out social commerce reseller pain points in tier-2/3 Indian cities to optimize catalog sharing success.",
             "Proposed simplified visual listing tools to decrease seller catalog processing times by 40%."
         ],
-        image: "",
+        image: "/logos/meesho-logo.png",
         techStack: ["Growth Product Management", "Onboarding Flows", "Trust Optimization", "Market Expansion"],
         liveUrl: "https://drive.google.com/file/d/1arjXnyonyIPBqFqSOussVK9d3Ox5LxYN/view?usp=sharing"
     },
@@ -157,7 +157,7 @@ export const projects: Project[] = [
             "Designed simplified onboarding steps to ease the conversion from basic savings to mutual fund SIPs.",
             "Proposed context-specific micro-learning blocks to explain financial terms directly on user dashboards."
         ],
-        image: "",
+        image: "/logos/groww-logo.png",
         techStack: ["Retail Investing UX", "Simplified Onboarding", "Product Design", "User Education"],
         liveUrl: "https://drive.google.com/file/d/1WMjohl6DIl14D27-UTphWzUKLk2Fg2_q/view?usp=sharing"
     },
@@ -171,7 +171,7 @@ export const projects: Project[] = [
             "Mapped early user retention patterns to define core value-realization milestones within the first 30 days.",
             "Designed personalized reward milestones to increase repeat transaction frequencies and lower membership churn."
         ],
-        image: "",
+        image: "/logos/firstclub-logo.png",
         techStack: ["Subscription Modeling", "Retention Loops", "Customer Value Proposition", "Engagement Strategy"],
         liveUrl: "https://drive.google.com/file/d/1785DjaoJLEF7-DZnqdr4-TggSNFdrLVt/view?usp=sharing"
     }
