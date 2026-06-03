@@ -122,12 +122,12 @@ export default async function ProjectDetails({ params }: { params: Promise<{ slu
                                             className="flex items-center justify-center gap-2 py-2 text-sm font-medium rounded-lg border border-edge bg-foreground text-background hover:bg-foreground/90 transition-colors shadow-sm shadow-foreground/20"
                                         >
                                             <Globe className="size-4" />
-                                            Live
+                                            {project.type === "case-study" ? "View Case Study" : "Live"}
                                         </a>
                                     ) : (
                                         <div className="flex items-center justify-center gap-2 py-2 text-sm font-medium rounded-lg border border-edge bg-background/50 text-muted-foreground cursor-not-allowed">
                                             <Globe className="size-4" />
-                                            Live
+                                            {project.type === "case-study" ? "View Case Study" : "Live"}
                                         </div>
                                     )}
                                 </div>
