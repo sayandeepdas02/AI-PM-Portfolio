@@ -23,7 +23,7 @@ const CATEGORY_GRADIENTS: Record<string, string> = {
 const PROJECT_GRADIENTS: Record<string, string> = {
     // Existing projects
     "hyperglork-ai": "from-yellow-300 via-yellow-400 to-amber-300",
-    "notemind-ai": "from-teal-500 via-emerald-500 to-cyan-600",
+    "notemind-ai": "from-[#FAF6EE] via-[#F7F3E9] to-[#EFECE1]",
     "fluxberry-ai": "from-indigo-500 via-blue-500 to-violet-600",
     
     // Data Science projects
