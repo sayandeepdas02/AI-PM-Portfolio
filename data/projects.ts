@@ -101,7 +101,7 @@ export const projects: Project[] = [
             "Conducted qualitative research to isolate driver retention friction and peak-hour cancellations.",
             "Designed route-matching optimizations and dynamic rider-reassurance patterns to improve overall ride completion rates."
         ],
-        image: "",
+        image: "/logos/rapido-logo.png",
         techStack: ["Product Strategy", "User Research", "Market Sizing", "Flow Optimization"],
         liveUrl: "https://drive.google.com/file/d/1FT5u9AbCtKLJpC4B0y4fGqR2AV7baBTZ/view?usp=sharing"
     },
@@ -143,7 +143,7 @@ export const projects: Project[] = [
             "Proposed transaction success rate (TSR) recovery flows that prompt users with alternative payment methods upon failure.",
             "Created optimized checkout wireframes reducing overall keystrokes by 35%."
         ],
-        image: "",
+        image: "/logos/razorpay-logo.png",
         techStack: ["API Integration", "Checkout UX", "Conversion Rate Optimization", "Fintech Strategy"],
         liveUrl: "https://drive.google.com/file/d/1DBsBnrhbbjiT9QYz6dUVETmoqHdTESxc/view?usp=sharing"
     },
