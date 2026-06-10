@@ -7,6 +7,66 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Separator } from "@/components/ui/separator";
 import { Panel, PanelHeader, PanelTitle, PanelContent } from "@/components/ui/panel";
+import type { Metadata } from "next";
+
+const projectMetadata: Record<string, Partial<Metadata>> = {
+  "hyperglork-ai": {
+    title: "Hyperglork AI — AI Voice Agents for Medical Professionals",
+    description:
+      "Hyperglork AI is an AI voice agent platform built by Sayandeep Das for automating inbound calls, appointment booking, and scheduling in healthcare clinics. Built with LLMs, RAG, and Speech-to-Text.",
+    alternates: { canonical: "https://ai.sayandeep.space/projects/hyperglork-ai" },
+    openGraph: {
+      title: "Hyperglork AI — AI Voice Agents for Medical Professionals | Sayandeep Das",
+      description: "AI voice agents for clinics. Automates inbound calls and appointment booking using LLMs and RAG.",
+      url: "https://ai.sayandeep.space/projects/hyperglork-ai",
+      images: [{ url: "https://ai.sayandeep.space/og-image.jpg", width: 1200, height: 630 }],
+    },
+  },
+  "notemind-ai": {
+    title: "Notemind AI — AI Notetaker for Google Meet",
+    description:
+      "Notemind AI is an AI-powered meeting notetaker built by Sayandeep Das. Reduces manual note-taking effort by 60% through real-time transcription and summarization for Google Meet.",
+    alternates: { canonical: "https://ai.sayandeep.space/projects/notemind-ai" },
+    openGraph: {
+      title: "Notemind AI — AI Notetaker for Google Meet | Sayandeep Das",
+      description: "AI meeting notetaker for transcription and summarization. Cuts note-taking effort by 60%.",
+      url: "https://ai.sayandeep.space/projects/notemind-ai",
+      images: [{ url: "https://ai.sayandeep.space/og-image.jpg", width: 1200, height: 630 }],
+    },
+  },
+  "fluxberry-ai": {
+    title: "Fluxberry AI — AI-Native Automation for Technical Hiring",
+    description:
+      "Fluxberry AI automates technical hiring workflows end-to-end — resume parsing, assessments, and candidate scoring. Built by Sayandeep Das with React, Node.js, and OpenAI API.",
+    alternates: { canonical: "https://ai.sayandeep.space/projects/fluxberry-ai" },
+    openGraph: {
+      title: "Fluxberry AI — AI-Native Automation for Technical Hiring | Sayandeep Das",
+      description: "End-to-end interview automation: resume parsing, assessments, and candidate scoring.",
+      url: "https://ai.sayandeep.space/projects/fluxberry-ai",
+      images: [{ url: "https://ai.sayandeep.space/og-image.jpg", width: 1200, height: 630 }],
+    },
+  },
+};
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const project = projects.find((p) => p.slug === slug);
+  if (!project) return {};
+
+  if (projectMetadata[slug]) return projectMetadata[slug];
+
+  return {
+    title: project.name,
+    description: project.description,
+    alternates: { canonical: `https://ai.sayandeep.space/projects/${slug}` },
+    openGraph: {
+      title: `${project.name} | Sayandeep Das`,
+      description: project.description,
+      url: `https://ai.sayandeep.space/projects/${slug}`,
+      images: [{ url: "https://ai.sayandeep.space/og-image.jpg", width: 1200, height: 630 }],
+    },
+  };
+}
 
 export function generateStaticParams() {
     return projects.map((p) => ({
@@ -22,8 +82,32 @@ export default async function ProjectDetails({ params }: { params: Promise<{ slu
         notFound();
     }
 
+    const jsonLd = project.type === "tech"
+        ? {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": project.name,
+            "url": project.liveUrl ?? `https://ai.sayandeep.space/projects/${project.slug}`,
+            "author": {
+                "@type": "Person",
+                "name": "Sayandeep Das",
+                "url": "https://ai.sayandeep.space"
+            },
+            "description": project.description,
+            "applicationCategory": "WebApplication",
+            "operatingSystem": "Web",
+            "offers": { "@type": "Offer", "price": "0" }
+          }
+        : null;
+
     return (
         <main className="min-h-screen">
+            {jsonLd && (
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+                />
+            )}
             <div className="mx-auto md:max-w-3xl *:[[id]]:scroll-mt-22">
                 <Navbar />
 
