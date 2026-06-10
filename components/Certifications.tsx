@@ -1,7 +1,8 @@
 import { certifications } from "@/data/certifications";
 import { LinkIcon } from "lucide-react";
 import Image from "next/image";
-import { Panel, PanelHeader, PanelTitle, PanelTitleSup } from "@/components/ui/panel";
+import Link from "next/link";
+import { Panel, PanelHeader, PanelTitle } from "@/components/ui/panel";
 
 export default function Certifications() {
     return (
@@ -9,7 +10,6 @@ export default function Certifications() {
             <PanelHeader>
                 <PanelTitle>
                     Certifications
-                    <PanelTitleSup>({certifications.length})</PanelTitleSup>
                 </PanelTitle>
             </PanelHeader>
 
@@ -49,17 +49,13 @@ export default function Certifications() {
                                 </div>
 
                                 {/* Link Icon */}
-                                {cert.url && (
-                                    <a
-                                        className="relative flex size-6 shrink-0 items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
-                                        href={cert.url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        <LinkIcon className="size-4" />
-                                        <span className="sr-only">View Certificate</span>
-                                    </a>
-                                )}
+                                <Link
+                                    className="relative flex size-6 shrink-0 items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
+                                    href={`/certifications/${cert.slug}`}
+                                >
+                                    <LinkIcon className="size-4" />
+                                    <span className="sr-only">View Certificate</span>
+                                </Link>
                             </div>
                         </div>
                     </div>

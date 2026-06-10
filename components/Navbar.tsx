@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { Moon, Sun, Calendar, Menu, X, FileText } from "lucide-react";
+import { Moon, Sun, Menu, X, FileText } from "lucide-react";
 import { useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
+import { BookACallButton } from "@/components/ui/BookACallButton";
 
 export default function Navbar() {
     const [isDark, setIsDark] = useState(false);
@@ -101,15 +102,7 @@ export default function Navbar() {
 
                         {/* CTA Buttons (desktop only) */}
                         <div className="hidden md:flex items-center gap-2">
-                            <a
-                                href="https://cal.com/dsayandeep"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex items-center gap-2 px-3 py-1.5 text-[13px] font-medium bg-foreground text-background hover:bg-foreground/90 transition-colors rounded-md relative overflow-hidden before:absolute before:inset-0 before:rounded-[inherit] before:bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.7)_50%,transparent_75%,transparent_100%)] before:bg-[length:250%_250%,100%_100%] before:bg-[position:200%_0,0_0] before:bg-no-repeat before:transition-[background-position_0s_ease] before:duration-1000 hover:before:bg-[position:-100%_0,0_0] dark:before:bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.5)_50%,transparent_75%,transparent_100%)] cursor-pointer"
-                            >
-                                <Calendar size={14} strokeWidth={2} />
-                                Book a Call
-                            </a>
+                            <BookACallButton />
                             <Link
                                 href="/resume"
                                 className="flex items-center gap-2 px-3 py-1.5 text-[13px] font-medium bg-foreground text-background hover:bg-foreground/90 transition-colors rounded-md relative overflow-hidden before:absolute before:inset-0 before:rounded-[inherit] before:bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.7)_50%,transparent_75%,transparent_100%)] before:bg-[length:250%_250%,100%_100%] before:bg-[position:200%_0,0_0] before:bg-no-repeat before:transition-[background-position_0s_ease] before:duration-1000 hover:before:bg-[position:-100%_0,0_0] dark:before:bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.5)_50%,transparent_75%,transparent_100%)] cursor-pointer"
@@ -171,16 +164,10 @@ export default function Navbar() {
                                 Education
                             </button>
                             <div className="pt-2 mt-2 border-t border-edge flex flex-col gap-2">
-                                <a
-                                    href="https://cal.com/dsayandeep"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    onClick={() => setIsMobileMenuOpen(false)}
-                                    className="flex items-center gap-2 py-2 text-base font-medium text-foreground hover:text-muted-foreground transition-colors"
-                                >
-                                    <Calendar size={16} strokeWidth={2} />
-                                    Book a Call
-                                </a>
+                                <BookACallButton
+                                    variant="ghost"
+                                    onNavigate={() => setIsMobileMenuOpen(false)}
+                                />
                                 <Link
                                     href="/resume"
                                     onClick={() => setIsMobileMenuOpen(false)}

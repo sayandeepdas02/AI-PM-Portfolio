@@ -4,7 +4,7 @@ import { projects, ProjectType } from "@/data/projects";
 import { Github, Globe, PlaySquare, FolderOpen } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Panel, PanelHeader, PanelTitle, PanelTitleSup } from "@/components/ui/panel";
+import { Panel, PanelHeader, PanelTitle } from "@/components/ui/panel";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -51,7 +51,6 @@ export default function Projects() {
             <PanelHeader>
                 <PanelTitle>
                     Projects
-                    <PanelTitleSup>({filteredProjects.length})</PanelTitleSup>
                 </PanelTitle>
             </PanelHeader>
 
