@@ -9,6 +9,7 @@ import { Separator } from "@/components/ui/separator";
 import { GithubGraph } from "@/components/GithubGraph";
 import { TechStack } from "@/components/TechStack";
 import { PomodoroTimer } from "@/components/PomodoroTimer";
+import BookACall from "@/components/BookACall";
 
 export default function Home() {
   return (
@@ -34,6 +35,9 @@ export default function Home() {
         <Separator />
 
         <Certifications />
+        <Separator />
+
+        <BookACall />
         <Separator />
 
         <PomodoroTimer />

@@ -1,6 +1,6 @@
 import { education } from "@/data/education";
 import Image from "next/image";
-import { Panel, PanelHeader, PanelTitle, PanelTitleSup } from "@/components/ui/panel";
+import { Panel, PanelHeader, PanelTitle } from "@/components/ui/panel";
 
 export default function Education() {
     return (
@@ -8,7 +8,6 @@ export default function Education() {
             <PanelHeader>
                 <PanelTitle>
                     Education
-                    <PanelTitleSup>({education.length})</PanelTitleSup>
                 </PanelTitle>
             </PanelHeader>
 

@@ -47,11 +47,16 @@ const categories: Category[] = [
     {
         name: "AI & ML / Data",
         skills: [
-            { name: "LLM Applications", slug: "openai" },
-            { name: "Prompt Engineering", slug: "openai" },
-            { name: "NLP", slug: "huggingface" },
+            { name: "Scikit-learn", slug: "scikitlearn" },
+            { name: "TensorFlow", slug: "tensorflow" },
+            { name: "PyTorch", slug: "pytorch" },
+            { name: "Claude / Anthropic", slug: "anthropic" },
+            { name: "HuggingFace", slug: "huggingface" },
+            { name: "Jupyter", slug: "jupyter" },
             { name: "Pandas", slug: "pandas" },
             { name: "NumPy", slug: "numpy" },
+            { name: "Matplotlib", iconName: "BarChart3" },
+            { name: "Tableau", iconName: "LayoutDashboard" },
         ]
     },
     {
