@@ -1,8 +1,9 @@
 "use client";
 
-import { Github, Linkedin, Mail, Twitter, Code2, Calendar } from "lucide-react";
+import { Github, Linkedin, Mail, Twitter, Code2 } from "lucide-react";
 import { socialLinks, emailAddress } from "@/data/social";
 import { Panel } from "@/components/ui/panel";
+import { BookACallButton } from "@/components/ui/BookACallButton";
 
 export default function Footer() {
     const getIcon = (iconName: string) => {
@@ -50,15 +51,7 @@ export default function Footer() {
 
                 {/* Book a Call CTA */}
                 <div className="my-4">
-                    <a
-                        href="https://cal.com/dsayandeep/30min"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-foreground text-background hover:bg-foreground/90 transition-colors rounded-md relative overflow-hidden before:absolute before:inset-0 before:rounded-[inherit] before:bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.7)_50%,transparent_75%,transparent_100%)] before:bg-[length:250%_250%,100%_100%] before:bg-[position:200%_0,0_0] before:bg-no-repeat before:transition-[background-position_0s_ease] before:duration-1000 hover:before:bg-[position:-100%_0,0_0] dark:before:bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.5)_50%,transparent_75%,transparent_100%)] cursor-pointer"
-                    >
-                        <Calendar size={16} strokeWidth={2} />
-                        Book a Call
-                    </a>
+                    <BookACallButton className="px-4 py-2 text-sm inline-flex" />
                 </div>
 
                 <p className="text-xs text-muted-foreground mt-4">

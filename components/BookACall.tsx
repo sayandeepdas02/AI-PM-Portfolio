@@ -1,65 +1,27 @@
 "use client";
 
-import { useEffect } from "react";
-import Script from "next/script";
 import { Panel, PanelHeader, PanelTitle } from "@/components/ui/panel";
 
-declare global {
-    interface Window {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        Cal?: any;
-    }
-}
+const CALENDLY_URL =
+    "https://calendly.com/reachsayandeep/30mins-with-sayandeep?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=ffffff&text_color=000000&primary_color=000000";
 
 export default function BookACall() {
-    useEffect(() => {
-        if (typeof window !== "undefined" && window.Cal) {
-            window.Cal("inline", {
-                elementOrSelector: "#cal-booking-inline",
-                calLink: "dsayandeep/30min",
-                layout: "month_view",
-            });
-            window.Cal("ui", {
-                theme: "auto",
-                styles: { branding: { brandColor: "#000000" } },
-                hideEventTypeDetails: false,
-                layout: "month_view",
-            });
-        }
-    }, []);
-
     return (
         <Panel id="book-a-call">
             <PanelHeader>
                 <PanelTitle>Book a Call</PanelTitle>
             </PanelHeader>
 
-            <Script
-                src="https://app.cal.com/embed/embed.js"
-                strategy="lazyOnload"
-                onLoad={() => {
-                    if (window.Cal) {
-                        window.Cal("init", { origin: "https://cal.com" });
-                        window.Cal("inline", {
-                            elementOrSelector: "#cal-booking-inline",
-                            calLink: "dsayandeep/30min",
-                            layout: "month_view",
-                        });
-                        window.Cal("ui", {
-                            theme: "auto",
-                            styles: { branding: { brandColor: "#000000" } },
-                            hideEventTypeDetails: false,
-                            layout: "month_view",
-                        });
-                    }
-                }}
-            />
-
-            <div
-                id="cal-booking-inline"
-                className="w-full min-h-[600px]"
-                style={{ height: "700px" }}
-            />
+            <div className="w-full overflow-hidden">
+                <iframe
+                    src={CALENDLY_URL}
+                    title="Book a call with Sayandeep"
+                    width="100%"
+                    height="700"
+                    frameBorder="0"
+                    style={{ display: "block", border: "none" }}
+                />
+            </div>
         </Panel>
     );
 }

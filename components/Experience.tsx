@@ -47,7 +47,7 @@ export default function Experience() {
                                         </p>
                                     </div>
                                     <div className="text-xs font-mono text-muted-foreground text-right shrink-0">
-                                        <div>{job.period} [{job.duration}]</div>
+                                        <div>{job.period} / {job.duration}</div>
                                         <div className="mt-0.5">{job.location}</div>
                                     </div>
                                 </div>
