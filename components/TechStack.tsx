@@ -50,7 +50,6 @@ const categories: Category[] = [
             { name: "Scikit-learn", slug: "scikitlearn" },
             { name: "TensorFlow", slug: "tensorflow" },
             { name: "PyTorch", slug: "pytorch" },
-            { name: "OpenAI API", slug: "openai" },
             { name: "Claude / Anthropic", slug: "anthropic" },
             { name: "HuggingFace", slug: "huggingface" },
             { name: "Jupyter", slug: "jupyter" },

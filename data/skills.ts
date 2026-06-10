@@ -24,7 +24,6 @@ export const skills: Skill[] = [
   { name: "Scikit-learn", category: "Technical" },
   { name: "TensorFlow", category: "Technical" },
   { name: "PyTorch", category: "Technical" },
-  { name: "OpenAI API", category: "Technical" },
   { name: "Claude / Anthropic", category: "Technical" },
   { name: "HuggingFace", category: "Technical" },
   { name: "Jupyter", category: "Technical" },
