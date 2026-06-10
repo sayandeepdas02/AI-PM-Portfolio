@@ -1,6 +1,6 @@
 import { experiences } from "@/data/experience";
 import Image from "next/image";
-import { Panel, PanelHeader, PanelTitle, PanelTitleSup } from "@/components/ui/panel";
+import { Panel, PanelHeader, PanelTitle } from "@/components/ui/panel";
 
 export default function Experience() {
     return (
@@ -8,7 +8,6 @@ export default function Experience() {
             <PanelHeader>
                 <PanelTitle>
                     Experience
-                    <PanelTitleSup>({experiences.length})</PanelTitleSup>
                 </PanelTitle>
             </PanelHeader>
 
@@ -48,7 +47,7 @@ export default function Experience() {
                                         </p>
                                     </div>
                                     <div className="text-xs font-mono text-muted-foreground text-right shrink-0">
-                                        <div>{job.period}</div>
+                                        <div>{job.period} [{job.duration}]</div>
                                         <div className="mt-0.5">{job.location}</div>
                                     </div>
                                 </div>

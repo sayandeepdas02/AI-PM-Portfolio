@@ -2,6 +2,7 @@ export interface Experience {
     role: string;
     company: string;
     period: string;
+    duration: string;
     location: string;
     description: string[];
     techStack: string[];
@@ -10,9 +11,10 @@ export interface Experience {
 
 export const experiences: Experience[] = [
     {
-        role: "Member of GTM Staff",
+        role: "Member of GTM Staff / GTM Engineer",
         company: "Trelium (YC F25)",
-        period: "Apr 2026 - Present",
+        period: "Apr 2026 - ∞",
+        duration: "3 mons",
         location: "San Francisco, USA (Remote)",
         description: [
             "Owned the end-to-end growth funnel for an AI campaign automation platform, driving a 18% increase in qualified signups through SEO, onboarding optimization, and conversion-focused UX improvements.",
@@ -26,6 +28,7 @@ export const experiences: Experience[] = [
         role: "Associate Product Manager",
         company: "SuperAGI",
         period: "May 2025 - Apr 2026",
+        duration: "12 mons",
         location: "Bengaluru, India",
         description: [
             "Owned the 0→1 roadmap for campaign automation across SuperAGI's AI-native CRM and Voice Agent suite, shipping workflows that handled 5,000+ automated actions/month.",
@@ -40,6 +43,7 @@ export const experiences: Experience[] = [
         role: "Data Science Intern",
         company: "Graphy (Unacademy)",
         period: "Nov 2024 - Apr 2025",
+        duration: "6 mons",
         location: "Bengaluru, India",
         description: [
             "Built end-to-end data pipelines processing 100K+ user records, reducing manual processing effort by 40% and enabling faster analytics.",

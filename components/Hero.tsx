@@ -113,31 +113,16 @@ export default function Hero() {
                 <div className="mx-0.5 my-[3px]">
                     <button
                         onClick={() => setShowEasterEgg(!showEasterEgg)}
-                        className="group relative h-32 w-32 sm:h-40 sm:w-40 flex-shrink-0 rounded-full overflow-hidden cursor-pointer transition-all duration-500 active:scale-95 ring-1 ring-border ring-offset-2 ring-offset-background select-none"
+                        className="relative h-32 w-32 sm:h-40 sm:w-40 flex-shrink-0 rounded-full overflow-hidden cursor-pointer active:scale-95 ring-1 ring-border ring-offset-2 ring-offset-background select-none"
                         aria-label="Toggle Aura Mode"
                     >
-                        {/* Cartoon Profile (Default) */}
                         <Image
-                            src="/cartoon-profile.png"
-                            alt="Sayandeep Das Cartoon"
+                            src="/profile.png"
+                            alt="Sayandeep Das"
                             fill
                             priority
-                            className={`object-cover transition-transform duration-700 ${showEasterEgg ? 'scale-105' : ''}`}
+                            className="object-cover"
                         />
-                        {/* Actual Profile (Hover wipe left to right) */}
-                        <div className="absolute inset-y-0 left-0 w-0 overflow-hidden transition-[width] duration-500 ease-out group-hover:w-full z-10 pointer-events-none">
-                            <div className="absolute top-0 left-0 h-32 w-32 sm:h-40 sm:w-40">
-                                <Image
-                                    src="/profile.jpg"
-                                    alt="Sayandeep Das"
-                                    fill
-                                    priority
-                                    className={`object-cover transition-transform duration-700 ${showEasterEgg ? 'scale-105' : ''}`}
-                                />
-                            </div>
-                        </div>
-                        {/* Subtle Glow on Hover */}
-                        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-[inset_0_0_20px_rgba(59,130,246,0.3)] pointer-events-none" />
                     </button>
                 </div>
             </div>
