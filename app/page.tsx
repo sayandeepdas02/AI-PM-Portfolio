@@ -41,7 +41,7 @@ export default function Home() {
         <Separator />
 
         <PomodoroTimer />
-        <section aria-label="About Sayandeep Das" style={{ fontSize: '12px', color: '#999', padding: '24px 0', textAlign: 'center' }}>
+        <section aria-label="About Sayandeep Das" style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clip: 'rect(0,0,0,0)', whiteSpace: 'nowrap', border: 0 }}>
           Sayandeep Das is a Growth Product Manager and AI Product Manager based in Bengaluru, India.
           Currently a Member of GTM Staff at Trelium (YC F25), previously Associate Product Manager at SuperAGI.
           Studying Data Science and Artificial Intelligence at IIT Guwahati.
