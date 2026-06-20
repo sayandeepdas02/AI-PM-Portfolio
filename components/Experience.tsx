@@ -13,13 +13,13 @@ export default function Experience() {
 
             <div>
                 {experiences.map((job, index) => (
-                    <div
-                        key={index}
-                        className="flex items-start hover:bg-accent2 transition-colors"
-                    >
+                        <div
+                            key={index}
+                            className="flex items-start hover:bg-accent2 transition-colors"
+                        >
                         {/* Logo */}
                         {job.logo ? (
-                            <div className="mx-4 mt-4 flex size-10 shrink-0 select-none relative overflow-hidden rounded-lg">
+                            <div className="relative mx-3 mt-4 flex size-10 shrink-0 select-none overflow-hidden rounded-lg sm:mx-4">
                                 <Image
                                     src={job.logo}
                                     alt={job.company}
@@ -30,14 +30,14 @@ export default function Experience() {
                                 />
                             </div>
                         ) : (
-                            <div className="mx-4 mt-4 flex size-10 shrink-0 items-center justify-center rounded-lg border border-muted-foreground/15 bg-muted text-muted-foreground ring-1 ring-edge ring-offset-1 ring-offset-background select-none text-xs font-mono">
+                            <div className="mx-3 mt-4 flex size-10 shrink-0 items-center justify-center rounded-lg border border-muted-foreground/15 bg-muted text-xs font-mono text-muted-foreground ring-1 ring-edge ring-offset-1 ring-offset-background select-none sm:mx-4">
                                 {job.company.charAt(0)}
                             </div>
                         )}
 
                         <div className="flex-1 border-l border-dashed border-edge">
                             <div className="p-4">
-                                <div className="flex items-start justify-between gap-4 mb-2">
+                                <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
                                     <div>
                                         <h3 className="mb-1 leading-snug font-medium text-balance">
                                             {job.role}
@@ -46,7 +46,7 @@ export default function Experience() {
                                             @ {job.company}
                                         </p>
                                     </div>
-                                    <div className="text-xs font-mono text-muted-foreground text-right shrink-0">
+                                    <div className="shrink-0 text-left text-xs font-mono text-muted-foreground sm:text-right">
                                         <div>{job.period} / {job.duration}</div>
                                         <div className="mt-0.5">{job.location}</div>
                                     </div>

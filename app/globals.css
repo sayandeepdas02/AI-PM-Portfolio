@@ -297,6 +297,10 @@
     text-rendering: optimizeLegibility;
   }
 
+  html {
+    overflow-x: hidden;
+  }
+
   /* Custom scrollbar styling */
   ::-webkit-scrollbar {
     width: 5px;

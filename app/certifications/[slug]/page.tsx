@@ -43,7 +43,7 @@ export default async function CertificatePage({
                 <Navbar />
 
                 <Panel id="certificate">
-                    <PanelHeader className="flex items-center justify-between py-4">
+                    <PanelHeader className="flex flex-col items-start gap-4 py-4 sm:flex-row sm:items-center sm:justify-between">
                         <div>
                             <PanelTitle>{cert.name}</PanelTitle>
                             <p className="text-sm text-muted-foreground mt-0.5">
@@ -54,14 +54,14 @@ export default async function CertificatePage({
                             href={driveViewUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-2 px-3 py-1.5 text-sm font-medium bg-foreground text-background hover:bg-foreground/90 transition-colors rounded shadow-sm relative overflow-hidden before:absolute before:inset-0 before:rounded-[inherit] before:bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.7)_50%,transparent_75%,transparent_100%)] before:bg-[length:250%_250%,100%_100%] before:bg-[position:200%_0,0_0] before:bg-no-repeat before:transition-[background-position_0s_ease] before:duration-1000 hover:before:bg-[position:-100%_0,0_0] dark:before:bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.5)_50%,transparent_75%,transparent_100%)] cursor-pointer"
+                            className="flex w-full items-center justify-center gap-2 rounded shadow-sm bg-foreground px-3 py-1.5 text-sm font-medium text-background transition-colors hover:bg-foreground/90 sm:w-auto relative overflow-hidden before:absolute before:inset-0 before:rounded-[inherit] before:bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.7)_50%,transparent_75%,transparent_100%)] before:bg-[length:250%_250%,100%_100%] before:bg-[position:200%_0,0_0] before:bg-no-repeat before:transition-[background-position_0s_ease] before:duration-1000 hover:before:bg-[position:-100%_0,0_0] dark:before:bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.5)_50%,transparent_75%,transparent_100%)] cursor-pointer"
                         >
                             <Download size={14} strokeWidth={2} />
                             Open in Drive
                         </a>
                     </PanelHeader>
 
-                    <div className="w-full h-[800px] bg-secondary/20 relative">
+                    <div className="relative h-[70vh] min-h-[480px] w-full bg-secondary/20 sm:h-[800px]">
                         <iframe
                             src={drivePreviewUrl}
                             className="w-full h-full border-none absolute inset-0"

@@ -55,7 +55,7 @@ export default function Navbar() {
     return (
         <>
             <nav className="sticky top-0 z-50 backdrop-blur-md screen-line-after border-x border-edge bg-background/80">
-                <div className="px-4 h-14 flex items-center justify-between gap-4">
+                <div className="flex h-14 items-center justify-between gap-3 px-3 sm:gap-4 sm:px-4">
 
                     {/* Left: SD Logo — clicks scroll to top */}
                     <button
@@ -98,7 +98,7 @@ export default function Navbar() {
                     </div>
 
                     {/* Right group: CTA buttons + theme toggle */}
-                    <div className="flex items-center gap-2 flex-shrink-0">
+                    <div className="flex shrink-0 items-center gap-1 sm:gap-2">
 
                         {/* CTA Buttons (desktop only) */}
                         <div className="hidden md:flex items-center gap-2">
@@ -135,7 +135,7 @@ export default function Navbar() {
                 {/* Mobile Dropdown Menu */}
                 {isMobileMenuOpen && (
                     <div className="md:hidden absolute top-14 left-0 right-0 bg-background border-b border-edge shadow-lg">
-                        <div className="mx-4 my-3 p-4 bg-background rounded-lg border border-edge shadow-sm">
+                        <div className="mx-3 my-3 rounded-lg border border-edge bg-background p-4 shadow-sm">
                             <button
                                 onClick={() => {
                                     scrollToSection('experience');

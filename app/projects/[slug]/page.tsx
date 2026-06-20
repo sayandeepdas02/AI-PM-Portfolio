@@ -167,7 +167,7 @@ export default async function ProjectDetails({ params }: { params: Promise<{ slu
                             /* Case Study layout: PDF iframe on top, metadata below */
                             <div className="flex flex-col gap-6 p-4 md:p-6 border-t border-edge bg-accent/5">
                                 {/* PDF Viewer */}
-                                <div className="w-full h-[650px] bg-secondary/20 relative rounded-xl overflow-hidden border border-edge shadow-md">
+                                <div className="relative h-[60vh] min-h-[420px] w-full overflow-hidden rounded-xl border border-edge bg-secondary/20 shadow-md md:h-[650px]">
                                     <iframe
                                         src={project.liveUrl?.replace("view?usp=sharing", "preview")}
                                         className="w-full h-full border-none absolute inset-0"

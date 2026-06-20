@@ -16,10 +16,8 @@ export default function BookACall() {
                 <iframe
                     src={CALENDLY_URL}
                     title="Book a call with Sayandeep"
-                    width="100%"
-                    height="700"
                     frameBorder="0"
-                    style={{ display: "block", border: "none" }}
+                    className="block h-[760px] w-full border-0 sm:h-[700px]"
                 />
             </div>
         </Panel>
