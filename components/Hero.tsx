@@ -107,13 +107,13 @@ export default function Hero() {
     }, []);
 
     return (
-        <div className="screen-line-after flex border-x border-edge">
+        <div className="screen-line-after flex flex-col border-x border-edge sm:flex-row">
             {/* Avatar column — chanhdai.com pattern: no padding on outer, tiny margin on inner, ring-offset for the floating ring */}
-            <div className="shrink-0 border-r border-edge flex items-center justify-center">
+            <div className="flex w-full shrink-0 items-center justify-center border-b border-edge sm:w-auto sm:border-r sm:border-b-0">
                 <div className="mx-0.5 my-[3px]">
                     <button
                         onClick={() => setShowEasterEgg(!showEasterEgg)}
-                        className="relative h-32 w-32 sm:h-40 sm:w-40 flex-shrink-0 rounded-full overflow-hidden cursor-pointer active:scale-95 ring-1 ring-border ring-offset-2 ring-offset-background select-none"
+                        className="relative h-28 w-28 flex-shrink-0 cursor-pointer overflow-hidden rounded-full ring-1 ring-border ring-offset-2 ring-offset-background select-none active:scale-95 sm:h-40 sm:w-40"
                         aria-label="Toggle Aura Mode"
                     >
                         <Image
@@ -132,8 +132,8 @@ export default function Hero() {
                 {/* ── Identity Block — full height flex column so name row owns all slack space ── */}
                 <div className="flex flex-col flex-1">
                     {/* Name row — primary identity, stretches to fill remaining height */}
-                    <div className="flex flex-1 items-center gap-2.5 pl-5 pr-4 border-b border-edge">
-                        <h1 className="-translate-y-px text-4xl font-serif font-normal italic tracking-tight leading-none">
+                    <div className="flex flex-1 flex-wrap items-center gap-x-2.5 gap-y-1 border-b border-edge px-4 py-4 sm:pl-5 sm:pr-4">
+                        <h1 className="-translate-y-px text-3xl leading-none font-serif font-normal italic tracking-tight text-balance sm:text-4xl">
                             Sayandeep Das
                         </h1>
                         {/* Verified Icon */}
@@ -148,7 +148,7 @@ export default function Hero() {
                     </div>
 
                     {/* Role + Location + Time + Lofi — compact secondary metadata row */}
-                    <div className="border-b border-edge px-5 py-1.5 flex items-center gap-0 flex-wrap">
+                    <div className="flex flex-wrap items-center gap-x-2.5 gap-y-2 border-b border-edge px-4 py-3 sm:px-5 sm:py-1.5">
                         {/* Role */}
                         {/* Typing role badge */}
                         <span className="font-mono text-sm text-muted-foreground tracking-wide inline-flex items-center gap-[2px]">
@@ -168,7 +168,7 @@ export default function Hero() {
                         `}</style>
 
                         {/* Bullet */}
-                        <span className="mx-2.5 text-muted-foreground/40 text-xs select-none">•</span>
+                        <span className="hidden text-xs text-muted-foreground/40 select-none sm:inline">•</span>
 
                         {/* Location */}
                         <div className="flex items-center gap-1 text-muted-foreground/60">
@@ -177,7 +177,7 @@ export default function Hero() {
                         </div>
 
                         {/* Bullet */}
-                        <span className="mx-2.5 text-muted-foreground/40 text-xs select-none">•</span>
+                        <span className="hidden text-xs text-muted-foreground/40 select-none sm:inline">•</span>
 
                         {/* Time */}
                         <div className="flex items-center gap-1 text-muted-foreground/60">
@@ -187,7 +187,7 @@ export default function Hero() {
                         </div>
 
                         {/* Lofi — pushed to right */}
-                        <div className="flex items-center gap-1.5 ml-auto text-muted-foreground/60">
+                        <div className="ml-0 flex w-full items-center justify-between gap-1.5 text-muted-foreground/60 sm:ml-auto sm:w-auto sm:justify-start">
                             <span className="text-[10px] font-mono font-bold uppercase tracking-tight">lofi</span>
                             <button
                                 onClick={toggleLofi}
@@ -220,7 +220,7 @@ export default function Hero() {
                     </div>
 
                     {/* Social Links — chanhdai.com pattern: app icon + label + arrow */}
-                    <div className="border-t border-edge grid grid-cols-3">
+                    <div className="grid grid-cols-1 border-t border-edge sm:grid-cols-3">
 
                         {/* GitHub */}
                         <a
@@ -228,7 +228,7 @@ export default function Hero() {
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="GitHub"
-                            className="flex items-center gap-3 p-4 pr-2 transition-colors hover:bg-accent2 border-r border-edge"
+                            className="flex items-center gap-3 border-b border-edge p-4 transition-colors hover:bg-accent2 sm:border-r sm:border-b-0 sm:pr-2"
                         >
                             <div className="relative size-8 shrink-0">
                                 <div className="size-8 rounded-lg bg-[#24292e] flex items-center justify-center">
@@ -248,7 +248,7 @@ export default function Hero() {
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="LinkedIn"
-                            className="flex items-center gap-3 p-4 pr-2 transition-colors hover:bg-accent2 border-r border-edge"
+                            className="flex items-center gap-3 border-b border-edge p-4 transition-colors hover:bg-accent2 sm:border-r sm:border-b-0 sm:pr-2"
                         >
                             <div className="relative size-8 shrink-0">
                                 <div className="size-8 rounded-lg bg-[#0A66C2] flex items-center justify-center">
@@ -268,7 +268,7 @@ export default function Hero() {
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="X (Twitter)"
-                            className="flex items-center gap-3 p-4 pr-2 transition-colors hover:bg-accent2"
+                            className="flex items-center gap-3 p-4 transition-colors hover:bg-accent2 sm:pr-2"
                         >
                             <div className="relative size-8 shrink-0">
                                 <div className="size-8 rounded-lg bg-[#000000] flex items-center justify-center">

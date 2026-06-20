@@ -163,22 +163,22 @@ export function TechStack() {
                             transition={{ duration: 0.4, ease: "circOut" }}
                             className="overflow-hidden"
                         >
-                            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-2 pt-4 px-4">
+                            <div className="grid grid-cols-1 gap-8 px-4 pt-4 sm:grid-cols-2 lg:grid-cols-2">
                                 {categories.map((category) => (
                                     <div key={category.name} className="space-y-4">
                                         <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground border-b border-edge pb-2">
                                             {category.name}
                                         </h3>
-                                        <div className="grid grid-cols-2 gap-2">
+                                        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
                                             {category.skills.map((skill) => (
                                                 <div
                                                     key={skill.name}
-                                                    className="group flex items-center gap-3 rounded-lg border border-transparent p-2 transition-all hover:border-edge hover:bg-accent2"
+                                                    className="group flex min-w-0 items-start gap-3 rounded-lg border border-transparent p-2 transition-all hover:border-edge hover:bg-accent2"
                                                 >
                                                     <div className="h-5 w-5 shrink-0 flex items-center justify-center transition-all duration-300">
                                                         {renderIcon(skill)}
                                                     </div>
-                                                    <span className="text-xs font-medium text-muted-foreground group-hover:text-foreground transition-colors">
+                                                    <span className="text-xs font-medium text-muted-foreground transition-colors group-hover:text-foreground">
                                                         {skill.name}
                                                     </span>
                                                 </div>

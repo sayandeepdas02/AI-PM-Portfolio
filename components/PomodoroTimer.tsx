@@ -84,7 +84,7 @@ export function PomodoroTimer() {
 
     return (
         <Panel id="pomodoro" className="relative mb-16 w-full text-left">
-            <PanelHeader className="flex items-center justify-between">
+            <PanelHeader className="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <PanelTitle>Pomodoro Timer</PanelTitle>
                 <button
                     onClick={() => setShowSettings(!showSettings)}
@@ -117,7 +117,7 @@ export function PomodoroTimer() {
                     You&apos;ve reached the end! Or have you? Before you vanish into the digital void, I&apos;ve got a quick Pomodoro Timer to help you focus better on your next big thing (or just to remind you to stop doomscrolling).
                 </p>
 
-                <div className="relative z-10 overflow-hidden rounded-2xl border border-edge bg-background p-6 shadow-sm transition-all dark:bg-zinc-900/50">
+                <div className="relative z-10 overflow-hidden rounded-2xl border border-edge bg-background p-4 shadow-sm transition-all sm:p-6 dark:bg-zinc-900/50">
                     <AnimatePresence mode="wait">
                         {showSettings ? (
                             <motion.div
@@ -127,7 +127,7 @@ export function PomodoroTimer() {
                                 exit={{ opacity: 0, y: -10 }}
                                 className="flex flex-col gap-4"
                             >
-                                <div className="grid grid-cols-2 gap-4">
+                                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                                     <div className="space-y-2">
                                         <label className="text-[10px] font-bold uppercase tracking-tight text-muted-foreground">Focus (min)</label>
                                         <input
@@ -158,7 +158,7 @@ export function PomodoroTimer() {
                                 initial={{ opacity: 0, y: 10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -10 }}
-                                className="flex flex-col items-center justify-between gap-6 sm:flex-row"
+                                className="flex flex-col items-center justify-between gap-5 sm:flex-row sm:gap-6"
                             >
                                 {/* Time Display */}
                                 <div className="flex flex-col items-center sm:items-start">
@@ -171,17 +171,17 @@ export function PomodoroTimer() {
                                 </div>
 
                                 {/* Controls */}
-                                <div className="flex items-center gap-2">
-                                    <div className="mr-4 flex rounded-full bg-secondary p-1">
+                                <div className="flex w-full flex-col items-center gap-3 sm:w-auto sm:flex-row sm:gap-2">
+                                    <div className="flex w-full rounded-full bg-secondary p-1 sm:mr-4 sm:w-auto">
                                         <button
                                             onClick={() => switchMode("work")}
-                                            className={`rounded-full px-4 py-1.5 text-xs font-semibold transition-all ${mode === "work" ? "bg-background text-foreground shadow-sm" : "text-muted-foreground hover:text-foreground"}`}
+                                            className={`flex-1 rounded-full px-4 py-1.5 text-xs font-semibold transition-all sm:flex-none ${mode === "work" ? "bg-background text-foreground shadow-sm" : "text-muted-foreground hover:text-foreground"}`}
                                         >
                                             {workDuration}m
                                         </button>
                                         <button
                                             onClick={() => switchMode("break")}
-                                            className={`rounded-full px-4 py-1.5 text-xs font-semibold transition-all ${mode === "break" ? "bg-background text-foreground shadow-sm" : "text-muted-foreground hover:text-foreground"}`}
+                                            className={`flex-1 rounded-full px-4 py-1.5 text-xs font-semibold transition-all sm:flex-none ${mode === "break" ? "bg-background text-foreground shadow-sm" : "text-muted-foreground hover:text-foreground"}`}
                                         >
                                             {breakDuration}m
                                         </button>
@@ -212,7 +212,7 @@ export function PomodoroTimer() {
                 {completed && (
                     <button
                         onClick={() => setCompleted(false)}
-                        className="mt-4 ml-4 text-[10px] font-bold uppercase tracking-widest text-purple-500 transition-opacity hover:opacity-100"
+                        className="mt-4 text-[10px] font-bold uppercase tracking-widest text-purple-500 transition-opacity hover:opacity-100"
                     >
                         Dismiss Alarm
                     </button>

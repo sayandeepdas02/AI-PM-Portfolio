@@ -15,11 +15,11 @@ export default function Education() {
                 {education.map((edu, index) => (
                     <div
                         key={index}
-                        className="flex items-center hover:bg-accent2 transition-colors"
+                        className="flex items-start hover:bg-accent2 transition-colors"
                     >
                         {/* Logo */}
                         {edu.logo ? (
-                            <div className="mx-4 flex size-10 shrink-0 select-none relative overflow-hidden rounded-lg">
+                            <div className="relative mx-3 mt-4 flex size-10 shrink-0 select-none overflow-hidden rounded-lg sm:mx-4">
                                 <Image
                                     src={edu.logo}
                                     alt={edu.institution}
@@ -30,13 +30,13 @@ export default function Education() {
                                 />
                             </div>
                         ) : (
-                            <div className="mx-4 flex size-10 shrink-0 items-center justify-center rounded-lg border border-muted-foreground/15 bg-muted text-muted-foreground ring-1 ring-edge ring-offset-1 ring-offset-background select-none text-xs font-mono">
+                            <div className="mx-3 mt-4 flex size-10 shrink-0 items-center justify-center rounded-lg border border-muted-foreground/15 bg-muted text-xs font-mono text-muted-foreground ring-1 ring-edge ring-offset-1 ring-offset-background select-none sm:mx-4">
                                 {edu.institution.split(' ').map(word => word.charAt(0)).slice(0, 2).join('')}
                             </div>
                         )}
 
                         <div className="flex-1 border-l border-dashed border-edge">
-                            <div className="flex w-full items-center gap-2 p-4 pr-2">
+                            <div className="flex w-full items-start gap-2 p-4 pr-2">
                                 <div className="flex-1">
                                     <h3 className="mb-1 leading-snug font-medium text-balance">
                                         {edu.degree}
