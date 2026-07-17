@@ -19,7 +19,7 @@ const instrumentSerif = Instrument_Serif({
 export const metadata: Metadata = {
   metadataBase: new URL('https://ai.sayandeep.space'),
   title: {
-    default: 'Sayandeep Das | Growth PM & AI Product Manager | IIT Guwahati',
+    default: 'Sayandeep Das | GTM Engineer & AI PM | IIT Guwahati',
     template: '%s | Sayandeep Das',
   },
   description:
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
     locale: 'en_IN',
     url: 'https://ai.sayandeep.space/',
     siteName: 'Sayandeep Das — Portfolio',
-    title: 'Sayandeep Das | Growth PM & AI Product Manager | IIT Guwahati',
+    title: 'Sayandeep Das | GTM Engineer & AI PM | IIT Guwahati',
     description:
       'Sayandeep is a GTM Engineer and AI PM from IIT Guwahati, currently at Trelium (YC F25), focused on SEO, AEO, AI automation, onboarding systems, growth funnels, and product-led GTM for AI B2B SaaS.',
     images: [
@@ -82,13 +82,13 @@ export const metadata: Metadata = {
         url: ogImageUrl,
         width: 1920,
         height: 1080,
-        alt: 'Sayandeep Das — Growth PM & AI Product Manager',
+        alt: 'Sayandeep Das — GTM Engineer & AI PM',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Sayandeep Das | Growth PM & AI Product Manager | IIT Guwahati',
+    title: 'Sayandeep Das | GTM Engineer & AI PM | IIT Guwahati',
     description:
       'Sayandeep is a GTM Engineer and AI PM from IIT Guwahati, currently at Trelium (YC F25), focused on SEO, AEO, AI automation, onboarding systems, growth funnels, and product-led GTM for AI B2B SaaS.',
     images: [ogImageUrl],
@@ -174,7 +174,7 @@ export default function RootLayout({
                   "@id": "https://ai.sayandeep.space/#website",
                   "url": "https://ai.sayandeep.space",
                   "name": "Sayandeep Das — Portfolio",
-                  "description": "Portfolio of Sayandeep Das, Growth PM and AI Product Manager",
+                  "description": "Portfolio of Sayandeep Das, GTM Engineer and AI PM",
                   "publisher": {
                     "@id": "https://ai.sayandeep.space/#sayandeep"
                   },
