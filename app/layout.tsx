@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Roboto_Flex, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 
+const ogImageUrl = "https://ai.sayandeep.space/opengraph-portfolio.png";
+
 const robotoFlex = Roboto_Flex({
   subsets: ["latin"],
   variable: "--font-roboto-flex",
@@ -77,9 +79,9 @@ export const metadata: Metadata = {
       'Growth PM and AI Product Manager at Trelium (YC F25). Built AI products scaling to 500+ DAUs and 5,000+ monthly automated actions. IIT Guwahati, ex-SuperAGI.',
     images: [
       {
-        url: 'https://ai.sayandeep.space/og-image.jpg',
-        width: 1200,
-        height: 630,
+        url: ogImageUrl,
+        width: 1920,
+        height: 1080,
         alt: 'Sayandeep Das — Growth PM & AI Product Manager',
       },
     ],
@@ -89,7 +91,7 @@ export const metadata: Metadata = {
     title: 'Sayandeep Das | Growth PM & AI Product Manager | IIT Guwahati',
     description:
       'Growth PM at Trelium (YC F25). AI products, GTM strategy, 0→1 development. IIT Guwahati.',
-    images: ['https://ai.sayandeep.space/og-image.jpg'],
+    images: [ogImageUrl],
     creator: '@sayan_not_deep',
     site: '@sayan_not_deep',
   },

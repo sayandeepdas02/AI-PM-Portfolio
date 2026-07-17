@@ -9,6 +9,13 @@ import { Separator } from "@/components/ui/separator";
 import { Panel, PanelHeader, PanelTitle, PanelContent } from "@/components/ui/panel";
 import type { Metadata } from "next";
 
+const ogImage = {
+  url: "https://ai.sayandeep.space/opengraph-portfolio.png",
+  width: 1920,
+  height: 1080,
+  alt: "Sayandeep Das portfolio cover",
+};
+
 const projectMetadata: Record<string, Partial<Metadata>> = {
   "hyperglork-ai": {
     title: "Hyperglork AI — AI Voice Agents for Medical Professionals",
@@ -19,7 +26,7 @@ const projectMetadata: Record<string, Partial<Metadata>> = {
       title: "Hyperglork AI — AI Voice Agents for Medical Professionals | Sayandeep Das",
       description: "AI voice agents for clinics. Automates inbound calls and appointment booking using LLMs and RAG.",
       url: "https://ai.sayandeep.space/projects/hyperglork-ai",
-      images: [{ url: "https://ai.sayandeep.space/og-image.jpg", width: 1200, height: 630 }],
+      images: [ogImage],
     },
   },
   "notemind-ai": {
@@ -31,7 +38,7 @@ const projectMetadata: Record<string, Partial<Metadata>> = {
       title: "Notemind AI — AI Notetaker for Google Meet | Sayandeep Das",
       description: "AI meeting notetaker for transcription and summarization. Cuts note-taking effort by 60%.",
       url: "https://ai.sayandeep.space/projects/notemind-ai",
-      images: [{ url: "https://ai.sayandeep.space/og-image.jpg", width: 1200, height: 630 }],
+      images: [ogImage],
     },
   },
   "fluxberry-ai": {
@@ -43,7 +50,7 @@ const projectMetadata: Record<string, Partial<Metadata>> = {
       title: "Fluxberry AI — AI-Native Automation for Technical Hiring | Sayandeep Das",
       description: "End-to-end interview automation: resume parsing, assessments, and candidate scoring.",
       url: "https://ai.sayandeep.space/projects/fluxberry-ai",
-      images: [{ url: "https://ai.sayandeep.space/og-image.jpg", width: 1200, height: 630 }],
+      images: [ogImage],
     },
   },
 };
@@ -63,7 +70,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: `${project.name} | Sayandeep Das`,
       description: project.description,
       url: `https://ai.sayandeep.space/projects/${slug}`,
-      images: [{ url: "https://ai.sayandeep.space/og-image.jpg", width: 1200, height: 630 }],
+      images: [ogImage],
     },
   };
 }
