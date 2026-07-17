@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: '%s | Sayandeep Das',
   },
   description:
-    'Sayandeep Das is a Growth Product Manager and AI PM from IIT Guwahati, currently at Trelium (YC F25). Specializes in 0→1 AI products, GTM strategy, growth funnels, agentic AI, and B2B SaaS. Based in Bengaluru, India.',
+    'Sayandeep is a GTM Engineer and AI PM from IIT Guwahati, currently at Trelium (YC F25), focused on SEO, AEO, AI automation, onboarding systems, growth funnels, and product-led GTM for AI B2B SaaS.',
   keywords: [
     'Sayandeep Das',
     'Sayandeep Das Product Manager',
@@ -76,7 +76,7 @@ export const metadata: Metadata = {
     siteName: 'Sayandeep Das — Portfolio',
     title: 'Sayandeep Das | Growth PM & AI Product Manager | IIT Guwahati',
     description:
-      'Growth PM and AI Product Manager at Trelium (YC F25). Built AI products scaling to 500+ DAUs and 5,000+ monthly automated actions. IIT Guwahati, ex-SuperAGI.',
+      'Sayandeep is a GTM Engineer and AI PM from IIT Guwahati, currently at Trelium (YC F25), focused on SEO, AEO, AI automation, onboarding systems, growth funnels, and product-led GTM for AI B2B SaaS.',
     images: [
       {
         url: ogImageUrl,
@@ -90,7 +90,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Sayandeep Das | Growth PM & AI Product Manager | IIT Guwahati',
     description:
-      'Growth PM at Trelium (YC F25). AI products, GTM strategy, 0→1 development. IIT Guwahati.',
+      'Sayandeep is a GTM Engineer and AI PM from IIT Guwahati, currently at Trelium (YC F25), focused on SEO, AEO, AI automation, onboarding systems, growth funnels, and product-led GTM for AI B2B SaaS.',
     images: [ogImageUrl],
     creator: '@sayan_not_deep',
     site: '@sayan_not_deep',
@@ -127,7 +127,7 @@ export default function RootLayout({
                     "width": 400,
                     "height": 400
                   },
-                  "jobTitle": "Growth Product Manager",
+                  "jobTitle": "GTM Engineer and AI PM",
                   "worksFor": {
                     "@type": "Organization",
                     "name": "Trelium",
@@ -140,7 +140,7 @@ export default function RootLayout({
                     "url": "https://www.iitg.ac.in",
                     "sameAs": "https://en.wikipedia.org/wiki/Indian_Institute_of_Technology_Guwahati"
                   },
-                  "description": "Growth Product Manager and AI PM specializing in 0→1 AI products, GTM strategy, agentic AI workflows, and B2B SaaS growth. Currently at Trelium (YC F25), ex-SuperAGI.",
+                  "description": "Sayandeep is a GTM Engineer and AI PM from IIT Guwahati, currently at Trelium (YC F25), focused on SEO, AEO, AI automation, onboarding systems, growth funnels, and product-led GTM for AI B2B SaaS.",
                   "email": "reachsayandeep@gmail.com",
                   "address": {
                     "@type": "PostalAddress",
@@ -154,8 +154,11 @@ export default function RootLayout({
                     "https://x.com/sayan_not_deep"
                   ],
                   "knowsAbout": [
-                    "Product Management",
+                    "GTM Engineering",
                     "AI Product Management",
+                    "SEO",
+                    "AEO",
+                    "AI Automation",
                     "Growth Marketing",
                     "GTM Strategy",
                     "Agentic AI",

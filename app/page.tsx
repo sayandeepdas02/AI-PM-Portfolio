@@ -42,12 +42,9 @@ export default function Home() {
 
         <PomodoroTimer />
         <section aria-label="About Sayandeep Das" style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clip: 'rect(0,0,0,0)', whiteSpace: 'nowrap', border: 0 }}>
-          Sayandeep Das is a Growth Product Manager and AI Product Manager based in Bengaluru, India.
-          Currently a Member of GTM Staff at Trelium (YC F25), previously Associate Product Manager at SuperAGI.
-          Studying Data Science and Artificial Intelligence at IIT Guwahati.
-          Specializes in 0→1 AI product development, GTM strategy, agentic AI workflows, LLM applications,
-          B2B SaaS growth, conversion optimization, and growth marketing.
-          Known for building Hyperglork AI, Notemind AI, and Fluxberry AI.
+          Sayandeep is a GTM Engineer and AI PM from IIT Guwahati, currently at Trelium (YC F25),
+          focused on SEO, AEO, AI automation, onboarding systems, growth funnels, and product-led GTM
+          for AI B2B SaaS. Previously Associate Product Manager at SuperAGI.
         </section>
         <Footer />
       </div>
