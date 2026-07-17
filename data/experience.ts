@@ -13,15 +13,20 @@ export const experiences: Experience[] = [
     {
         role: "Member of GTM Staff / GTM Engineer",
         company: "Trelium (YC F25)",
-        period: "Apr 2026 - ∞",
-        duration: "3 mons",
+        period: "Apr 2026 - Present",
+        duration: "4 mons",
         location: "San Francisco, USA (Remote)",
         description: [
-            "Owned the end-to-end growth funnel for an AI campaign automation platform, driving a 18% increase in qualified signups through SEO, onboarding optimization, and conversion-focused UX improvements.",
-            "Rebuilt core activation and onboarding flows using product analytics, session recordings, and customer interviews, improving activation rate by 27% and significantly reducing time-to-first-value.",
-            "Led performance marketing and customer discovery across LinkedIn, outbound email, and user interviews, reducing CAC by 42% and translating customer insights into high-impact product and retention improvements."
+            "Owned the end-to-end GTM growth engine for an AI workflow automation platform, increasing qualified signups by 18% through SEO, conversion optimization, onboarding improvements, and AI-powered content strategy.",
+            "Built AI-driven GTM workflows and automation agents for lead generation, customer engagement, and sales operations using Apollo, Clay, RB2B, AI enrichment pipelines, and outbound automation, generating 2,000+ enriched leads per week with minimal manual effort.",
+            "Designed automated visitor intelligence workflows by integrating RB2B, Apollo, and website analytics, identifying anonymous high-intent visitors and triggering personalized outbound sequences that significantly increased sales engagement.",
+            "Implemented 14 multi-channel performance marketing campaigns across LinkedIn, Google Search, SEO, outbound email, and content marketing, continuously optimizing CAC, attribution, and conversion through experimentation.",
+            "Rebuilt activation and onboarding journeys using product analytics, session recordings, customer interviews, and A/B testing, improving activation rate by 27% while reducing time-to-first-value.",
+            "Engineered AI-assisted outbound systems including customer reply agents, personalized email generation, follow-up automation, and prospect qualification workflows, enabling scalable sales outreach with higher response rates.",
+            "Led AI-first SEO initiatives using Semrush, programmatic keyword research, technical SEO improvements, and high-quality AI-assisted blog production, substantially improving organic visibility, search impressions, and inbound acquisition.",
+            "Translated customer research, behavioral analytics, and GTM insights into product improvements, reducing CAC by 42% while improving retention, onboarding experience, and overall funnel efficiency."
         ],
-        techStack: ["Product Analytics", "A/B Testing", "SEO", "User Research", "Conversion Optimization"],
+        techStack: ["AI Automation", "GTM Engineering", "AI Agents", "Workflow Automation", "Apollo", "Clay", "RB2B", "Product Analytics", "SEO", "Performance Marketing", "Conversion Optimization", "A/B Testing"],
         logo: "/logos/trelium.png"
     },
     {
