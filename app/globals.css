@@ -101,6 +101,11 @@
   animation: infinite-scroll 30s linear infinite;
 }
 
+.bg-grid-dots {
+  background-image: radial-gradient(circle, color-mix(in oklab, var(--border) 72%, transparent) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
 @utility no-scrollbar {
   -ms-overflow-style: none;
   /* IE and Edge */

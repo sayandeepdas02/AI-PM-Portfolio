@@ -35,7 +35,7 @@ function handleLocalVisit(clientId: string): { total: number; monthly: number } 
     const now = new Date();
     const thisMonth = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}`;
 
-    let raw = fs.readFileSync(DATA_FILE, "utf-8");
+    const raw = fs.readFileSync(DATA_FILE, "utf-8");
     let data: VisitorData;
     try {
         data = JSON.parse(raw);

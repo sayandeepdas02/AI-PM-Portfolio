@@ -1,7 +1,7 @@
 "use client";
 
 import { Github, Linkedin, Mail, Twitter, Code2 } from "lucide-react";
-import { socialLinks, emailAddress } from "@/data/social";
+import { socialLinks } from "@/data/social";
 import { Panel } from "@/components/ui/panel";
 import { BookACallButton } from "@/components/ui/BookACallButton";
 
