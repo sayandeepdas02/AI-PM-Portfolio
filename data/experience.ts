@@ -21,8 +21,6 @@ export const experiences: Experience[] = [
             "Built AI-driven GTM workflows and automation agents for lead generation, customer engagement, and sales operations using Apollo, Clay, RB2B, AI enrichment pipelines, and outbound automation, generating 2,000+ enriched leads per week with minimal manual effort.",
             "Designed automated visitor intelligence workflows by integrating RB2B, Apollo, and website analytics, identifying anonymous high-intent visitors and triggering personalized outbound sequences that significantly increased sales engagement.",
             "Implemented 14 multi-channel performance marketing campaigns across LinkedIn, Google Search, SEO, outbound email, and content marketing, continuously optimizing CAC, attribution, and conversion through experimentation.",
-            "Rebuilt activation and onboarding journeys using product analytics, session recordings, customer interviews, and A/B testing, improving activation rate by 27% while reducing time-to-first-value.",
-            "Engineered AI-assisted outbound systems including customer reply agents, personalized email generation, follow-up automation, and prospect qualification workflows, enabling scalable sales outreach with higher response rates.",
             "Led AI-first SEO initiatives using Semrush, programmatic keyword research, technical SEO improvements, and high-quality AI-assisted blog production, substantially improving organic visibility, search impressions, and inbound acquisition.",
             "Translated customer research, behavioral analytics, and GTM insights into product improvements, reducing CAC by 42% while improving retention, onboarding experience, and overall funnel efficiency."
         ],
