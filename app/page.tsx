@@ -46,8 +46,9 @@ export default function Home() {
           Currently a Member of GTM Staff at Trelium (YC F25), previously Associate Product Manager at SuperAGI.
           Studying Data Science and Artificial Intelligence at IIT Guwahati.
           Specializes in 0→1 AI product development, GTM strategy, agentic AI workflows, LLM applications,
-          B2B SaaS growth, conversion optimization, and growth marketing.
+          B2B SaaS growth, conversion optimization, growth marketing, SEO, and answer engine optimization.
           Known for building Hyperglork AI, Notemind AI, and Fluxberry AI.
+          He also writes about AI, product strategy, GTM systems, recruitment, and startup scaling.
         </section>
         <Footer />
       </div>

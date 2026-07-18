@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { MapPin, Clock, Music, Pause } from "lucide-react";
-import { useState, useEffect, useMemo, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const ROLES = ["Product Manager", "AI Product Manager", "Growth Product Manager"];
@@ -39,8 +39,10 @@ export default function Hero() {
                     setDisplayedText(displayedText.slice(0, -1));
                 }, 38);
             } else {
-                setRoleIndex((i) => (i + 1) % ROLES.length);
-                setPhase("typing");
+                timeout = setTimeout(() => {
+                    setRoleIndex((i) => (i + 1) % ROLES.length);
+                    setPhase("typing");
+                }, 0);
             }
         }
 
@@ -97,17 +99,8 @@ export default function Hero() {
         setIsLofiPlaying(!isLofiPlaying);
     };
 
-    const starPositions = useMemo(() => {
-        return [...Array(50)].map(() => ({
-            top: `${Math.random() * 100}%`,
-            left: `${Math.random() * 100}%`,
-            duration: 2 + Math.random() * 3,
-            delay: Math.random() * 5,
-        }));
-    }, []);
-
     return (
-        <div className="screen-line-after flex flex-col border-x border-edge sm:flex-row">
+        <section id="about" className="screen-line-after flex flex-col border-x border-edge sm:flex-row" aria-label="About Me">
             {/* Avatar column — chanhdai.com pattern: no padding on outer, tiny margin on inner, ring-offset for the floating ring */}
             <div className="flex w-full shrink-0 items-center justify-center border-b border-edge sm:w-auto sm:border-r sm:border-b-0">
                 <div className="mx-0.5 my-[3px]">
@@ -286,6 +279,6 @@ export default function Hero() {
                 </div>
 
             </div>
-        </div>
+        </section>
     );
 }

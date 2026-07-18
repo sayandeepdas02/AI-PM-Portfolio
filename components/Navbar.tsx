@@ -2,27 +2,46 @@
 
 import Link from "next/link";
 import { Moon, Sun, Menu, X, FileText } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { BookACallButton } from "@/components/ui/BookACallButton";
 
+function subscribeToTheme(callback: () => void) {
+    if (typeof window === "undefined") {
+        return () => undefined;
+    }
+
+    const handler = () => callback();
+    window.addEventListener("storage", handler);
+    window.addEventListener("themechange", handler);
+
+    return () => {
+        window.removeEventListener("storage", handler);
+        window.removeEventListener("themechange", handler);
+    };
+}
+
+function getThemeSnapshot() {
+    if (typeof document === "undefined") {
+        return false;
+    }
+
+    return document.documentElement.classList.contains("dark");
+}
+
 export default function Navbar() {
-    const [isDark, setIsDark] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const pathname = usePathname();
     const router = useRouter();
+    const isDark = useSyncExternalStore(subscribeToTheme, getThemeSnapshot, () => false);
 
     useEffect(() => {
-        // Check for saved theme preference or default to light
         const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
-            setIsDark(true);
-            document.documentElement.classList.add('dark');
-        }
+        document.documentElement.classList.toggle('dark', savedTheme === 'dark');
+        window.dispatchEvent(new Event("themechange"));
     }, []);
 
     const toggleTheme = () => {
-        setIsDark(!isDark);
         if (!isDark) {
             document.documentElement.classList.add('dark');
             localStorage.setItem('theme', 'dark');
@@ -30,6 +49,7 @@ export default function Navbar() {
             document.documentElement.classList.remove('dark');
             localStorage.setItem('theme', 'light');
         }
+        window.dispatchEvent(new Event("themechange"));
     };
 
     const scrollToSection = (sectionId: string) => {
@@ -76,7 +96,19 @@ export default function Navbar() {
                     </button>
 
                     {/* Center: Navigation Links (desktop) */}
-                    <div className="hidden md:flex items-center gap-6 flex-1 justify-center">
+                    <div className="hidden md:flex items-center gap-4 flex-1 justify-center">
+                        <button
+                            onClick={() => scrollToSection('about')}
+                            className="text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-foreground after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100"
+                        >
+                            About Me
+                        </button>
+                        <Link
+                            href="/blog"
+                            className="text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-foreground after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100"
+                        >
+                            Blogs
+                        </Link>
                         <button
                             onClick={() => scrollToSection('experience')}
                             className="text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-foreground after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100"
@@ -84,16 +116,16 @@ export default function Navbar() {
                             Experience
                         </button>
                         <button
-                            onClick={() => scrollToSection('projects')}
-                            className="text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-foreground after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100"
-                        >
-                            Projects
-                        </button>
-                        <button
                             onClick={() => scrollToSection('education')}
                             className="text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-foreground after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100"
                         >
                             Education
+                        </button>
+                        <button
+                            onClick={() => scrollToSection('projects')}
+                            className="text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-foreground after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100"
+                        >
+                            Projects
                         </button>
                     </div>
 
@@ -138,6 +170,22 @@ export default function Navbar() {
                         <div className="mx-3 my-3 rounded-lg border border-edge bg-background p-4 shadow-sm">
                             <button
                                 onClick={() => {
+                                    scrollToSection('about');
+                                    setIsMobileMenuOpen(false);
+                                }}
+                                className="block w-full text-left py-3 text-base font-medium text-foreground hover:text-muted-foreground transition-colors"
+                            >
+                                About Me
+                            </button>
+                            <Link
+                                href="/blog"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                                className="block w-full text-left py-3 text-base font-medium text-foreground hover:text-muted-foreground transition-colors"
+                            >
+                                Blogs
+                            </Link>
+                            <button
+                                onClick={() => {
                                     scrollToSection('experience');
                                     setIsMobileMenuOpen(false);
                                 }}
@@ -147,21 +195,21 @@ export default function Navbar() {
                             </button>
                             <button
                                 onClick={() => {
-                                    scrollToSection('projects');
-                                    setIsMobileMenuOpen(false);
-                                }}
-                                className="block w-full text-left py-3 text-base font-medium text-foreground hover:text-muted-foreground transition-colors"
-                            >
-                                Projects
-                            </button>
-                            <button
-                                onClick={() => {
                                     scrollToSection('education');
                                     setIsMobileMenuOpen(false);
                                 }}
                                 className="block w-full text-left py-3 text-base font-medium text-foreground hover:text-muted-foreground transition-colors"
                             >
                                 Education
+                            </button>
+                            <button
+                                onClick={() => {
+                                    scrollToSection('projects');
+                                    setIsMobileMenuOpen(false);
+                                }}
+                                className="block w-full text-left py-3 text-base font-medium text-foreground hover:text-muted-foreground transition-colors"
+                            >
+                                Projects
                             </button>
                             <div className="pt-2 mt-2 border-t border-edge flex flex-col gap-2">
                                 <BookACallButton
