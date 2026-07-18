@@ -98,18 +98,6 @@ export default function Navbar() {
                     {/* Center: Navigation Links (desktop) */}
                     <div className="hidden md:flex items-center gap-4 flex-1 justify-center">
                         <button
-                            onClick={() => scrollToSection('about')}
-                            className="text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-foreground after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100"
-                        >
-                            About Me
-                        </button>
-                        <Link
-                            href="/blog"
-                            className="text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-foreground after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100"
-                        >
-                            Blogs
-                        </Link>
-                        <button
                             onClick={() => scrollToSection('experience')}
                             className="text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-foreground after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100"
                         >
@@ -168,22 +156,6 @@ export default function Navbar() {
                 {isMobileMenuOpen && (
                     <div className="md:hidden absolute top-14 left-0 right-0 bg-background border-b border-edge shadow-lg">
                         <div className="mx-3 my-3 rounded-lg border border-edge bg-background p-4 shadow-sm">
-                            <button
-                                onClick={() => {
-                                    scrollToSection('about');
-                                    setIsMobileMenuOpen(false);
-                                }}
-                                className="block w-full text-left py-3 text-base font-medium text-foreground hover:text-muted-foreground transition-colors"
-                            >
-                                About Me
-                            </button>
-                            <Link
-                                href="/blog"
-                                onClick={() => setIsMobileMenuOpen(false)}
-                                className="block w-full text-left py-3 text-base font-medium text-foreground hover:text-muted-foreground transition-colors"
-                            >
-                                Blogs
-                            </Link>
                             <button
                                 onClick={() => {
                                     scrollToSection('experience');
