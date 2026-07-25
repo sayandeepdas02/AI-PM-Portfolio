@@ -257,7 +257,7 @@ export default function Hero() {
 
                         {/* X (Twitter) */}
                         <a
-                            href="https://x.com/sayan_not_deep"
+                            href="https://x.com/deepmaxxing"
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="X (Twitter)"

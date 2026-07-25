@@ -17,7 +17,7 @@ export const socialLinks: SocialLink[] = [
     },
     {
         name: "Twitter",
-        url: "https://x.com/sayan_not_deep",
+        url: "https://x.com/deepmaxxing",
         icon: "Twitter",
     },
     {
