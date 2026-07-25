@@ -155,7 +155,7 @@ export default function RootLayout({
                   "sameAs": [
                     "https://www.linkedin.com/in/sayandeep02/",
                     "https://github.com/sayandeepdas02",
-                    "https://x.com/sayan_not_deep"
+                    "https://x.com/deepmaxxing"
                   ],
                   "knowsAbout": [
                     "Product Management",
@@ -191,7 +191,7 @@ export default function RootLayout({
         />
         <link rel="me" href="https://www.linkedin.com/in/sayandeep02/" />
         <link rel="me" href="https://github.com/sayandeepdas02" />
-        <link rel="me" href="https://x.com/sayan_not_deep" />
+        <link rel="me" href="https://x.com/deepmaxxing" />
         <link rel="me" href="mailto:reachsayandeep@gmail.com" />
       </head>
       <body>{children}</body>
