@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     template: '%s | Sayandeep Das',
   },
   description:
-    'Sayandeep Das is a Growth Product Manager and AI PM from IIT Guwahati, currently at Trelium (YC F25). Specializes in 0→1 AI products, GTM strategy, growth funnels, agentic AI, and B2B SaaS. Based in Bengaluru, India.',
+    'Sayandeep Das is a GTM Engineer at HydraDB, previously at Trelium (YC F25). Specializes in AEO, SEO, growth engineering, 0→1 AI products, GTM strategy, and B2B SaaS. Based in San Francisco.',
   keywords: [
     'Sayandeep Das',
     'Sayandeep Das Product Manager',
@@ -36,6 +36,7 @@ export const metadata: Metadata = {
     'B2B SaaS PM India',
     'Agentic AI Product Manager',
     'LLM Product Manager',
+    'HydraDB GTM Engineer',
     'Trelium YC F25',
     'SuperAGI Product Manager',
     'IIT Guwahati Data Science',
@@ -80,7 +81,7 @@ export const metadata: Metadata = {
     siteName: 'Sayandeep Das — Portfolio',
     title: 'Sayandeep Das | Growth PM & AI Product Manager | IIT Guwahati',
     description:
-      'Growth PM and AI Product Manager at Trelium (YC F25). Built AI products scaling to 500+ DAUs and 5,000+ monthly automated actions. IIT Guwahati, ex-SuperAGI.',
+      'GTM Engineer at HydraDB. Previously at Trelium (YC F25). Specializes in AEO, growth engineering, and AI-driven GTM. IIT Guwahati, ex-SuperAGI.',
     images: [
       {
         url: 'https://ai.sayandeep.space/og-image.jpg',
@@ -94,7 +95,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Sayandeep Das | Growth PM & AI Product Manager | IIT Guwahati',
     description:
-      'Growth PM at Trelium (YC F25). AI products, GTM strategy, 0→1 development. IIT Guwahati.',
+      'GTM Engineer at HydraDB. AEO, growth engineering, AI-driven GTM. Previously Trelium (YC F25). IIT Guwahati.',
     images: ['https://ai.sayandeep.space/og-image.jpg'],
     creator: '@sayan_not_deep',
     site: '@sayan_not_deep',
@@ -131,12 +132,12 @@ export default function RootLayout({
                     "width": 400,
                     "height": 400
                   },
-                  "jobTitle": "Growth Product Manager",
+                  "jobTitle": "GTM Engineer",
                   "worksFor": {
                     "@type": "Organization",
-                    "name": "Trelium",
-                    "url": "https://trelium.com",
-                    "description": "Y Combinator-backed AI agent platform (YC F25)"
+                    "name": "HydraDB",
+                    "url": "https://hydradb.com",
+                    "description": "Next-generation database platform"
                   },
                   "alumniOf": {
                     "@type": "EducationalOrganization",
@@ -144,7 +145,7 @@ export default function RootLayout({
                     "url": "https://www.iitg.ac.in",
                     "sameAs": "https://en.wikipedia.org/wiki/Indian_Institute_of_Technology_Guwahati"
                   },
-                  "description": "Growth Product Manager and AI PM specializing in 0→1 AI products, GTM strategy, agentic AI workflows, and B2B SaaS growth. Currently at Trelium (YC F25), ex-SuperAGI.",
+                  "description": "GTM Engineer specializing in AEO, growth engineering, 0→1 AI products, and B2B SaaS growth. Currently at HydraDB, ex-Trelium (YC F25), ex-SuperAGI.",
                   "email": "reachsayandeep@gmail.com",
                   "address": {
                     "@type": "PostalAddress",
