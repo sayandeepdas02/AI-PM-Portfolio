@@ -1,8 +1,9 @@
 "use client";
 
 import { Calendar } from "lucide-react";
-import { usePathname, useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
+
+const CALENDLY_URL = "https://calendly.com/reachsayandeep/30mins-with-sayandeep";
 
 interface BookACallButtonProps {
     /** Extra classes — use to override size/padding for different contexts */
@@ -21,16 +22,9 @@ export function BookACallButton({
     variant = "solid",
     onNavigate,
 }: BookACallButtonProps) {
-    const pathname = usePathname();
-    const router = useRouter();
-
     const handleClick = () => {
         onNavigate?.();
-        if (pathname !== "/") {
-            router.push("/#book-a-call");
-            return;
-        }
-        document.getElementById("book-a-call")?.scrollIntoView({ behavior: "smooth", block: "start" });
+        window.open(CALENDLY_URL, "_blank", "noopener,noreferrer");
     };
 
     if (variant === "ghost") {
