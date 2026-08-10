@@ -11,10 +11,24 @@ export interface Experience {
 
 export const experiences: Experience[] = [
     {
-        role: "Member of GTM Staff / GTM Engineer",
+        role: "GTM Engineer",
+        company: "HydraDB",
+        period: "Jul 2026 - Present",
+        duration: "2 mons",
+        location: "San Francisco, California, USA",
+        description: [
+            "Built end-to-end AEO (Answer Engine Optimization) infrastructure, improving HydraDB's visibility across ChatGPT and Claude by 34% through structured content strategy and AI-friendly optimization.",
+            "Designed and shipped an internal growth tool to track all GTM movement across SEO, Search Console, blogs, and website analytics — enabling data-driven GTM decisions, optimizing spend, and saving $28K/yr.",
+            "Built an internal Content Scraper to discover and catalog all HydraDB-related content across platforms like Reddit, X, and forums, identifying visibility gaps and new distribution opportunities."
+        ],
+        techStack: ["AEO", "SEO", "Growth Engineering", "Content Strategy", "Analytics", "Python"],
+        logo: "/logos/hydradb.png"
+    },
+    {
+        role: "GTM Engineer",
         company: "Trelium (YC F25)",
-        period: "Apr 2026 - ∞",
-        duration: "3 mons",
+        period: "Apr 2026 - Jul 2026",
+        duration: "4 mons",
         location: "San Francisco, USA (Remote)",
         description: [
             "Owned the end-to-end growth funnel for an AI campaign automation platform, driving a 18% increase in qualified signups through SEO, onboarding optimization, and conversion-focused UX improvements.",
