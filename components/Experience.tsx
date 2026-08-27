@@ -146,8 +146,13 @@ export default function Experience() {
             </PanelHeader>
 
             <div>
-                {experiences.map((job) => (
-                    <ExperienceItem key={`${job.company}-${job.role}`} job={job} />
+                {experiences.map((job, i) => (
+                    <div key={`${job.company}-${job.role}`}>
+                        <ExperienceItem job={job} />
+                        {i < experiences.length - 1 && (
+                            <div className="mx-4 border-t border-dashed border-edge" />
+                        )}
+                    </div>
                 ))}
             </div>
         </Panel>
