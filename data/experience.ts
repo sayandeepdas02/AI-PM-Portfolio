@@ -77,6 +77,7 @@ export const experiences: Experience[] = [
         location: "Bengaluru, India",
         description: [
             "0 → 0.1 Journey | Product, Marketing, CX, Sales ~ Everything",
+            "Built a $20K ARR business from scratch — had to shut it down due to unsustainable unit economics and no funding.",
             "Learned a lot from scratch, how to build a product, how to hire, how to pitch to investors, a lot of what I am today is because of this phase of my life.",
             "Felt in love with the process of building stuff, always looking for the next opportunity to build something.",
             "Failing at my first venture, taught me things beyond any Ivy League could, a massive eye opener for me at a young age.",
