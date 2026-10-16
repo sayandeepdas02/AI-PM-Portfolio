@@ -100,7 +100,7 @@ export default function Hero() {
                 {/* ── Identity: name → profile links → location / time / lofi ── */}
                 <div className="flex flex-col gap-3 sm:gap-4">
                     <div className="flex items-center gap-2.5">
-                        <h1 className="-translate-y-px text-3xl sm:text-4xl font-serif font-normal italic tracking-tight leading-none">
+                        <h1 className="-translate-y-px text-3xl sm:text-4xl font-serif font-normal tracking-tight leading-none">
                             Sayandeep Das
                         </h1>
                         {/* Verified Icon */}

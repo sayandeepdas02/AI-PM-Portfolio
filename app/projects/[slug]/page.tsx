@@ -129,7 +129,7 @@ export default async function ProjectDetails({ params }: { params: Promise<{ slu
                                             />
                                         </div>
                                     ) : (
-                                        <div className="size-16 md:size-20 rounded-2xl flex items-center justify-center bg-zinc-900 border border-edge text-3xl font-serif italic text-white/50 shrink-0 shadow-md">
+                                        <div className="size-16 md:size-20 rounded-2xl flex items-center justify-center bg-zinc-900 border border-edge text-3xl font-serif text-white/50 shrink-0 shadow-md">
                                             {project.name.charAt(0)}
                                         </div>
                                     )}

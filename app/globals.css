@@ -31,9 +31,9 @@
   --color-selection: var(--selection);
   --color-selection-foreground: var(--selection-foreground);
 
-  --font-sans: var(--font-roboto-flex);
-  --font-mono: var(--font-roboto-flex);
-  --font-serif: var(--font-instrument);
+  --font-sans: var(--font-noto-sans);
+  --font-mono: var(--font-noto-sans);
+  --font-serif: "Geist Pixel", var(--font-noto-sans), sans-serif;
 
   /* Neobrutalism button tokens. Border/ring are namespaced (nb-*) because
      --color-border / --color-ring already drive the site's grid lines and focus rings. */

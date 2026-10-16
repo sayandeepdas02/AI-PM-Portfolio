@@ -1,20 +1,13 @@
 import type { Metadata } from "next";
-import { Roboto_Flex, Instrument_Serif } from "next/font/google";
+import { Noto_Sans } from "next/font/google";
 import "./globals.css";
 import { SITE_URL } from "@/lib/site";
 
 const ogImageUrl = `${SITE_URL}/opengraph-portfolio.png`;
 
-const robotoFlex = Roboto_Flex({
+const notoSans = Noto_Sans({
   subsets: ["latin"],
-  variable: "--font-roboto-flex",
-});
-
-const instrumentSerif = Instrument_Serif({
-  subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
-  variable: "--font-instrument",
+  variable: "--font-noto-sans",
 });
 
 export const metadata: Metadata = {
@@ -107,10 +100,15 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${robotoFlex.variable} ${instrumentSerif.variable}`}
+      className={notoSans.variable}
       suppressHydrationWarning
     >
       <head>
+        {/* Geist Pixel (headlines) isn't in next/font's catalogue yet, so it loads from Google Fonts */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
+        <link href="https://fonts.googleapis.com/css2?family=Geist+Pixel&display=swap" rel="stylesheet" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
