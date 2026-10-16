@@ -5,9 +5,8 @@ import Link from "next/link";
 import { Github, Globe, ArrowLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
-import { Panel, PanelHeader, PanelTitle, PanelContent } from "@/components/ui/panel";
+import { Panel, PanelContent, PanelHeader, PanelStack, PanelTitle } from "@/components/ui/panel";
 import type { Metadata } from "next";
 import { SITE_URL } from "@/lib/site";
 
@@ -105,84 +104,199 @@ export default async function ProjectDetails({ params }: { params: Promise<{ slu
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
                 />
             )}
-            <div className="mx-auto md:max-w-3xl *:[[id]]:scroll-mt-22">
+            <div className="mx-auto md:max-w-3xl">
                 <Navbar />
+                <PanelStack>
+                    <Panel>
+                        <PanelHeader className="flex flex-col gap-6 mb-6">
+                            {/* Back button */}
+                            <Link href="/#projects" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors w-fit group">
+                                <ArrowLeft className="size-4 transition-transform group-hover:-translate-x-1" />
+                                Back to Portfolio
+                            </Link>
 
-                <Panel className="pt-6">
-                    <PanelHeader className="flex flex-col gap-6 pb-6">
-                        {/* Back button */}
-                        <Link href="/#projects" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors w-fit group">
-                            <ArrowLeft className="size-4 transition-transform group-hover:-translate-x-1" />
-                            Back to Portfolio
-                        </Link>
+                            {/* Logo and Project Name / Action CTA */}
+                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                                <div className="flex items-center gap-4">
+                                    {project.image ? (
+                                        <div className="relative size-16 md:size-20 rounded-2xl overflow-hidden border border-edge shrink-0 bg-zinc-900 shadow-md">
+                                            <Image
+                                                src={project.image}
+                                                alt={project.name}
+                                                fill
+                                                className="object-cover"
+                                                unoptimized
+                                            />
+                                        </div>
+                                    ) : (
+                                        <div className="size-16 md:size-20 rounded-2xl flex items-center justify-center bg-zinc-900 border border-edge text-3xl font-serif italic text-white/50 shrink-0 shadow-md">
+                                            {project.name.charAt(0)}
+                                        </div>
+                                    )}
+                                    <div className="flex flex-col gap-1.5">
+                                        <span className="px-2 py-0.5 text-[10px] font-mono uppercase tracking-wider rounded border border-edge bg-muted text-muted-foreground inline-block w-fit">
+                                            {project.category}
+                                        </span>
+                                        <PanelTitle className="text-2xl md:text-3xl text-balance">
+                                            {project.name}
+                                        </PanelTitle>
+                                    </div>
+                                </div>
 
-                        {/* Logo and Project Name / Action CTA */}
-                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                            <div className="flex items-center gap-4">
-                                {project.image ? (
-                                    <div className="relative size-16 md:size-20 rounded-2xl overflow-hidden border border-edge shrink-0 bg-zinc-900 shadow-md">
-                                        <Image
-                                            src={project.image}
-                                            alt={project.name}
-                                            fill
-                                            className="object-cover"
-                                            unoptimized
+                                {/* "Open in Drive" Button (Case Studies) */}
+                                {project.type === "case-study" && project.liveUrl && (
+                                    <Button asChild className="self-start sm:self-center shrink-0">
+                                        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                                            <Globe />
+                                            <span>Open in Drive</span>
+                                        </a>
+                                    </Button>
+                                )}
+                            </div>
+                        </PanelHeader>
+
+                        <PanelContent className="overflow-hidden p-0">
+                            {project.type === "case-study" ? (
+                                /* Case Study layout: PDF iframe on top, metadata below */
+                                <div className="flex flex-col gap-6 p-4 md:p-6">
+                                    {/* PDF Viewer */}
+                                    <div className="w-full h-[650px] bg-secondary/20 relative rounded-xl overflow-hidden border border-edge shadow-md">
+                                        <iframe
+                                            src={project.liveUrl?.replace("view?usp=sharing", "preview")}
+                                            className="w-full h-full border-none absolute inset-0"
+                                            title={`${project.name} PDF Viewer`}
+                                            allow="autoplay"
                                         />
                                     </div>
-                                ) : (
-                                    <div className="size-16 md:size-20 rounded-2xl flex items-center justify-center bg-zinc-900 border border-edge text-3xl font-serif italic text-white/50 shrink-0 shadow-md">
-                                        {project.name.charAt(0)}
+
+                                    {/* Project Details below PDF */}
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                                        {/* Left Column: Description & Tech Stack */}
+                                        <div className="flex flex-col gap-6">
+                                            <div>
+                                                <h3 className="text-sm font-medium mb-2 uppercase tracking-wider text-muted-foreground">Case Study Overview</h3>
+                                                <p className="text-sm text-foreground/90 leading-relaxed">
+                                                    {project.description}
+                                                </p>
+                                            </div>
+
+                                            <div>
+                                                <h3 className="text-sm font-medium mb-2 uppercase tracking-wider text-muted-foreground">Focus Areas & Skills</h3>
+                                                <div className="flex flex-wrap gap-2">
+                                                    {project.techStack.map((tech) => (
+                                                        <span
+                                                            key={tech}
+                                                            className="px-2.5 py-1 text-xs font-mono rounded border border-edge bg-background text-muted-foreground shadow-sm"
+                                                        >
+                                                            {tech}
+                                                        </span>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {/* Right Column: Key details */}
+                                        {project.details && project.details.length > 0 && (
+                                            <div>
+                                                <h3 className="text-sm font-medium mb-2 uppercase tracking-wider text-muted-foreground">Key Insights & Recommendations</h3>
+                                                <ul className="list-disc pl-5 space-y-2 text-sm text-foreground/90">
+                                                    {project.details.map((detail, idx) => (
+                                                        <li key={idx} className="leading-relaxed">{detail}</li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        )}
                                     </div>
-                                )}
-                                <div className="flex flex-col gap-1.5">
-                                    <span className="px-2 py-0.5 text-[10px] font-mono uppercase tracking-wider rounded border border-edge bg-muted text-muted-foreground inline-block w-fit">
-                                        {project.category}
-                                    </span>
-                                    <PanelTitle className="text-2xl md:text-3xl text-balance">
-                                        {project.name}
-                                    </PanelTitle>
                                 </div>
-                            </div>
+                            ) : (
+                                /* Standard 2-column layout for other projects */
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-4 md:p-6 items-start">
+                                
+                                    {/* Left Column: Video & Action Buttons */}
+                                    <div className="flex flex-col gap-4">
+                                        <div className="w-full aspect-video rounded-xl overflow-hidden border border-edge bg-zinc-950 shadow-xl ring-1 ring-white/10">
+                                            {project.demoUrl ? (
+                                                <iframe 
+                                                    src={project.demoUrl} 
+                                                    title={`${project.name} Demo`} 
+                                                    className="w-full h-full"
+                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                                    allowFullScreen
+                                                ></iframe>
+                                            ) : (
+                                                <div className="w-full h-full flex items-center justify-center bg-zinc-900 relative">
+                                                    {project.image ? (
+                                                        <Image
+                                                            src={project.image}
+                                                            alt={project.name}
+                                                            fill
+                                                            className="object-cover opacity-60"
+                                                            unoptimized
+                                                        />
+                                                    ) : (
+                                                        <span className="text-muted-foreground font-mono text-sm">No preview available</span>
+                                                    )}
+                                                </div>
+                                            )}
+                                        </div>
+                                    
+                                        {/* Action Buttons underneath the video */}
+                                        <div className="grid grid-cols-2 gap-3">
+                                            {project.githubUrl ? (
+                                                <Button asChild variant="neutral" className="w-full">
+                                                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                                                        <Github />
+                                                        Github
+                                                    </a>
+                                                </Button>
+                                            ) : (
+                                                <Button variant="neutral" disabled className="w-full">
+                                                    <Github />
+                                                    Github
+                                                </Button>
+                                            )}
 
-                            {/* "Open in Drive" Button (Case Studies) */}
-                            {project.type === "case-study" && project.liveUrl && (
-                                <Button asChild className="self-start sm:self-center shrink-0">
-                                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                                        <Globe />
-                                        <span>Open in Drive</span>
-                                    </a>
-                                </Button>
-                            )}
-                        </div>
-                    </PanelHeader>
+                                            {project.liveUrl ? (
+                                                <Button asChild className="w-full">
+                                                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                                                        <Globe />
+                                                        Live
+                                                    </a>
+                                                </Button>
+                                            ) : (
+                                                <Button disabled className="w-full">
+                                                    <Globe />
+                                                    Live
+                                                </Button>
+                                            )}
+                                        </div>
+                                    </div>
 
-                    <PanelContent className="p-0">
-                        {project.type === "case-study" ? (
-                            /* Case Study layout: PDF iframe on top, metadata below */
-                            <div className="flex flex-col gap-6 p-4 md:p-6 border-t border-edge bg-accent/5">
-                                {/* PDF Viewer */}
-                                <div className="w-full h-[650px] bg-secondary/20 relative rounded-xl overflow-hidden border border-edge shadow-md">
-                                    <iframe
-                                        src={project.liveUrl?.replace("view?usp=sharing", "preview")}
-                                        className="w-full h-full border-none absolute inset-0"
-                                        title={`${project.name} PDF Viewer`}
-                                        allow="autoplay"
-                                    />
-                                </div>
-
-                                {/* Project Details below PDF */}
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6 border-t border-edge/60">
-                                    {/* Left Column: Description & Tech Stack */}
+                                    {/* Right Column: Project Description */}
                                     <div className="flex flex-col gap-6">
+                                        {/* Description */}
                                         <div>
-                                            <h3 className="text-sm font-medium mb-2 uppercase tracking-wider text-muted-foreground">Case Study Overview</h3>
+                                            <h3 className="text-sm font-medium mb-2 uppercase tracking-wider text-muted-foreground">Project Overview</h3>
                                             <p className="text-sm text-foreground/90 leading-relaxed">
                                                 {project.description}
                                             </p>
                                         </div>
 
+                                        {/* Details */}
+                                        {project.details && project.details.length > 0 && (
+                                            <div>
+                                                <h3 className="text-sm font-medium mb-2 uppercase tracking-wider text-muted-foreground">Key Features</h3>
+                                                <ul className="list-disc pl-5 space-y-2 text-sm text-foreground/90">
+                                                    {project.details.map((detail, idx) => (
+                                                        <li key={idx} className="leading-relaxed">{detail}</li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        )}
+
+                                        {/* Tech Stack */}
                                         <div>
-                                            <h3 className="text-sm font-medium mb-2 uppercase tracking-wider text-muted-foreground">Focus Areas & Skills</h3>
+                                            <h3 className="text-sm font-medium mb-2 uppercase tracking-wider text-muted-foreground">Tech Stack</h3>
                                             <div className="flex flex-wrap gap-2">
                                                 {project.techStack.map((tech) => (
                                                     <span
@@ -195,128 +309,12 @@ export default async function ProjectDetails({ params }: { params: Promise<{ slu
                                             </div>
                                         </div>
                                     </div>
-
-                                    {/* Right Column: Key details */}
-                                    {project.details && project.details.length > 0 && (
-                                        <div>
-                                            <h3 className="text-sm font-medium mb-2 uppercase tracking-wider text-muted-foreground">Key Insights & Recommendations</h3>
-                                            <ul className="list-disc pl-5 space-y-2 text-sm text-foreground/90">
-                                                {project.details.map((detail, idx) => (
-                                                    <li key={idx} className="leading-relaxed">{detail}</li>
-                                                ))}
-                                            </ul>
-                                        </div>
-                                    )}
                                 </div>
-                            </div>
-                        ) : (
-                            /* Standard 2-column layout for other projects */
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-4 md:p-6 items-start border-t border-edge bg-accent/5">
-                                
-                                {/* Left Column: Video & Action Buttons */}
-                                <div className="flex flex-col gap-4">
-                                    <div className="w-full aspect-video rounded-xl overflow-hidden border border-edge bg-zinc-950 shadow-xl ring-1 ring-white/10">
-                                        {project.demoUrl ? (
-                                            <iframe 
-                                                src={project.demoUrl} 
-                                                title={`${project.name} Demo`} 
-                                                className="w-full h-full"
-                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                                                allowFullScreen
-                                            ></iframe>
-                                        ) : (
-                                            <div className="w-full h-full flex items-center justify-center bg-zinc-900 relative">
-                                                {project.image ? (
-                                                    <Image
-                                                        src={project.image}
-                                                        alt={project.name}
-                                                        fill
-                                                        className="object-cover opacity-60"
-                                                        unoptimized
-                                                    />
-                                                ) : (
-                                                    <span className="text-muted-foreground font-mono text-sm">No preview available</span>
-                                                )}
-                                            </div>
-                                        )}
-                                    </div>
-                                    
-                                    {/* Action Buttons underneath the video */}
-                                    <div className="grid grid-cols-2 gap-3">
-                                        {project.githubUrl ? (
-                                            <Button asChild variant="neutral" className="w-full">
-                                                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                                                    <Github />
-                                                    Github
-                                                </a>
-                                            </Button>
-                                        ) : (
-                                            <Button variant="neutral" disabled className="w-full">
-                                                <Github />
-                                                Github
-                                            </Button>
-                                        )}
-
-                                        {project.liveUrl ? (
-                                            <Button asChild className="w-full">
-                                                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                                                    <Globe />
-                                                    Live
-                                                </a>
-                                            </Button>
-                                        ) : (
-                                            <Button disabled className="w-full">
-                                                <Globe />
-                                                Live
-                                            </Button>
-                                        )}
-                                    </div>
-                                </div>
-
-                                {/* Right Column: Project Description */}
-                                <div className="flex flex-col gap-6">
-                                    {/* Description */}
-                                    <div>
-                                        <h3 className="text-sm font-medium mb-2 uppercase tracking-wider text-muted-foreground">Project Overview</h3>
-                                        <p className="text-sm text-foreground/90 leading-relaxed">
-                                            {project.description}
-                                        </p>
-                                    </div>
-
-                                    {/* Details */}
-                                    {project.details && project.details.length > 0 && (
-                                        <div>
-                                            <h3 className="text-sm font-medium mb-2 uppercase tracking-wider text-muted-foreground">Key Features</h3>
-                                            <ul className="list-disc pl-5 space-y-2 text-sm text-foreground/90">
-                                                {project.details.map((detail, idx) => (
-                                                    <li key={idx} className="leading-relaxed">{detail}</li>
-                                                ))}
-                                            </ul>
-                                        </div>
-                                    )}
-
-                                    {/* Tech Stack */}
-                                    <div>
-                                        <h3 className="text-sm font-medium mb-2 uppercase tracking-wider text-muted-foreground">Tech Stack</h3>
-                                        <div className="flex flex-wrap gap-2">
-                                            {project.techStack.map((tech) => (
-                                                <span
-                                                    key={tech}
-                                                    className="px-2.5 py-1 text-xs font-mono rounded border border-edge bg-background text-muted-foreground shadow-sm"
-                                                >
-                                                    {tech}
-                                                </span>
-                                            ))}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        )}
-                    </PanelContent>
-                </Panel>
-                
-                <Separator />
-                <Footer />
+                            )}
+                        </PanelContent>
+                    </Panel>
+                    <Footer />
+                </PanelStack>
             </div>
         </main>
     );

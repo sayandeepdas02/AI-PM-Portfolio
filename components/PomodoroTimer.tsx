@@ -84,7 +84,7 @@ export function PomodoroTimer() {
     };
 
     return (
-        <Panel id="pomodoro" className="relative mb-16 w-full text-left">
+        <Panel id="pomodoro" className="relative w-full text-left">
             <PanelHeader className="flex items-center justify-between">
                 <PanelTitle>Pomodoro Timer</PanelTitle>
                 <button
@@ -113,12 +113,12 @@ export function PomodoroTimer() {
                 )}
             </AnimatePresence>
 
-            <div className="w-full text-left p-4 border-l border-dashed border-edge">
+            <div className="w-full text-left">
                 <p className="text-sm italic text-muted-foreground mb-6">
                     You&apos;ve reached the end! Or have you? Before you vanish into the digital void, I&apos;ve got a quick Pomodoro Timer to help you focus better on your next big thing (or just to remind you to stop doomscrolling).
                 </p>
 
-                <div className="relative z-10 overflow-hidden rounded-2xl border border-edge bg-background p-6 shadow-sm transition-all dark:bg-zinc-900/50">
+                <div className="relative z-10 overflow-hidden rounded-xl border border-border bg-background p-6 shadow-sm transition-all dark:bg-zinc-900/50">
                     <AnimatePresence mode="wait">
                         {showSettings ? (
                             <motion.div
@@ -205,7 +205,7 @@ export function PomodoroTimer() {
                 {completed && (
                     <button
                         onClick={() => setCompleted(false)}
-                        className="mt-4 ml-4 text-[10px] font-bold uppercase tracking-widest text-purple-500 transition-opacity hover:opacity-100"
+                        className="mt-4 text-[10px] font-bold uppercase tracking-widest text-purple-500 transition-opacity hover:opacity-100"
                     >
                         Dismiss Alarm
                     </button>

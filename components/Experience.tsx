@@ -6,7 +6,7 @@ import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 
 import { experiences, type Experience as ExperienceEntry } from "@/data/experience";
-import { Panel, PanelHeader, PanelTitle } from "@/components/ui/panel";
+import { Panel, PanelContent, PanelHeader, PanelTitle } from "@/components/ui/panel";
 import { cn } from "@/lib/utils";
 
 const PREVIEW_COUNT = 2;
@@ -98,10 +98,10 @@ function ExperienceItem({ job }: { job: ExperienceEntry }) {
             onPointerEnter={onPointerEnter}
             onPointerMove={onPointerMove}
             onPointerLeave={onPointerLeave}
-            className="flex items-start transition-colors duration-300 hover:bg-accent2"
+            className="flex items-start gap-3 rounded-lg p-3 transition-colors duration-300 hover:bg-accent2 sm:gap-4 sm:p-4"
         >
             {job.logo ? (
-                <div className="relative mx-3 mt-4 flex size-10 shrink-0 select-none overflow-hidden rounded-lg sm:mx-4">
+                <div className="relative mt-0.5 flex size-10 shrink-0 select-none overflow-hidden rounded-lg">
                     <Image
                         src={job.logo}
                         alt={job.company}
@@ -112,13 +112,13 @@ function ExperienceItem({ job }: { job: ExperienceEntry }) {
                     />
                 </div>
             ) : (
-                <div className="mx-3 mt-4 flex size-10 shrink-0 select-none items-center justify-center rounded-lg border border-muted-foreground/15 bg-muted text-xs font-mono text-muted-foreground ring-1 ring-edge ring-offset-1 ring-offset-background sm:mx-4">
+                <div className="mt-0.5 flex size-10 shrink-0 select-none items-center justify-center rounded-lg border border-muted-foreground/15 bg-muted text-xs font-mono text-muted-foreground">
                     {job.company.charAt(0)}
                 </div>
             )}
 
-            <div className="flex-1 border-l border-dashed border-edge">
-                <div className="p-4">
+            <div className="min-w-0 flex-1">
+                <div>
                     <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
                         <div>
                             <h3 className="mb-1 leading-snug font-medium text-balance">
@@ -209,16 +209,11 @@ export default function Experience() {
                 </PanelTitle>
             </PanelHeader>
 
-            <div>
-                {experiences.map((job, i) => (
-                    <div key={`${job.company}-${job.role}`}>
-                        <ExperienceItem job={job} />
-                        {i < experiences.length - 1 && (
-                            <div className="mx-4 border-t border-dashed border-edge" />
-                        )}
-                    </div>
+            <PanelContent className="flex flex-col gap-1 p-2">
+                {experiences.map((job) => (
+                    <ExperienceItem key={`${job.company}-${job.role}`} job={job} />
                 ))}
-            </div>
+            </PanelContent>
         </Panel>
     );
 }

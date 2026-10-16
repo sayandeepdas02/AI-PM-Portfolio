@@ -5,7 +5,7 @@ import Projects from "@/components/Projects";
 import Education from "@/components/Education";
 import Certifications from "@/components/Certifications";
 import Footer from "@/components/Footer";
-import { Separator } from "@/components/ui/separator";
+import { PanelStack } from "@/components/ui/panel";
 import { GithubGraph } from "@/components/GithubGraph";
 import { TechStack } from "@/components/TechStack";
 import { PomodoroTimer } from "@/components/PomodoroTimer";
@@ -14,39 +14,25 @@ import GetInTouch from "@/components/GetInTouch";
 export default function Home() {
   return (
     <main className="min-h-screen">
-      <div className="mx-auto md:max-w-3xl *:[[id]]:scroll-mt-22">
+      <div className="mx-auto md:max-w-3xl">
         <Navbar />
-        <Hero />
-        <Separator />
-
-        <Experience />
-        <Separator />
-
-        <GithubGraph />
-        <Separator />
-
-        <Projects />
-        <Separator />
-
-        <TechStack />
-        <Separator />
-
-        <Education />
-        <Separator />
-
-        <Certifications />
-        <Separator />
-
-        <GetInTouch />
-        <Separator />
-
-        <PomodoroTimer />
-        <section aria-label="About Sayandeep Das" style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clip: 'rect(0,0,0,0)', whiteSpace: 'nowrap', border: 0 }}>
-          Sayandeep is a GTM Engineer and AI PM from IIT Guwahati, currently at Trelium (YC F25),
-          focused on SEO, AEO, AI automation, onboarding systems, growth funnels, and product-led GTM
-          for AI B2B SaaS. Previously Technical Program Manager at SuperAGI.
-        </section>
-        <Footer />
+        <PanelStack>
+          <Hero />
+          <Experience />
+          <GithubGraph />
+          <Projects />
+          <TechStack />
+          <Education />
+          <Certifications />
+          <GetInTouch />
+          <PomodoroTimer />
+          <section aria-label="About Sayandeep Das" style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clip: 'rect(0,0,0,0)', whiteSpace: 'nowrap', border: 0 }}>
+            Sayandeep is a GTM Engineer and AI PM from IIT Guwahati, currently at Trelium (YC F25),
+            focused on SEO, AEO, AI automation, onboarding systems, growth funnels, and product-led GTM
+            for AI B2B SaaS. Previously Technical Program Manager at SuperAGI.
+          </section>
+          <Footer />
+        </PanelStack>
       </div>
     </main>
   );

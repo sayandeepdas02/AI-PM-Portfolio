@@ -2,7 +2,7 @@
 
 import { Calendar, Check, Mail } from "lucide-react";
 import { motion } from "framer-motion";
-import { Panel, PanelHeader, PanelTitle } from "@/components/ui/panel";
+import { Panel, PanelContent, PanelHeader, PanelTitle } from "@/components/ui/panel";
 import { brandProfiles } from "@/components/ui/brand-icons";
 import { ProfileLink } from "@/components/ui/profile-link";
 import { WalkingScene } from "@/components/WalkingScene";
@@ -16,7 +16,7 @@ export default function GetInTouch() {
                 <PanelTitle>Get in Touch</PanelTitle>
             </PanelHeader>
 
-            <div className="flex flex-col-reverse gap-8 p-4 sm:flex-row sm:items-center sm:gap-6 sm:p-6">
+            <PanelContent className="flex flex-col-reverse gap-8 p-5 sm:flex-row sm:items-center sm:gap-6 sm:p-8">
                 <div className="min-w-0 flex-1">
                     <h3 className="text-lg font-semibold tracking-tight">Let&apos;s build something together</h3>
                     <p className="mt-2 max-w-md text-[15px] leading-relaxed text-muted-foreground text-pretty">
@@ -81,7 +81,7 @@ export default function GetInTouch() {
                         <WalkingScene className="block size-full" />
                     </motion.div>
                 </motion.div>
-            </div>
+            </PanelContent>
         </Panel>
     );
 }

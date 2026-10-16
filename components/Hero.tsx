@@ -74,13 +74,13 @@ export default function Hero() {
     }, []);
 
     return (
-        <div className="screen-line-after flex border-x border-edge">
-            {/* Avatar column — chanhdai.com pattern: no padding on outer, tiny margin on inner, ring-offset for the floating ring */}
-            <div className="shrink-0 border-r border-edge flex items-center justify-center">
-                <div className="mx-0.5 my-[3px]">
+        <div className="flex items-center gap-4 rounded-xl border border-border p-4 sm:gap-6 sm:p-6">
+            {/* Avatar */}
+            <div className="shrink-0">
+                <div>
                     <button
                         onClick={() => setShowEasterEgg(!showEasterEgg)}
-                        className="relative h-32 w-32 sm:h-40 sm:w-40 flex-shrink-0 rounded-full overflow-hidden cursor-pointer active:scale-95 ring-1 ring-border ring-offset-2 ring-offset-background select-none"
+                        className="relative size-24 sm:size-36 flex-shrink-0 rounded-full overflow-hidden cursor-pointer active:scale-95 ring-1 ring-border ring-offset-2 ring-offset-background select-none"
                         aria-label="Toggle Aura Mode"
                     >
                         <Image
@@ -95,13 +95,12 @@ export default function Hero() {
                 </div>
             </div>
 
-            <div className="flex flex-1 flex-col">
+            <div className="flex min-w-0 flex-1 flex-col">
 
-                {/* ── Identity Block — full height flex column so name row owns all slack space ── */}
-                <div className="flex flex-col flex-1">
-                    {/* Name row — primary identity, stretches to fill remaining height */}
-                    <div className="flex flex-1 items-center gap-2.5 pl-5 pr-4 border-b border-edge">
-                        <h1 className="-translate-y-px text-4xl font-serif font-normal italic tracking-tight leading-none">
+                {/* ── Identity: name → profile links → location / time / lofi ── */}
+                <div className="flex flex-col gap-3 sm:gap-4">
+                    <div className="flex items-center gap-2.5">
+                        <h1 className="-translate-y-px text-3xl sm:text-4xl font-serif font-normal italic tracking-tight leading-none">
                             Sayandeep Das
                         </h1>
                         {/* Verified Icon */}
@@ -116,12 +115,12 @@ export default function Hero() {
                     </div>
 
                     {/* Social Links — app icon + label + arrow; icon-only below md so all four fit */}
-                    <div className="border-b border-edge grid grid-cols-4">
-                        {brandProfiles.map((profile, i) => (
+                    <div className="grid grid-cols-4 gap-2">
+                        {brandProfiles.map((profile) => (
                             <ProfileLink
                                 key={profile.name}
                                 profile={profile}
-                                className={`flex items-center justify-center md:justify-start gap-2.5 p-3 transition-colors hover:bg-accent2 cursor-pointer ${i < brandProfiles.length - 1 ? "border-r border-edge" : ""}`}
+                                className="flex items-center justify-center md:justify-start gap-2.5 rounded-lg border border-border p-2 md:px-2.5 transition-colors hover:bg-accent2 cursor-pointer"
                             >
                                 {(copied) => (
                                     <>
@@ -155,7 +154,7 @@ export default function Hero() {
                     </div>
 
                     {/* Location + Time + Lofi — compact secondary metadata row */}
-                    <div className="px-5 py-1.5 flex items-center gap-0 flex-wrap">
+                    <div className="flex flex-wrap items-center gap-y-1">
                         {/* Location */}
                         <div className="flex items-center gap-1 text-muted-foreground/60">
                             <MapPin size={11} strokeWidth={1.5} />

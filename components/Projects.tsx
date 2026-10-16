@@ -4,7 +4,7 @@ import { projects, ProjectType, type Project } from "@/data/projects";
 import { FileText, FolderOpen, Globe, Text } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Panel, PanelHeader, PanelTitle } from "@/components/ui/panel";
+import { Panel, PanelContent, PanelHeader, PanelTitle } from "@/components/ui/panel";
 import { GitHubIcon } from "@/components/ui/brand-icons";
 import { useState, type ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -40,7 +40,7 @@ function ProjectRow({ project }: { project: Project }) {
     const isCaseStudy = project.type === "case-study";
 
     return (
-        <li className="relative flex items-center gap-4 px-4 py-3.5 transition-colors hover:bg-accent2">
+        <li className="relative flex items-center gap-4 rounded-lg px-3 py-3 transition-colors hover:bg-accent2">
             <div className="relative flex size-11 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-edge bg-muted/40 text-muted-foreground/50">
                 {project.image ? (
                     <Image src={project.image} alt="" fill sizes="44px" className="object-cover" />
@@ -54,7 +54,7 @@ function ProjectRow({ project }: { project: Project }) {
                     {/* Stretched link: the whole row opens the project page */}
                     <Link
                         href={`/projects/${project.slug}`}
-                        className="after:absolute after:inset-0 focus-visible:outline-none focus-visible:after:ring-2 focus-visible:after:ring-inset focus-visible:after:ring-ring"
+                        className="after:absolute after:inset-0 after:rounded-lg focus-visible:outline-none focus-visible:after:ring-2 focus-visible:after:ring-inset focus-visible:after:ring-ring"
                     >
                         {name}
                     </Link>
@@ -105,83 +105,85 @@ export default function Projects() {
                 </PanelTitle>
             </PanelHeader>
 
-            {/* Tab Switched Buttons */}
-            <div className="flex border-b border-edge bg-accent2/10 overflow-x-auto no-scrollbar">
-                {TABS.map(({ type, label, short }) => {
-                    const count = projects.filter((p) => p.type === type).length;
-                    const isActive = activeTab === type;
+            <PanelContent className="p-2">
+                {/* Tabs — segmented control, active pill slides between them */}
+                <div className="flex gap-1 overflow-x-auto rounded-lg bg-muted p-1 no-scrollbar">
+                    {TABS.map(({ type, label, short }) => {
+                        const count = projects.filter((p) => p.type === type).length;
+                        const isActive = activeTab === type;
 
-                    return (
-                        <button
-                            key={type}
-                            onClick={() => setActiveTab(type)}
-                            className={cn(
-                                "flex-1 min-w-[100px] px-2 py-3 text-xs font-mono font-medium border-r last:border-r-0 border-edge transition-colors duration-150 relative text-center select-none cursor-pointer whitespace-nowrap",
-                                isActive
-                                    ? "bg-accent/30 text-foreground"
-                                    : "text-muted-foreground hover:text-foreground hover:bg-accent/10"
-                            )}
-                        >
-                            <span className="relative z-10">
-                                <span className="sm:hidden">{short}</span>
-                                <span className="hidden sm:inline">{label}</span>
-                                <span
-                                    className={cn(
-                                        "ml-1.5 text-[10px] font-sans font-normal",
-                                        isActive ? "text-muted-foreground" : "text-muted-foreground/50"
-                                    )}
-                                >
-                                    ({count})
+                        return (
+                            <button
+                                key={type}
+                                onClick={() => setActiveTab(type)}
+                                className={cn(
+                                    "relative flex-1 min-w-[96px] rounded-md px-2 py-2 text-xs font-mono font-medium transition-colors duration-150 text-center select-none cursor-pointer whitespace-nowrap",
+                                    isActive
+                                        ? "text-foreground"
+                                        : "text-muted-foreground hover:text-foreground"
+                                )}
+                            >
+                                <span className="relative z-10">
+                                    <span className="sm:hidden">{short}</span>
+                                    <span className="hidden sm:inline">{label}</span>
+                                    <span
+                                        className={cn(
+                                            "ml-1.5 text-[10px] font-sans font-normal",
+                                            isActive ? "text-muted-foreground" : "text-muted-foreground/50"
+                                        )}
+                                    >
+                                        ({count})
+                                    </span>
                                 </span>
-                            </span>
-                            {isActive && (
-                                <motion.div
-                                    layoutId="activeProjectsTab"
-                                    className="absolute bottom-0 left-0 right-0 h-[2px] bg-foreground"
-                                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                                />
-                            )}
-                        </button>
-                    );
-                })}
-            </div>
+                                {isActive && (
+                                    <motion.div
+                                        layoutId="activeProjectsTab"
+                                        className="absolute inset-0 rounded-md bg-background shadow-sm ring-1 ring-border"
+                                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                                    />
+                                )}
+                            </button>
+                        );
+                    })}
+                </div>
 
-            {/* List / Empty State with fade animation */}
-            <div className="relative min-h-[220px]">
-                <AnimatePresence mode="wait">
-                    {filteredProjects.length === 0 ? (
-                        <motion.div
-                            key="empty-state"
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -10 }}
-                            transition={{ duration: 0.15 }}
-                            className="flex flex-col items-center justify-center py-16 px-4 text-center"
-                        >
-                            <div className="size-10 rounded-lg bg-accent/40 border border-edge flex items-center justify-center text-muted-foreground/70 mb-3">
-                                <FolderOpen className="size-5 text-muted-foreground/60" strokeWidth={1.5} />
-                            </div>
-                            <h3 className="text-xs font-mono font-medium text-foreground">Coming Soon</h3>
-                            <p className="text-[11px] text-muted-foreground mt-1 max-w-xs leading-normal">
-                                Projects in this category are currently being curated and will be added soon.
-                            </p>
-                        </motion.div>
-                    ) : (
-                        <motion.ul
-                            key={activeTab}
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -10 }}
-                            transition={{ duration: 0.15 }}
-                            className="py-2"
-                        >
-                            {filteredProjects.map((project) => (
-                                <ProjectRow key={project.slug} project={project} />
-                            ))}
-                        </motion.ul>
-                    )}
-                </AnimatePresence>
-            </div>
+                {/* List / Empty State with fade animation */}
+                <div className="relative mt-1 min-h-[136px]">
+                    <AnimatePresence mode="wait">
+                        {filteredProjects.length === 0 ? (
+                            <motion.div
+                                key="empty-state"
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -10 }}
+                                transition={{ duration: 0.15 }}
+                                className="flex flex-col items-center justify-center py-16 px-4 text-center"
+                            >
+                                <div className="size-10 rounded-lg bg-accent/40 border border-edge flex items-center justify-center text-muted-foreground/70 mb-3">
+                                    <FolderOpen className="size-5 text-muted-foreground/60" strokeWidth={1.5} />
+                                </div>
+                                <h3 className="text-xs font-mono font-medium text-foreground">Coming Soon</h3>
+                                <p className="text-[11px] text-muted-foreground mt-1 max-w-xs leading-normal">
+                                    Projects in this category are currently being curated and will be added soon.
+                                </p>
+                            </motion.div>
+                        ) : (
+                            <motion.ul
+                                key={activeTab}
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -10 }}
+                                transition={{ duration: 0.15 }}
+                                className="py-1"
+                            >
+                                {filteredProjects.map((project) => (
+                                    <ProjectRow key={project.slug} project={project} />
+                                ))}
+                            </motion.ul>
+                        )}
+                    </AnimatePresence>
+                </div>
+            </PanelContent>
         </Panel>
     );
 }
