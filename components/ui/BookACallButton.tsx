@@ -27,10 +27,10 @@ export function BookACallButton({
     const handleClick = () => {
         onNavigate?.();
         if (pathname !== "/") {
-            router.push("/#book-a-call");
+            router.push("/#get-in-touch");
             return;
         }
-        document.getElementById("book-a-call")?.scrollIntoView({ behavior: "smooth", block: "start" });
+        document.getElementById("get-in-touch")?.scrollIntoView({ behavior: "smooth", block: "start" });
     };
 
     if (variant === "ghost") {
