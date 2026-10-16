@@ -1,48 +1,94 @@
 "use client";
 
-import { projects, ProjectType } from "@/data/projects";
-import { Github, Globe, PlaySquare, FolderOpen } from "lucide-react";
-import Image from "next/image";
+import { projects, ProjectType, type Project } from "@/data/projects";
+import { FileText, FolderOpen, Globe, Text } from "lucide-react";
 import Link from "next/link";
 import { Panel, PanelHeader, PanelTitle } from "@/components/ui/panel";
-import { useState } from "react";
+import { GitHubIcon } from "@/components/ui/brand-icons";
+import { useState, type ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-/** Per-category banner gradients — vibrant but still tasteful */
-const CATEGORY_GRADIENTS: Record<string, string> = {
-    "AI / SaaS": "from-indigo-500 via-blue-500 to-violet-600",
-    "Collaboration": "from-zinc-800 via-zinc-700 to-zinc-900",
-    "FinTech": "from-rose-500 via-red-500 to-red-600",
-    "Productivity": "from-violet-600 via-purple-500 to-fuchsia-600",
-    "AI / Productivity": "from-teal-500 via-emerald-500 to-cyan-600",
-    "Enterprise": "from-orange-500 via-amber-500 to-orange-600",
-};
+/** `short` is shown below `sm` so all three tabs fit on a phone */
+const TABS: { type: ProjectType; label: string; short: string }[] = [
+    { type: "indie", label: "Indie Projects", short: "Indie" },
+    { type: "data-analysis", label: "Data Analysis", short: "Data Analysis" },
+    { type: "case-study", label: "Product Case Studies", short: "Case Studies" },
+];
 
-/** Brand-matching banner gradients for specific projects */
-const PROJECT_GRADIENTS: Record<string, string> = {
-    // Existing projects
-    "hyperglork-ai": "from-yellow-300 via-yellow-400 to-amber-300",
-    "notemind-ai": "from-[#FAF6EE] via-[#F7F3E9] to-[#EFECE1]",
-    "fluxberry-ai": "from-lime-300 via-lime-400 to-lime-500",
-    
-    // Data Science projects
-    "walmart-sql-python-analysis": "from-blue-600 via-sky-500 to-blue-700",
-    "coffee-brand-expansion-analysis": "from-stone-800 via-amber-900 to-amber-950",
-    
-    // Case Studies
-    "rapido-case-study": "from-yellow-400 via-amber-400 to-yellow-500",
-    "makemytrip-case-study": "from-red-500 via-rose-500 to-red-600",
-    "meesho-case-study": "from-fuchsia-900 via-pink-950 to-purple-950",
-    "razorpay-case-study": "from-blue-500 via-cyan-500 to-indigo-600",
-    "groww-case-study": "from-emerald-500 via-teal-500 to-emerald-600",
-    "firstclub-case-study": "from-green-950 via-emerald-900 to-stone-900",
-};
+/** "Hyperglork AI: AI Voice Agents…" → "Hyperglork AI"; "Rapido Product Case Study" → "Rapido" */
+const shortName = (name: string) => name.split(":")[0].replace(/ Product Case Study$/, "");
 
-const DEFAULT_GRADIENT = "from-zinc-400 via-zinc-500 to-zinc-600";
+function IconLink({ href, label, children }: { href: string; label: string; children: ReactNode }) {
+    return (
+        <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={label}
+            title={label}
+            className="flex size-8 items-center justify-center rounded-md text-muted-foreground/70 transition-colors hover:bg-accent hover:text-foreground"
+        >
+            {children}
+        </a>
+    );
+}
+
+function ProjectRow({ project }: { project: Project }) {
+    const name = shortName(project.name);
+    const isCaseStudy = project.type === "case-study";
+
+    return (
+        <li className="relative flex items-center gap-4 px-4 py-3.5 transition-colors hover:bg-accent2">
+            <div className="flex size-11 shrink-0 items-center justify-center rounded-xl border border-edge bg-muted/40 text-muted-foreground/50">
+                <Text className="size-4" strokeWidth={1.75} />
+            </div>
+
+            <div className="min-w-0 flex-1">
+                <h3 className="flex items-center gap-2 text-[15px] font-semibold leading-snug">
+                    {/* Stretched link: the whole row opens the project page */}
+                    <Link
+                        href={`/projects/${project.slug}`}
+                        className="after:absolute after:inset-0 focus-visible:outline-none focus-visible:after:ring-2 focus-visible:after:ring-inset focus-visible:after:ring-ring"
+                    >
+                        {name}
+                    </Link>
+                    {project.comingSoon && (
+                        <span className="rounded-full bg-amber-400/90 px-1.5 py-px font-mono text-[9px] font-semibold uppercase tracking-wider text-amber-950 select-none">
+                            Soon
+                        </span>
+                    )}
+                </h3>
+                <p className="mt-0.5 text-sm text-muted-foreground text-pretty">{project.tagline}</p>
+            </div>
+
+            {!project.comingSoon && (
+                <div className="relative z-10 flex shrink-0 items-center gap-0.5">
+                    {project.githubUrl && (
+                        <IconLink href={project.githubUrl} label={`${name} on GitHub`}>
+                            <GitHubIcon width={16} height={16} />
+                        </IconLink>
+                    )}
+                    {project.liveUrl && (
+                        <IconLink
+                            href={project.liveUrl}
+                            label={isCaseStudy ? `Open ${name} case study PDF` : `Visit ${name}`}
+                        >
+                            {isCaseStudy ? (
+                                <FileText className="size-4" strokeWidth={1.5} />
+                            ) : (
+                                <Globe className="size-4" strokeWidth={1.5} />
+                            )}
+                        </IconLink>
+                    )}
+                </div>
+            )}
+        </li>
+    );
+}
 
 export default function Projects() {
-    const [activeTab, setActiveTab] = useState<ProjectType>("tech");
+    const [activeTab, setActiveTab] = useState<ProjectType>("indie");
 
     const filteredProjects = projects.filter((p) => p.type === activeTab);
 
@@ -56,29 +102,24 @@ export default function Projects() {
 
             {/* Tab Switched Buttons */}
             <div className="flex border-b border-edge bg-accent2/10 overflow-x-auto no-scrollbar">
-                {(["tech", "data-science", "case-study"] as const).map((tab) => {
-                    const label =
-                        tab === "tech"
-                            ? "Tech & Indie"
-                            : tab === "data-science"
-                            ? "Data Science"
-                            : "Case Studies";
-                    const count = projects.filter((p) => p.type === tab).length;
-                    const isActive = activeTab === tab;
+                {TABS.map(({ type, label, short }) => {
+                    const count = projects.filter((p) => p.type === type).length;
+                    const isActive = activeTab === type;
 
                     return (
                         <button
-                            key={tab}
-                            onClick={() => setActiveTab(tab)}
+                            key={type}
+                            onClick={() => setActiveTab(type)}
                             className={cn(
-                                "flex-1 min-w-[120px] py-3 text-xs font-mono font-medium border-r last:border-r-0 border-edge transition-colors duration-150 relative text-center select-none cursor-pointer",
+                                "flex-1 min-w-[100px] px-2 py-3 text-xs font-mono font-medium border-r last:border-r-0 border-edge transition-colors duration-150 relative text-center select-none cursor-pointer whitespace-nowrap",
                                 isActive
                                     ? "bg-accent/30 text-foreground"
                                     : "text-muted-foreground hover:text-foreground hover:bg-accent/10"
                             )}
                         >
                             <span className="relative z-10">
-                                {label}
+                                <span className="sm:hidden">{short}</span>
+                                <span className="hidden sm:inline">{label}</span>
                                 <span
                                     className={cn(
                                         "ml-1.5 text-[10px] font-sans font-normal",
@@ -100,7 +141,7 @@ export default function Projects() {
                 })}
             </div>
 
-            {/* Grid Content / Empty State with fade animation */}
+            {/* List / Empty State with fade animation */}
             <div className="relative min-h-[220px]">
                 <AnimatePresence mode="wait">
                     {filteredProjects.length === 0 ? (
@@ -118,168 +159,24 @@ export default function Projects() {
                             <h3 className="text-xs font-mono font-medium text-foreground">Coming Soon</h3>
                             <p className="text-[11px] text-muted-foreground mt-1 max-w-xs leading-normal">
                                 Projects in this category are currently being curated and will be added soon.
-                              </p>
+                            </p>
                         </motion.div>
                     ) : (
-                        <motion.div
+                        <motion.ul
                             key={activeTab}
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -10 }}
                             transition={{ duration: 0.15 }}
-                            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-5"
+                            className="py-2"
                         >
-                            {filteredProjects.map((project, index) => {
-                                const gradient = PROJECT_GRADIENTS[project.slug] ?? CATEGORY_GRADIENTS[project.category] ?? DEFAULT_GRADIENT;
-                                return (
-                                    <article
-                                        key={index}
-                                        className="flex flex-col rounded-xl border border-edge overflow-hidden bg-background transition-colors duration-150 hover:bg-accent2"
-                                    >
-                                        {/* ── Banner ── */}
-                                        <Link href={`/projects/${project.slug}`} className={`relative h-44 bg-gradient-to-br ${gradient} flex items-center justify-center overflow-hidden shrink-0 group`}>
-                                            {/* subtle radial noise overlay for depth */}
-                                            <div className="absolute inset-0 opacity-20 mix-blend-overlay"
-                                                style={{
-                                                    backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E\")",
-                                                    backgroundSize: "150px 150px",
-                                                }}
-                                            />
-                                            {/* ── Coming Soon badge ── */}
-                                            {project.comingSoon && (
-                                                <span className="absolute top-3 right-3 z-20 px-2 py-0.5 text-[10px] font-mono font-semibold uppercase tracking-wider rounded-full bg-amber-400/90 text-amber-950 select-none backdrop-blur-sm">
-                                                    Coming Soon
-                                                </span>
-                                            )}
-                                            {project.image ? (
-                                                <div className="relative z-10 size-20 rounded-2xl overflow-hidden ring-2 ring-white/20 shadow-lg transition-transform duration-300 group-hover:scale-105">
-                                                    <Image
-                                                        src={project.image}
-                                                        alt={project.name}
-                                                        fill
-                                                        className="object-cover"
-                                                        unoptimized
-                                                    />
-                                                </div>
-                                            ) : (
-                                                <div className="relative z-10 size-20 rounded-2xl flex items-center justify-center bg-white/10 ring-2 ring-white/20 text-3xl font-serif font-normal italic text-white select-none transition-transform duration-300 group-hover:scale-105">
-                                                    {project.name.charAt(0)}
-                                                </div>
-                                            )}
-                                        </Link>
-
-                                        {/* ── Body ── */}
-                                        <div className="flex flex-col flex-1 px-4 pt-4 pb-3 gap-2.5">
-                                            {/* Category pill */}
-                                            <span className="self-start px-2 py-0.5 text-[10px] font-mono uppercase tracking-wider rounded border border-muted-foreground/20 bg-muted text-muted-foreground select-none">
-                                                {project.category}
-                                            </span>
-
-                                            {/* Title */}
-                                            <Link href={`/projects/${project.slug}`} className="hover:underline">
-                                                <h3 className="text-sm font-medium leading-snug text-balance">
-                                                    {project.name}
-                                                </h3>
-                                            </Link>
-
-                                            {/* Description */}
-                                            {project.description && (
-                                                <p className="text-xs text-muted-foreground leading-relaxed line-clamp-3">
-                                                    {project.description}
-                                                </p>
-                                            )}
-
-                                            {/* Tech Stack — pushed to bottom */}
-                                            <div className="flex flex-wrap gap-1 mt-auto pt-2">
-                                                {project.techStack.slice(0, 4).map((tech) => (
-                                                    <span
-                                                        key={tech}
-                                                        className="px-1.5 py-0.5 text-[10px] font-mono rounded border border-muted-foreground/15 bg-muted text-muted-foreground"
-                                                    >
-                                                        {tech}
-                                                    </span>
-                                                ))}
-                                                {project.techStack.length > 4 && (
-                                                    <span className="px-1.5 py-0.5 text-[10px] font-mono rounded border border-muted-foreground/15 bg-muted text-muted-foreground">
-                                                        +{project.techStack.length - 4}
-                                                    </span>
-                                                )}
-                                            </div>
-                                        </div>
-
-                                        {/* ── Footer ── */}
-                                        <div className="border-t border-edge flex shrink-0 mt-1">
-                                            {project.comingSoon ? (
-                                                <span className="flex flex-1 items-center justify-center gap-1.5 py-2.5 text-xs font-mono text-muted-foreground/50 select-none">
-                                                    In Development
-                                                </span>
-                                            ) : (
-                                                <>
-                                                    {project.githubUrl && (
-                                                        <a
-                                                            href={project.githubUrl}
-                                                            target="_blank"
-                                                            rel="noopener noreferrer"
-                                                            aria-label={`${project.name} on GitHub`}
-                                                            className={[
-                                                                "flex flex-1 items-center justify-center gap-1.5 py-2.5 text-xs font-mono",
-                                                                "text-muted-foreground transition-colors duration-150 hover:text-foreground hover:bg-accent",
-                                                                (project.liveUrl || project.demoUrl) ? "border-r border-edge" : "",
-                                                            ].join(" ")}
-                                                        >
-                                                            <Github className="size-3.5" strokeWidth={1.5} />
-                                                            <span>GitHub</span>
-                                                        </a>
-                                                      )}
-                                                      {project.liveUrl && (
-                                                          project.type === "case-study" ? (
-                                                              <Link
-                                                                  href={`/projects/${project.slug}`}
-                                                                  className={[
-                                                                      "flex flex-1 items-center justify-center gap-1.5 py-2.5 text-xs font-mono",
-                                                                      "text-muted-foreground transition-colors duration-150 hover:text-foreground hover:bg-accent",
-                                                                      project.demoUrl ? "border-r border-edge" : "",
-                                                                  ].join(" ")}
-                                                              >
-                                                                  <Globe className="size-3.5" strokeWidth={1.5} />
-                                                                  <span>View Case Study</span>
-                                                              </Link>
-                                                          ) : (
-                                                              <a
-                                                                  href={project.liveUrl}
-                                                                  target="_blank"
-                                                                  rel="noopener noreferrer"
-                                                                  aria-label={`${project.name} live demo`}
-                                                                  className={[
-                                                                      "flex flex-1 items-center justify-center gap-1.5 py-2.5 text-xs font-mono",
-                                                                      "text-muted-foreground transition-colors duration-150 hover:text-foreground hover:bg-accent",
-                                                                      project.demoUrl ? "border-r border-edge" : "",
-                                                                  ].join(" ")}
-                                                              >
-                                                                  <Globe className="size-3.5" strokeWidth={1.5} />
-                                                                  <span>Live</span>
-                                                              </a>
-                                                          )
-                                                      )}
-                                                      {project.demoUrl && (
-                                                          <Link
-                                                              href={`/projects/${project.slug}`}
-                                                              className="flex flex-1 items-center justify-center gap-1.5 py-2.5 text-xs font-mono text-muted-foreground transition-colors duration-150 hover:text-foreground hover:bg-accent"
-                                                          >
-                                                              <PlaySquare className="size-3.5" strokeWidth={1.5} />
-                                                              <span>Demo</span>
-                                                          </Link>
-                                                      )}
-                                                  </>
-                                              )}
-                                          </div>
-                                      </article>
-                                  );
-                              })}
-                          </motion.div>
-                      )}
-                  </AnimatePresence>
-              </div>
-          </Panel>
-      );
-  }
+                            {filteredProjects.map((project) => (
+                                <ProjectRow key={project.slug} project={project} />
+                            ))}
+                        </motion.ul>
+                    )}
+                </AnimatePresence>
+            </div>
+        </Panel>
+    );
+}

@@ -89,7 +89,7 @@ export default async function ProjectDetails({ params }: { params: Promise<{ slu
         notFound();
     }
 
-    const jsonLd = project.type === "tech"
+    const jsonLd = project.type === "indie"
         ? {
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",

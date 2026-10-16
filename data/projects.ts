@@ -1,9 +1,11 @@
-export type ProjectType = 'tech' | 'data-science' | 'case-study';
+export type ProjectType = 'indie' | 'data-analysis' | 'case-study';
 
 export interface Project {
     name: string;
     slug: string;
     description: string;
+    /** One-liner shown in the projects list */
+    tagline: string;
     category: string;
     type: ProjectType;
     details?: string[];
@@ -21,8 +23,9 @@ export const projects: Project[] = [
         name: "Hyperglork AI: AI Voice Agents for Medical Professionals",
         slug: "hyperglork-ai",
         description: "AI voice agents for clinics to automate inbound calls, appointment booking, and scheduling.",
+        tagline: "AI voice agents that answer clinic calls and book appointments.",
         category: "AI / Healthcare",
-        type: "tech",
+        type: "indie",
         details: [
             "Built AI voice agents for clinics to automate inbound calls, appointment booking, and scheduling.",
             "Engineered a low-latency conversational pipeline using LLMs, RAG, speech-to-text, and Voice AI to handle real-time patient interactions, contextual responses, and automated appointment booking."
@@ -36,8 +39,9 @@ export const projects: Project[] = [
         name: "Notemind AI: AI Notetaker for Google Meeting",
         slug: "notemind-ai",
         description: "AI Notetaker for transcription and summarization, reducing manual note-taking effort by 60%.",
+        tagline: "AI notetaker that transcribes and summarizes Google Meet calls.",
         category: "AI / Productivity",
-        type: "tech",
+        type: "indie",
         details: [
             "AI Notetaker for transcription and summarization, reducing manual note-taking effort by 60%.",
             "Designed structured workflows for retrieving meeting insights, improving post-meeting productivity."
@@ -51,8 +55,9 @@ export const projects: Project[] = [
         name: "Fluxberry AI: AI Native Automation for Technical Hiring",
         slug: "fluxberry-ai",
         description: "Designed end-to-end interview automation workflows, enabling resume parsing, assessments, and candidate scoring.",
+        tagline: "Automated resume parsing, assessments and scoring for tech hiring.",
         category: "AI / SaaS",
-        type: "tech",
+        type: "indie",
         details: [
             "Designed end-to-end interview automation workflows, enabling resume parsing, assessments, and candidate scoring.",
             "Automated technical rounds and onboarding, evaluation pipelines and structured feedback loops."
@@ -67,8 +72,9 @@ export const projects: Project[] = [
         name: "Walmart Sales Data Analysis: End-to-End SQL + Python",
         slug: "walmart-sql-python-analysis",
         description: "End-to-end data analysis solution designed to ingest, clean, and extract critical business insights from Walmart sales data.",
-        category: "Data Science",
-        type: "data-science",
+        tagline: "End-to-end SQL + Python analysis of Walmart sales data.",
+        category: "Data Analysis",
+        type: "data-analysis",
         details: [
             "Ingested and cleaned 10K+ sales records using Pandas and SQLAlchemy, resolving data inconsistencies and type mismatches.",
             "Designed complex SQL queries in PostgreSQL to analyze weekly department sales, revenue growth, and seasonal peaks."
@@ -81,8 +87,9 @@ export const projects: Project[] = [
         name: "Monday Coffee Expansion: SQL Market Analysis",
         slug: "coffee-brand-expansion-analysis",
         description: "SQL-driven market analysis to identify the top three Indian cities for opening new physical coffee shop locations based on demand and demographic projections.",
+        tagline: "SQL market analysis to pick the top 3 Indian cities for new stores.",
         category: "Market Analysis",
-        type: "data-science",
+        type: "data-analysis",
         details: [
             "Analyzed regional customer transactions and sales volumes using PostgreSQL queries.",
             "Engineered population density projections and consumer demand models (estimated at 25% coffee drinkers) to identify the highest ROI cities."
@@ -95,6 +102,7 @@ export const projects: Project[] = [
         name: "Rapido Product Case Study",
         slug: "rapido-case-study",
         description: "Product strategy teardown analyzing ride cancellation loops, driver supply dynamics, and trust vectors to optimize peak-hour ride-matching.",
+        tagline: "Cutting ride cancellations and fixing peak-hour driver supply.",
         category: "Ride-Sharing",
         type: "case-study",
         details: [
@@ -109,6 +117,7 @@ export const projects: Project[] = [
         name: "MakeMyTrip Product Case Study",
         slug: "makemytrip-case-study",
         description: "Conversion rate optimization case study focused on redesigning the hotel booking funnel, checkout flows, and guest selection interfaces.",
+        tagline: "Redesigning the hotel booking funnel and checkout to lift conversion.",
         category: "TravelTech",
         type: "case-study",
         details: [
@@ -123,6 +132,7 @@ export const projects: Project[] = [
         name: "Meesho Product Case Study",
         slug: "meesho-case-study",
         description: "Growth case study focusing on reducing seller onboarding friction, catalog listing complexity, and checkout-to-delivery communication gaps.",
+        tagline: "Reducing seller onboarding and catalog listing friction.",
         category: "E-Commerce",
         type: "case-study",
         details: [
@@ -137,6 +147,7 @@ export const projects: Project[] = [
         name: "Razorpay Product Case Study",
         slug: "razorpay-case-study",
         description: "Fintech product study analyzing transaction success rates, instant payment retry systems, and merchant onboarding flow refinements.",
+        tagline: "Improving payment success rates and merchant onboarding.",
         category: "FinTech",
         type: "case-study",
         details: [
@@ -151,6 +162,7 @@ export const projects: Project[] = [
         name: "Groww Product Case Study",
         slug: "groww-case-study",
         description: "Wealthtech case study evaluating micro-investing onboarding, mutual fund exploration engines, and retail user financial education loops.",
+        tagline: "Simplifying micro-investing onboarding and fund discovery.",
         category: "WealthTech",
         type: "case-study",
         details: [
@@ -165,6 +177,7 @@ export const projects: Project[] = [
         name: "FirstClub Product Case Study",
         slug: "firstclub-case-study",
         description: "Product strategy and analytics study of a lifestyle membership model, evaluating subscription onboarding, retention loops, and user engagement programs.",
+        tagline: "Onboarding, retention and engagement for a membership model.",
         category: "Subscriptions",
         type: "case-study",
         details: [
