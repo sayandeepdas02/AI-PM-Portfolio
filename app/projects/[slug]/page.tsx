@@ -6,6 +6,7 @@ import { Github, Globe, ArrowLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Separator } from "@/components/ui/separator";
+import { Button } from "@/components/ui/button";
 import { Panel, PanelHeader, PanelTitle, PanelContent } from "@/components/ui/panel";
 import type { Metadata } from "next";
 import { SITE_URL } from "@/lib/site";
@@ -145,15 +146,12 @@ export default async function ProjectDetails({ params }: { params: Promise<{ slu
 
                             {/* "Open in Drive" Button (Case Studies) */}
                             {project.type === "case-study" && project.liveUrl && (
-                                <a
-                                    href={project.liveUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex items-center gap-2 px-4 py-2 text-sm font-medium bg-foreground text-background hover:bg-foreground/90 transition-colors rounded-lg shadow-sm w-fit self-start sm:self-center shrink-0 cursor-pointer"
-                                >
-                                    <Globe className="size-4" />
-                                    <span>Open in Drive</span>
-                                </a>
+                                <Button asChild className="self-start sm:self-center shrink-0">
+                                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                                        <Globe />
+                                        <span>Open in Drive</span>
+                                    </a>
+                                </Button>
                             )}
                         </div>
                     </PanelHeader>
@@ -246,37 +244,31 @@ export default async function ProjectDetails({ params }: { params: Promise<{ slu
                                     {/* Action Buttons underneath the video */}
                                     <div className="grid grid-cols-2 gap-3">
                                         {project.githubUrl ? (
-                                            <a
-                                                href={project.githubUrl}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="flex items-center justify-center gap-2 py-2 text-sm font-medium rounded-lg border border-edge bg-background text-foreground hover:bg-accent transition-colors shadow-sm"
-                                            >
-                                                <Github className="size-4" />
-                                                Github
-                                            </a>
+                                            <Button asChild variant="neutral" className="w-full">
+                                                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                                                    <Github />
+                                                    Github
+                                                </a>
+                                            </Button>
                                         ) : (
-                                            <div className="flex items-center justify-center gap-2 py-2 text-sm font-medium rounded-lg border border-edge bg-background/50 text-muted-foreground cursor-not-allowed">
-                                                <Github className="size-4" />
+                                            <Button variant="neutral" disabled className="w-full">
+                                                <Github />
                                                 Github
-                                            </div>
+                                            </Button>
                                         )}
 
                                         {project.liveUrl ? (
-                                            <a
-                                                href={project.liveUrl}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="flex items-center justify-center gap-2 py-2 text-sm font-medium rounded-lg border border-edge bg-foreground text-background hover:bg-foreground/90 transition-colors shadow-sm shadow-foreground/20"
-                                            >
-                                                <Globe className="size-4" />
-                                                Live
-                                            </a>
+                                            <Button asChild className="w-full">
+                                                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                                                    <Globe />
+                                                    Live
+                                                </a>
+                                            </Button>
                                         ) : (
-                                            <div className="flex items-center justify-center gap-2 py-2 text-sm font-medium rounded-lg border border-edge bg-background/50 text-muted-foreground cursor-not-allowed">
-                                                <Globe className="size-4" />
+                                            <Button disabled className="w-full">
+                                                <Globe />
                                                 Live
-                                            </div>
+                                            </Button>
                                         )}
                                     </div>
                                 </div>

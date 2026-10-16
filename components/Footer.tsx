@@ -51,7 +51,7 @@ export default function Footer() {
 
                 {/* Book a Call CTA */}
                 <div className="my-4">
-                    <BookACallButton className="px-4 py-2 text-sm inline-flex" />
+                    <BookACallButton />
                 </div>
 
                 <p className="text-xs text-muted-foreground mt-4">

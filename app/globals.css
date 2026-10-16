@@ -35,6 +35,28 @@
   --font-mono: var(--font-roboto-flex);
   --font-serif: var(--font-instrument);
 
+  /* Neobrutalism button tokens. Border/ring are namespaced (nb-*) because
+     --color-border / --color-ring already drive the site's grid lines and focus rings. */
+  --color-main: var(--nb-main);
+  --color-overlay: var(--nb-overlay);
+  --color-bg: var(--nb-bg);
+  --color-bw: var(--nb-bw);
+  --color-blank: var(--nb-blank);
+  --color-text: var(--nb-text);
+  --color-mtext: var(--nb-mtext);
+  --color-nb-border: var(--nb-border);
+  --color-nb-ring: var(--nb-ring);
+  --color-nb-ring-offset: var(--nb-ring-offset);
+  --color-secondaryBlack: #212121;
+  --radius-base: 5px;
+  --shadow-shadow: var(--nb-shadow);
+  --translate-boxShadowX: 4px;
+  --translate-boxShadowY: 4px;
+  --translate-reverseBoxShadowX: -4px;
+  --translate-reverseBoxShadowY: -4px;
+  --font-weight-base: 500;
+  --font-weight-heading: 700;
+
   --animate-fade-in: fade-in var(--tw-duration, 200ms) ease-out;
   --animate-fade-out: fade-out var(--tw-duration, 200ms) ease-out;
 
@@ -202,6 +224,19 @@
   --selection-foreground: oklch(0.985 0 0);
 
   --color-black: oklch(0 0 0);
+
+  /* Neobrutalism palette */
+  --nb-main: #1e40af;
+  --nb-overlay: rgba(0, 0, 0, 0.8);
+  --nb-bg: #dfe5f2;
+  --nb-bw: #fff;
+  --nb-blank: #000;
+  --nb-border: #000;
+  --nb-text: #000;
+  --nb-mtext: #fff;
+  --nb-ring: #000;
+  --nb-ring-offset: #fff;
+  --nb-shadow: 4px 4px 0px 0px var(--nb-border);
 }
 
 .dark {
@@ -275,6 +310,17 @@
 
   /* zinc-950 */
   --selection-foreground: oklch(0.141 0.005 285.823);
+
+  /* Neobrutalism palette */
+  --nb-bg: #272933;
+  --nb-bw: #212121;
+  --nb-blank: #fff;
+  --nb-border: #000;
+  --nb-text: #e6e6e6;
+  --nb-mtext: #fff;
+  --nb-ring: #fff;
+  --nb-ring-offset: #000;
+  --nb-shadow: 4px 4px 0px 0px var(--nb-border);
 }
 
 @layer base {
