@@ -55,7 +55,7 @@ export default function Navbar() {
 
     return (
         <>
-            <nav className="sticky top-0 z-50 backdrop-blur-md screen-line-after border-x border-edge bg-background/80">
+            <nav className="sticky top-3 z-50 mx-4 mt-3 rounded-xl border border-border bg-background/80 shadow-sm backdrop-blur-md md:mx-0">
                 <div className="px-4 h-14 flex items-center justify-between gap-4">
 
                     {/* Left: SD Logo — clicks scroll to top */}
@@ -134,7 +134,7 @@ export default function Navbar() {
 
                 {/* Mobile Dropdown Menu */}
                 {isMobileMenuOpen && (
-                    <div className="md:hidden absolute top-14 left-0 right-0 bg-background border-b border-edge shadow-lg">
+                    <div className="md:hidden absolute top-16 left-0 right-0">
                         <div className="mx-4 my-3 p-4 bg-background rounded-lg border border-edge shadow-sm">
                             <button
                                 onClick={() => {
