@@ -7,8 +7,7 @@ export interface SocialLink {
 export const githubUrl = "https://github.com/sayandeepdas02";
 export const linkedinUrl = "https://www.linkedin.com/in/sayandeep02/";
 export const xUrl = "https://x.com/sayan_not_deep";
-// Discord profile URLs need a numeric user ID, so the handle is copied to the clipboard instead
-export const discordUsername = "sayandeep_16341";
+export const discordUrl = "https://discord.com/users/1405833226769137757";
 export const calendarUrl = "https://calendly.com/reachsayandeep/30mins-with-sayandeep";
 
 export const socialLinks: SocialLink[] = [
