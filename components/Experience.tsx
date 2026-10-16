@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useId, useRef, useState, type PointerEvent } from "react";
+import { motion, useReducedMotion, type Variants } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 
@@ -10,29 +10,95 @@ import { Panel, PanelHeader, PanelTitle } from "@/components/ui/panel";
 import { cn } from "@/lib/utils";
 
 const PREVIEW_COUNT = 2;
+const EASE = [0.32, 0.72, 0, 1] as const;
+// Hover intent: wait briefly before expanding so items don't open while the cursor is just passing over
+const OPEN_DELAY_MS = 120;
+const CLOSE_DELAY_MS = 100;
+// Ignore hovers caused by the page scrolling under a resting cursor
+const SCROLL_SETTLE_MS = 180;
+
+let lastScrollAt = 0;
+if (typeof window !== "undefined") {
+    window.addEventListener("scroll", () => (lastScrollAt = performance.now()), { passive: true });
+}
+const isScrolling = () => performance.now() - lastScrollAt < SCROLL_SETTLE_MS;
+
+const collapseVariants: Variants = {
+    open: {
+        height: "auto",
+        transition: { duration: 0.45, ease: EASE, staggerChildren: 0.05, delayChildren: 0.06 },
+    },
+    closed: {
+        height: 0,
+        transition: { duration: 0.32, ease: EASE, staggerChildren: 0.02, staggerDirection: -1 },
+    },
+};
+
+const bulletVariants: Variants = {
+    open: { opacity: 1, y: 0, transition: { duration: 0.3, ease: EASE } },
+    closed: { opacity: 0, y: -4, transition: { duration: 0.15, ease: "easeOut" } },
+};
+
+// prefers-reduced-motion: same states, no animation
+const instantCollapse: Variants = {
+    open: { height: "auto", transition: { duration: 0 } },
+    closed: { height: 0, transition: { duration: 0 } },
+};
+const instantBullet: Variants = {
+    open: { opacity: 1, transition: { duration: 0 } },
+    closed: { opacity: 0, transition: { duration: 0 } },
+};
+
+function Bullet({ children }: { children: string }) {
+    return (
+        <div className="flex items-start gap-2 text-sm text-muted-foreground">
+            <span className="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-muted-foreground" />
+            <span>{children}</span>
+        </div>
+    );
+}
 
 function ExperienceItem({ job }: { job: ExperienceEntry }) {
-    const [isExpanded, setIsExpanded] = useState(false);
-    const containerRef = useRef<HTMLDivElement>(null);
-    const hasOverflow = job.description.length > PREVIEW_COUNT;
-    const visibleItems = isExpanded ? job.description : job.description.slice(0, PREVIEW_COUNT);
+    // Expanded while hovered (mouse/pen) or while pinned open via the "Read more" control (touch, keyboard)
+    const [hovered, setHovered] = useState(false);
+    const [pinned, setPinned] = useState(false);
+    const timer = useRef<ReturnType<typeof setTimeout>>(undefined);
+    const reduceMotion = useReducedMotion();
+    const moreId = useId();
 
-    const handleToggle = () => {
-        if (isExpanded) {
-            containerRef.current?.scrollIntoView({
-                behavior: "smooth",
-                block: "nearest",
-            });
-        }
+    const preview = job.description.slice(0, PREVIEW_COUNT);
+    const rest = job.description.slice(PREVIEW_COUNT);
+    const hasOverflow = rest.length > 0;
+    const expanded = hasOverflow && (hovered || pinned);
+    const showHint = hasOverflow && (!hovered || pinned);
 
-        setIsExpanded((current) => !current);
+    useEffect(() => () => clearTimeout(timer.current), []);
+
+    const scheduleHover = (next: boolean, delay: number) => {
+        clearTimeout(timer.current);
+        timer.current = setTimeout(() => setHovered(next), delay);
+    };
+
+    const onPointerEnter = (e: PointerEvent) => {
+        if (e.pointerType === "touch" || !hasOverflow || isScrolling()) return;
+        scheduleHover(true, OPEN_DELAY_MS);
+    };
+    // Entered mid-scroll: open once the cursor actually moves over the item
+    const onPointerMove = (e: PointerEvent) => {
+        if (e.pointerType === "touch" || !hasOverflow || hovered || isScrolling()) return;
+        scheduleHover(true, OPEN_DELAY_MS);
+    };
+    const onPointerLeave = (e: PointerEvent) => {
+        if (e.pointerType === "touch") return;
+        scheduleHover(false, CLOSE_DELAY_MS);
     };
 
     return (
-        <motion.div
-            layout
-            transition={{ layout: { duration: 0.32, ease: [0.22, 1, 0.36, 1] } }}
-            className="flex items-start transition-colors hover:bg-accent2"
+        <div
+            onPointerEnter={onPointerEnter}
+            onPointerMove={onPointerMove}
+            onPointerLeave={onPointerLeave}
+            className="flex items-start transition-colors duration-300 hover:bg-accent2"
         >
             {job.logo ? (
                 <div className="relative mx-3 mt-4 flex size-10 shrink-0 select-none overflow-hidden rounded-lg sm:mx-4">
@@ -52,7 +118,7 @@ function ExperienceItem({ job }: { job: ExperienceEntry }) {
             )}
 
             <div className="flex-1 border-l border-dashed border-edge">
-                <div ref={containerRef} className="p-4">
+                <div className="p-4">
                     <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
                         <div>
                             <h3 className="mb-1 leading-snug font-medium text-balance">
@@ -68,59 +134,57 @@ function ExperienceItem({ job }: { job: ExperienceEntry }) {
                         </div>
                     </div>
 
-                    <motion.div layout className="relative mb-3">
-                        <ul className="space-y-1">
-                            <AnimatePresence initial={false} mode="popLayout">
-                                {visibleItems.map((item, i) => (
-                                    <motion.li
-                                        key={`${job.company}-${i}-${item.slice(0, 24)}`}
-                                        layout
-                                        initial={{ opacity: 0, y: -6, height: 0 }}
-                                        animate={{ opacity: 1, y: 0, height: "auto" }}
-                                        exit={{ opacity: 0, y: -6, height: 0 }}
-                                        transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-                                        className="overflow-hidden"
-                                    >
-                                        <div className="flex items-start gap-2 text-sm text-muted-foreground">
-                                            <span className="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-muted-foreground" />
-                                            <span>{item}</span>
-                                        </div>
-                                    </motion.li>
-                                ))}
-                            </AnimatePresence>
-                        </ul>
-
-                        {hasOverflow && !isExpanded && (
-                            <motion.div
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 0 }}
-                                className="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-background via-background/88 to-transparent"
-                            />
-                        )}
-                    </motion.div>
+                    <ul className="space-y-1">
+                        {preview.map((item, i) => (
+                            <li key={i}>
+                                <Bullet>{item}</Bullet>
+                            </li>
+                        ))}
+                    </ul>
 
                     {hasOverflow && (
-                        <div className="mb-3">
-                            <button
-                                type="button"
-                                onClick={handleToggle}
-                                className="group inline-flex items-center gap-2 rounded-full border border-edge bg-background px-3 py-1.5 text-[11px] font-mono uppercase tracking-[0.16em] text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
-                                aria-expanded={isExpanded}
-                            >
-                                <span>{isExpanded ? "Read Less" : "Read More"}</span>
-                                <ChevronDown
-                                    className={cn(
-                                        "size-3.5 transition-transform duration-300",
-                                        isExpanded && "rotate-180"
-                                    )}
-                                    strokeWidth={1.8}
-                                />
-                            </button>
-                        </div>
+                        <motion.div
+                            id={moreId}
+                            initial={false}
+                            animate={expanded ? "open" : "closed"}
+                            variants={reduceMotion ? instantCollapse : collapseVariants}
+                            className="overflow-hidden"
+                        >
+                            <ul className="space-y-1 pt-1">
+                                {rest.map((item, i) => (
+                                    <motion.li key={i} variants={reduceMotion ? instantBullet : bulletVariants}>
+                                        <Bullet>{item}</Bullet>
+                                    </motion.li>
+                                ))}
+                            </ul>
+                        </motion.div>
                     )}
 
-                    <div className="flex flex-wrap gap-1.5">
+                    {hasOverflow && (
+                        <motion.div
+                            initial={false}
+                            animate={showHint ? { opacity: 1, height: "auto" } : { opacity: 0, height: 0 }}
+                            transition={{ duration: reduceMotion ? 0 : 0.25, ease: EASE }}
+                            className="overflow-hidden"
+                        >
+                            <button
+                                type="button"
+                                onClick={() => setPinned((p) => !p)}
+                                aria-expanded={expanded}
+                                aria-controls={moreId}
+                                tabIndex={showHint ? 0 : -1}
+                                className="group mt-2 inline-flex items-center gap-1 text-xs text-muted-foreground/80 transition-colors hover:text-foreground cursor-pointer"
+                            >
+                                {pinned ? "Show less" : "Read more"}
+                                <ChevronDown
+                                    className={cn("size-3 transition-transform duration-300", pinned && "rotate-180")}
+                                    strokeWidth={2}
+                                />
+                            </button>
+                        </motion.div>
+                    )}
+
+                    <div className="mt-3 flex flex-wrap gap-1.5">
                         {job.techStack.map((tech) => (
                             <span
                                 key={tech}
@@ -132,7 +196,7 @@ function ExperienceItem({ job }: { job: ExperienceEntry }) {
                     </div>
                 </div>
             </div>
-        </motion.div>
+        </div>
     );
 }
 
