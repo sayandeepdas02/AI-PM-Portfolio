@@ -44,7 +44,7 @@ export default function Home() {
         <section aria-label="About Sayandeep Das" style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clip: 'rect(0,0,0,0)', whiteSpace: 'nowrap', border: 0 }}>
           Sayandeep is a GTM Engineer and AI PM from IIT Guwahati, currently at Trelium (YC F25),
           focused on SEO, AEO, AI automation, onboarding systems, growth funnels, and product-led GTM
-          for AI B2B SaaS. Previously Associate Product Manager at SuperAGI.
+          for AI B2B SaaS. Previously Technical Program Manager at SuperAGI.
         </section>
         <Footer />
       </div>

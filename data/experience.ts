@@ -42,7 +42,7 @@ export const experiences: Experience[] = [
         logo: "/logos/trelium.png"
     },
     {
-        role: "Associate Product Manager",
+        role: "Technical Program Manager",
         company: "SuperAGI",
         period: "May 2025 - Apr 2026",
         duration: "1 yr",
@@ -57,7 +57,7 @@ export const experiences: Experience[] = [
         logo: "/logos/superagi.png"
     },
     {
-        role: "Data Science Intern",
+        role: "Product Management Intern",
         company: "Graphy (Unacademy)",
         period: "Nov 2024 - Apr 2025",
         duration: "6 mons",

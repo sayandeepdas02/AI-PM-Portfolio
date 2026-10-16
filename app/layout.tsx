@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     'Agentic AI Product Manager',
     'LLM Product Manager',
     'Trelium YC F25',
-    'SuperAGI Product Manager',
+    'SuperAGI Technical Program Manager',
     'IIT Guwahati Data Science',
     '0 to 1 Product Manager',
     'Product Strategy India',
