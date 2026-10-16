@@ -2,6 +2,7 @@
 
 import { projects, ProjectType, type Project } from "@/data/projects";
 import { FileText, FolderOpen, Globe, Text } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { Panel, PanelHeader, PanelTitle } from "@/components/ui/panel";
 import { GitHubIcon } from "@/components/ui/brand-icons";
@@ -40,8 +41,12 @@ function ProjectRow({ project }: { project: Project }) {
 
     return (
         <li className="relative flex items-center gap-4 px-4 py-3.5 transition-colors hover:bg-accent2">
-            <div className="flex size-11 shrink-0 items-center justify-center rounded-xl border border-edge bg-muted/40 text-muted-foreground/50">
-                <Text className="size-4" strokeWidth={1.75} />
+            <div className="relative flex size-11 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-edge bg-muted/40 text-muted-foreground/50">
+                {project.image ? (
+                    <Image src={project.image} alt="" fill sizes="44px" className="object-cover" />
+                ) : (
+                    <Text className="size-4" strokeWidth={1.75} />
+                )}
             </div>
 
             <div className="min-w-0 flex-1">
