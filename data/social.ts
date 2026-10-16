@@ -4,20 +4,27 @@ export interface SocialLink {
     icon: string; // Icon name from lucide-react
 }
 
+export const githubUrl = "https://github.com/sayandeepdas02";
+export const linkedinUrl = "https://www.linkedin.com/in/sayandeep02/";
+export const xUrl = "https://x.com/sayan_not_deep";
+// Discord profile URLs need a numeric user ID, so the handle is copied to the clipboard instead
+export const discordUsername = "sayandeep_16341";
+export const calendarUrl = "https://calendly.com/reachsayandeep/30mins-with-sayandeep";
+
 export const socialLinks: SocialLink[] = [
     {
         name: "GitHub",
-        url: "https://github.com/sayandeepdas02",
+        url: githubUrl,
         icon: "Github",
     },
     {
         name: "LinkedIn",
-        url: "https://www.linkedin.com/in/sayandeep02/",
+        url: linkedinUrl,
         icon: "Linkedin",
     },
     {
         name: "Twitter",
-        url: "https://x.com/sayan_not_deep",
+        url: xUrl,
         icon: "Twitter",
     },
     {

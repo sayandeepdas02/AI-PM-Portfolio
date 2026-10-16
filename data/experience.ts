@@ -25,7 +25,7 @@ export const experiences: Experience[] = [
         logo: "/logos/hydradb.png",
     },
     {
-        role: "Member of GTM Staff / GTM Engineer",
+        role: "GTM Engineer",
         company: "Trelium (YC F25)",
         period: "Apr 2026 - Jul 2026",
         duration: "4 mons",
