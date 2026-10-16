@@ -6,7 +6,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `https://ai.sayandeep.space/projects/${p.slug}`,
     lastModified: new Date(),
     changeFrequency: 'monthly' as const,
-    priority: p.type === 'tech' ? 0.8 : 0.7,
+    priority: p.type === 'indie' ? 0.8 : 0.7,
   }))
 
   return [
