@@ -4,7 +4,7 @@ import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import * as Icons from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Panel, PanelHeader, PanelTitle } from "@/components/ui/panel";
+import { Panel, PanelContent, PanelHeader, PanelTitle } from "@/components/ui/panel";
 
 interface SkillItem {
     name: string;
@@ -102,7 +102,7 @@ export function TechStack() {
                 <PanelTitle>Skills & Tech Stack</PanelTitle>
             </PanelHeader>
 
-            <div className="w-full space-y-4 pt-4 pb-4 border-l border-dashed border-edge">
+            <PanelContent className="w-full space-y-4 overflow-hidden py-4">
                 <div className="flex justify-end px-4">
                     <button
                         onClick={() => setIsExpanded(!isExpanded)}
@@ -190,7 +190,7 @@ export function TechStack() {
                         </motion.div>
                     )}
                 </AnimatePresence>
-            </div>
+            </PanelContent>
         </Panel>
     );
 }

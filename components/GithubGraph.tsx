@@ -1,5 +1,5 @@
 import ContributionSkyline, { type ContributionDay } from "@/components/ui/contribution-skyline";
-import { Panel, PanelHeader, PanelTitle } from "@/components/ui/panel";
+import { Panel, PanelContent, PanelHeader, PanelTitle } from "@/components/ui/panel";
 import { githubUrl } from "@/data/social";
 
 const GITHUB_USERNAME = "sayandeepdas02";
@@ -30,18 +30,18 @@ export async function GithubGraph() {
             <PanelHeader>
                 <PanelTitle>GitHub Contributions</PanelTitle>
             </PanelHeader>
-            <div className="p-4">
+            <div>
                 {/* Never render the skyline without real data: it would fall back to a generated sample year */}
                 {data ? (
                     <ContributionSkyline data={data} />
                 ) : (
-                    <p className="text-sm text-muted-foreground">
+                    <PanelContent className="p-4 text-sm text-muted-foreground">
                         Contributions are unavailable right now. See them on{" "}
                         <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-foreground">
                             GitHub
                         </a>
                         .
-                    </p>
+                    </PanelContent>
                 )}
             </div>
         </Panel>

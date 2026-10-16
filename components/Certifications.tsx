@@ -2,7 +2,7 @@ import { certifications } from "@/data/certifications";
 import { LinkIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Panel, PanelHeader, PanelTitle } from "@/components/ui/panel";
+import { Panel, PanelContent, PanelHeader, PanelTitle } from "@/components/ui/panel";
 
 export default function Certifications() {
     return (
@@ -13,15 +13,15 @@ export default function Certifications() {
                 </PanelTitle>
             </PanelHeader>
 
-            <div>
+            <PanelContent className="flex flex-col gap-1 p-2">
                 {certifications.map((cert, index) => (
                     <div
                         key={index}
-                        className="flex items-center hover:bg-accent2 transition-colors"
+                        className="flex items-center gap-4 rounded-lg p-3 hover:bg-accent2 transition-colors"
                     >
                         {/* Logo */}
                         {cert.logo ? (
-                            <div className="mx-4 flex size-10 shrink-0 select-none relative overflow-hidden rounded-lg">
+                            <div className="flex size-10 shrink-0 select-none relative overflow-hidden rounded-lg">
                                 <Image
                                     src={cert.logo}
                                     alt={cert.issuer}
@@ -32,13 +32,13 @@ export default function Certifications() {
                                 />
                             </div>
                         ) : (
-                            <div className="mx-4 flex size-10 shrink-0 items-center justify-center rounded-lg border border-muted-foreground/15 bg-muted text-muted-foreground ring-1 ring-edge ring-offset-1 ring-offset-background select-none text-xs font-mono">
+                            <div className="flex size-10 shrink-0 items-center justify-center rounded-lg border border-muted-foreground/15 bg-muted text-muted-foreground select-none text-xs font-mono">
                                 {cert.icon || cert.issuer.charAt(0)}
                             </div>
                         )}
 
-                        <div className="flex-1 border-l border-dashed border-edge">
-                            <div className="flex w-full items-center gap-2 p-4 pr-2">
+                        <div className="min-w-0 flex-1">
+                            <div className="flex w-full items-center gap-2">
                                 <div className="flex-1">
                                     <h3 className="mb-1 leading-snug font-medium text-balance">
                                         {cert.name}
@@ -60,7 +60,7 @@ export default function Certifications() {
                         </div>
                     </div>
                 ))}
-            </div>
+            </PanelContent>
         </Panel>
     );
 }

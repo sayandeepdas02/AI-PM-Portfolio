@@ -4,8 +4,7 @@ import Footer from "@/components/Footer";
 import { Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Metadata } from "next";
-import { Panel, PanelHeader, PanelTitle } from "@/components/ui/panel";
-import { Separator } from "@/components/ui/separator";
+import { Panel, PanelContent, PanelHeader, PanelStack, PanelTitle } from "@/components/ui/panel";
 import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
@@ -40,37 +39,36 @@ export default async function CertificatePage({
 
     return (
         <main className="min-h-screen">
-            <div className="mx-auto md:max-w-3xl *:[[id]]:scroll-mt-22">
+            <div className="mx-auto md:max-w-3xl">
                 <Navbar />
+                <PanelStack>
+                    <Panel id="certificate">
+                        <PanelHeader className="flex items-center justify-between gap-4">
+                            <div>
+                                <PanelTitle>{cert.name}</PanelTitle>
+                                <p className="text-sm text-muted-foreground mt-0.5">
+                                    {cert.issuer} · {cert.date}
+                                </p>
+                            </div>
+                            <Button asChild size="sm">
+                                <a href={driveViewUrl} target="_blank" rel="noopener noreferrer">
+                                    <Download strokeWidth={2} />
+                                    Open in Drive
+                                </a>
+                            </Button>
+                        </PanelHeader>
 
-                <Panel id="certificate">
-                    <PanelHeader className="flex items-center justify-between py-4">
-                        <div>
-                            <PanelTitle>{cert.name}</PanelTitle>
-                            <p className="text-sm text-muted-foreground mt-0.5">
-                                {cert.issuer} · {cert.date}
-                            </p>
-                        </div>
-                        <Button asChild size="sm">
-                            <a href={driveViewUrl} target="_blank" rel="noopener noreferrer">
-                                <Download strokeWidth={2} />
-                                Open in Drive
-                            </a>
-                        </Button>
-                    </PanelHeader>
-
-                    <div className="w-full h-[800px] bg-secondary/20 relative">
-                        <iframe
-                            src={drivePreviewUrl}
-                            className="w-full h-full border-none absolute inset-0"
-                            title={`${cert.name} Certificate`}
-                            allow="autoplay"
-                        />
-                    </div>
-                </Panel>
-
-                <Separator />
-                <Footer />
+                        <PanelContent className="relative h-[800px] w-full overflow-hidden bg-secondary/20">
+                            <iframe
+                                src={drivePreviewUrl}
+                                className="w-full h-full border-none absolute inset-0"
+                                title={`${cert.name} Certificate`}
+                                allow="autoplay"
+                            />
+                        </PanelContent>
+                    </Panel>
+                    <Footer />
+                </PanelStack>
             </div>
         </main>
     );
