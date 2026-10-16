@@ -124,7 +124,7 @@ export default function RootLayout({
                   "url": SITE_URL,
                   "image": {
                     "@type": "ImageObject",
-                    "url": `${SITE_URL}/profile.png`,
+                    "url": `${SITE_URL}/sayandeep-das.png`,
                     "width": 1000,
                     "height": 1000
                   },

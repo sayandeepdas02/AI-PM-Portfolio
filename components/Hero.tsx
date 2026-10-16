@@ -84,11 +84,12 @@ export default function Hero() {
                         aria-label="Toggle Aura Mode"
                     >
                         <Image
-                            src="/profile.png"
+                            src="/sayandeep-das.png"
                             alt="Sayandeep Das"
                             fill
                             priority
-                            className="object-cover"
+                            sizes="160px"
+                            className="object-cover scale-[1.2] origin-[50%_32%]"
                         />
                     </button>
                 </div>

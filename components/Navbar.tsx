@@ -67,7 +67,7 @@ export default function Navbar() {
                         <div className="w-8 h-8 rounded-lg overflow-hidden border border-edge shadow-sm hover:opacity-80 transition-opacity">
                             {/* eslint-disable-next-line @next/next/no-img-element */}
                             <img
-                                src="/profile.png"
+                                src="/sayandeep-das.png"
                                 alt="Sayandeep Das"
                                 width={32}
                                 height={32}
