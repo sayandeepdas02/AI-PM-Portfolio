@@ -1,5 +1,5 @@
 import type { ComponentProps, ComponentType } from "react";
-import { discordUsername, githubUrl, linkedinUrl, xUrl } from "@/data/social";
+import { discordUrl, githubUrl, linkedinUrl, xUrl } from "@/data/social";
 
 type IconProps = ComponentProps<"svg">;
 
@@ -52,5 +52,5 @@ export const brandProfiles: BrandProfile[] = [
     { name: "GitHub", label: "GitHub", color: "#24292e", Icon: GitHubIcon, tileIconSize: 18, url: githubUrl },
     { name: "LinkedIn", label: "LinkedIn", color: "#0A66C2", Icon: LinkedInIcon, tileIconSize: 17, url: linkedinUrl },
     { name: "X (Twitter)", label: "X.com", color: "#000000", Icon: XIcon, tileIconSize: 15, url: xUrl },
-    { name: "Discord", label: "Discord", color: "#5865F2", Icon: DiscordIcon, tileIconSize: 18, copyText: discordUsername },
+    { name: "Discord", label: "Discord", color: "#5865F2", Icon: DiscordIcon, tileIconSize: 18, url: discordUrl },
 ];
