@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Roboto_Flex, Instrument_Serif } from "next/font/google";
 import "./globals.css";
+import { SITE_URL } from "@/lib/site";
 
-const ogImageUrl = "https://ai.sayandeep.space/opengraph-portfolio.png";
+const ogImageUrl = `${SITE_URL}/opengraph-portfolio.png`;
 
 const robotoFlex = Roboto_Flex({
   subsets: ["latin"],
@@ -17,7 +18,7 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://ai.sayandeep.space'),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: 'Sayandeep Das | GTM Engineer & AI PM | IIT Guwahati',
     template: '%s | Sayandeep Das',
@@ -51,7 +52,7 @@ export const metadata: Metadata = {
     'Top Product Manager India 2025',
     'Top Product Manager India 2026',
   ],
-  authors: [{ name: 'Sayandeep Das', url: 'https://ai.sayandeep.space' }],
+  authors: [{ name: 'Sayandeep Das', url: SITE_URL }],
   creator: 'Sayandeep Das',
   publisher: 'Sayandeep Das',
   category: 'technology',
@@ -67,12 +68,12 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://ai.sayandeep.space/',
+    canonical: `${SITE_URL}/`,
   },
   openGraph: {
     type: 'website',
     locale: 'en_IN',
-    url: 'https://ai.sayandeep.space/',
+    url: `${SITE_URL}/`,
     siteName: 'Sayandeep Das — Portfolio',
     title: 'Sayandeep Das | GTM Engineer & AI PM | IIT Guwahati',
     description:
@@ -118,14 +119,14 @@ export default function RootLayout({
               "@graph": [
                 {
                   "@type": "Person",
-                  "@id": "https://ai.sayandeep.space/#sayandeep",
+                  "@id": `${SITE_URL}/#sayandeep`,
                   "name": "Sayandeep Das",
-                  "url": "https://ai.sayandeep.space",
+                  "url": SITE_URL,
                   "image": {
                     "@type": "ImageObject",
-                    "url": "https://ai.sayandeep.space/profile.jpg",
-                    "width": 400,
-                    "height": 400
+                    "url": `${SITE_URL}/profile.png`,
+                    "width": 1000,
+                    "height": 1000
                   },
                   "jobTitle": "GTM Engineer and AI PM",
                   "worksFor": {
@@ -171,12 +172,12 @@ export default function RootLayout({
                 },
                 {
                   "@type": "WebSite",
-                  "@id": "https://ai.sayandeep.space/#website",
-                  "url": "https://ai.sayandeep.space",
+                  "@id": `${SITE_URL}/#website`,
+                  "url": SITE_URL,
                   "name": "Sayandeep Das — Portfolio",
                   "description": "Portfolio of Sayandeep Das, GTM Engineer and AI PM",
                   "publisher": {
-                    "@id": "https://ai.sayandeep.space/#sayandeep"
+                    "@id": `${SITE_URL}/#sayandeep`
                   },
                   "inLanguage": "en-IN"
                 }

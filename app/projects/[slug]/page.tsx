@@ -8,9 +8,10 @@ import Footer from "@/components/Footer";
 import { Separator } from "@/components/ui/separator";
 import { Panel, PanelHeader, PanelTitle, PanelContent } from "@/components/ui/panel";
 import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site";
 
 const ogImage = {
-  url: "https://ai.sayandeep.space/opengraph-portfolio.png",
+  url: `${SITE_URL}/opengraph-portfolio.png`,
   width: 1920,
   height: 1080,
   alt: "Sayandeep Das portfolio cover",
@@ -21,11 +22,11 @@ const projectMetadata: Record<string, Partial<Metadata>> = {
     title: "Notemind AI — AI Notetaker for Google Meet",
     description:
       "Notemind AI is an AI-powered meeting notetaker built by Sayandeep Das. Reduces manual note-taking effort by 60% through real-time transcription and summarization for Google Meet.",
-    alternates: { canonical: "https://ai.sayandeep.space/projects/notemind-ai" },
+    alternates: { canonical: `${SITE_URL}/projects/notemind-ai` },
     openGraph: {
       title: "Notemind AI — AI Notetaker for Google Meet | Sayandeep Das",
       description: "AI meeting notetaker for transcription and summarization. Cuts note-taking effort by 60%.",
-      url: "https://ai.sayandeep.space/projects/notemind-ai",
+      url: `${SITE_URL}/projects/notemind-ai`,
       images: [ogImage],
     },
   },
@@ -33,11 +34,11 @@ const projectMetadata: Record<string, Partial<Metadata>> = {
     title: "Fluxberry AI — AI-Native Automation for Technical Hiring",
     description:
       "Fluxberry AI automates technical hiring workflows end-to-end — resume parsing, assessments, and candidate scoring. Built by Sayandeep Das with React, Node.js, and OpenAI API.",
-    alternates: { canonical: "https://ai.sayandeep.space/projects/fluxberry-ai" },
+    alternates: { canonical: `${SITE_URL}/projects/fluxberry-ai` },
     openGraph: {
       title: "Fluxberry AI — AI-Native Automation for Technical Hiring | Sayandeep Das",
       description: "End-to-end interview automation: resume parsing, assessments, and candidate scoring.",
-      url: "https://ai.sayandeep.space/projects/fluxberry-ai",
+      url: `${SITE_URL}/projects/fluxberry-ai`,
       images: [ogImage],
     },
   },
@@ -53,11 +54,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: project.name,
     description: project.description,
-    alternates: { canonical: `https://ai.sayandeep.space/projects/${slug}` },
+    alternates: { canonical: `${SITE_URL}/projects/${slug}` },
     openGraph: {
       title: `${project.name} | Sayandeep Das`,
       description: project.description,
-      url: `https://ai.sayandeep.space/projects/${slug}`,
+      url: `${SITE_URL}/projects/${slug}`,
       images: [ogImage],
     },
   };
@@ -82,11 +83,11 @@ export default async function ProjectDetails({ params }: { params: Promise<{ slu
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
             "name": project.name,
-            "url": project.liveUrl ?? `https://ai.sayandeep.space/projects/${project.slug}`,
+            "url": project.liveUrl ?? `${SITE_URL}/projects/${project.slug}`,
             "author": {
                 "@type": "Person",
                 "name": "Sayandeep Das",
-                "url": "https://ai.sayandeep.space"
+                "url": SITE_URL
             },
             "description": project.description,
             "applicationCategory": "WebApplication",
