@@ -21,22 +21,6 @@ export interface Project {
 
 export const projects: Project[] = [
     {
-        name: "Hyperglork AI: AI Voice Agents for Medical Professionals",
-        slug: "hyperglork-ai",
-        description: "AI voice agents for clinics to automate inbound calls, appointment booking, and scheduling.",
-        tagline: "AI voice agents that answer clinic calls and book appointments.",
-        category: "AI / Healthcare",
-        type: "indie",
-        details: [
-            "Built AI voice agents for clinics to automate inbound calls, appointment booking, and scheduling.",
-            "Engineered a low-latency conversational pipeline using LLMs, RAG, speech-to-text, and Voice AI to handle real-time patient interactions, contextual responses, and automated appointment booking."
-        ],
-        image: "/logos/hyperglork-icon.png", // from glork-ai.vercel.app/icon.png
-        techStack: ["LLMs", "RAG", "Speech-to-Text", "Voice AI", "Python", "FastAPI"],
-        githubUrl: "https://github.com/sayandeepdas02/Glork-AI",
-        liveUrl: "https://glork.sayandeep.space/"
-    },
-    {
         name: "Notemind AI: AI Notetaker for Google Meeting",
         slug: "notemind-ai",
         description: "AI Notetaker for transcription and summarization, reducing manual note-taking effort by 60%.",

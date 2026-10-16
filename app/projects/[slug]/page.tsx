@@ -17,18 +17,6 @@ const ogImage = {
 };
 
 const projectMetadata: Record<string, Partial<Metadata>> = {
-  "hyperglork-ai": {
-    title: "Hyperglork AI — AI Voice Agents for Medical Professionals",
-    description:
-      "Hyperglork AI is an AI voice agent platform built by Sayandeep Das for automating inbound calls, appointment booking, and scheduling in healthcare clinics. Built with LLMs, RAG, and Speech-to-Text.",
-    alternates: { canonical: "https://ai.sayandeep.space/projects/hyperglork-ai" },
-    openGraph: {
-      title: "Hyperglork AI — AI Voice Agents for Medical Professionals | Sayandeep Das",
-      description: "AI voice agents for clinics. Automates inbound calls and appointment booking using LLMs and RAG.",
-      url: "https://ai.sayandeep.space/projects/hyperglork-ai",
-      images: [ogImage],
-    },
-  },
   "notemind-ai": {
     title: "Notemind AI — AI Notetaker for Google Meet",
     description:

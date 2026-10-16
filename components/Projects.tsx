@@ -17,7 +17,7 @@ const TABS: { type: ProjectType; label: string; short: string }[] = [
     { type: "case-study", label: "Product Case Studies", short: "Case Studies" },
 ];
 
-/** "Hyperglork AI: AI Voice Agents…" → "Hyperglork AI"; "Rapido Product Case Study" → "Rapido" */
+/** "Notemind AI: AI Notetaker…" → "Notemind AI"; "Rapido Product Case Study" → "Rapido" */
 const shortName = (name: string) => name.split(":")[0].replace(/ Product Case Study$/, "");
 
 function IconLink({ href, label, children }: { href: string; label: string; children: ReactNode }) {
