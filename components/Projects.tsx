@@ -20,16 +20,20 @@ const TABS: { type: ProjectType; label: string; short: string }[] = [
 /** "Notemind AI: AI Notetaker…" → "Notemind AI"; "Rapido Product Case Study" → "Rapido" */
 const shortName = (name: string) => name.split(":")[0].replace(/ Product Case Study$/, "");
 
+const iconLinkClass =
+    "flex size-8 items-center justify-center rounded-md text-muted-foreground/70 transition-colors hover:bg-accent hover:text-foreground";
+
+/** Internal paths ("/projects/…") stay in the tab; anything else opens in a new one. */
 function IconLink({ href, label, children }: { href: string; label: string; children: ReactNode }) {
+    if (href.startsWith("/")) {
+        return (
+            <Link href={href} aria-label={label} title={label} className={iconLinkClass}>
+                {children}
+            </Link>
+        );
+    }
     return (
-        <a
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={label}
-            title={label}
-            className="flex size-8 items-center justify-center rounded-md text-muted-foreground/70 transition-colors hover:bg-accent hover:text-foreground"
-        >
+        <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label} title={label} className={iconLinkClass}>
             {children}
         </a>
     );
@@ -76,8 +80,8 @@ function ProjectRow({ project }: { project: Project }) {
                     )}
                     {project.liveUrl && (
                         <IconLink
-                            href={project.liveUrl}
-                            label={isCaseStudy ? `Open ${name} case study PDF` : `Visit ${name}`}
+                            href={isCaseStudy ? `/projects/${project.slug}` : project.liveUrl}
+                            label={isCaseStudy ? `Open ${name} case study` : `Visit ${name}`}
                         >
                             {isCaseStudy ? (
                                 <FileText className="size-4" strokeWidth={1.5} />
