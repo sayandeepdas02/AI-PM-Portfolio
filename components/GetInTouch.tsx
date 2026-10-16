@@ -7,20 +7,7 @@ import { brandProfiles } from "@/components/ui/brand-icons";
 import { ProfileLink } from "@/components/ui/profile-link";
 import { WalkingScene } from "@/components/WalkingScene";
 import { calendarUrl, emailAddress } from "@/data/social";
-import { cn } from "@/lib/utils";
-
-const ctaBase =
-    "inline-flex items-center gap-2 rounded-md px-4 py-2.5 text-sm font-medium transition-colors cursor-pointer";
-
-const shine = cn(
-    "relative overflow-hidden",
-    "before:absolute before:inset-0 before:rounded-[inherit]",
-    "before:bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.7)_50%,transparent_75%,transparent_100%)]",
-    "before:bg-[length:250%_250%,100%_100%] before:bg-[position:200%_0,0_0] before:bg-no-repeat",
-    "before:transition-[background-position_0s_ease] before:duration-1000",
-    "hover:before:bg-[position:-100%_0,0_0]",
-    "dark:before:bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.5)_50%,transparent_75%,transparent_100%)]"
-);
+import { Button, buttonVariants } from "@/components/ui/button";
 
 export default function GetInTouch() {
     return (
@@ -38,39 +25,35 @@ export default function GetInTouch() {
                     </p>
 
                     <div className="mt-5 flex flex-wrap gap-2.5">
-                        <a
-                            href={calendarUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={cn(ctaBase, shine, "bg-foreground text-background hover:bg-foreground/90")}
-                        >
-                            <Calendar size={15} strokeWidth={2} />
-                            Schedule a meeting
-                        </a>
-                        <a
-                            href={`mailto:${emailAddress}`}
-                            className={cn(ctaBase, "border border-border bg-background hover:bg-accent")}
-                        >
-                            <Mail size={15} strokeWidth={2} />
-                            Email me
-                        </a>
+                        <Button asChild>
+                            <a href={calendarUrl} target="_blank" rel="noopener noreferrer">
+                                <Calendar strokeWidth={2} />
+                                Schedule a meeting
+                            </a>
+                        </Button>
+                        <Button asChild variant="neutral">
+                            <a href={`mailto:${emailAddress}`}>
+                                <Mail strokeWidth={2} />
+                                Email me
+                            </a>
+                        </Button>
                     </div>
 
                     <p className="mt-7 font-mono text-[11px] font-medium uppercase tracking-widest text-muted-foreground">
                         Find me on
                     </p>
-                    <div className="mt-2.5 flex flex-wrap gap-2">
+                    <div className="mt-2.5 flex flex-wrap gap-3">
                         {brandProfiles.map((profile) => (
                             <ProfileLink
                                 key={profile.name}
                                 profile={profile}
-                                className="flex size-9 items-center justify-center rounded-lg border border-border text-muted-foreground transition-all hover:-translate-y-0.5 hover:bg-accent hover:text-foreground cursor-pointer"
+                                className={buttonVariants({ variant: "neutral", size: "icon", className: "cursor-pointer" })}
                             >
                                 {(copied) =>
                                     copied ? (
-                                        <Check size={15} strokeWidth={2.5} className="text-success" />
+                                        <Check strokeWidth={2.5} className="text-success" />
                                     ) : (
-                                        <profile.Icon width={15} height={15} />
+                                        <profile.Icon />
                                     )
                                 }
                             </ProfileLink>

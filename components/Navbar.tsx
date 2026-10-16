@@ -5,6 +5,7 @@ import { Moon, Sun, Menu, X, FileText } from "lucide-react";
 import { useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { BookACallButton } from "@/components/ui/BookACallButton";
+import { Button } from "@/components/ui/button";
 
 export default function Navbar() {
     const [isDark, setIsDark] = useState(false);
@@ -103,13 +104,12 @@ export default function Navbar() {
                         {/* CTA Buttons (desktop only) */}
                         <div className="hidden md:flex items-center gap-2">
                             <BookACallButton />
-                            <Link
-                                href="/resume"
-                                className="flex items-center gap-2 px-3 py-1.5 text-[13px] font-medium bg-foreground text-background hover:bg-foreground/90 transition-colors rounded-md relative overflow-hidden before:absolute before:inset-0 before:rounded-[inherit] before:bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.7)_50%,transparent_75%,transparent_100%)] before:bg-[length:250%_250%,100%_100%] before:bg-[position:200%_0,0_0] before:bg-no-repeat before:transition-[background-position_0s_ease] before:duration-1000 hover:before:bg-[position:-100%_0,0_0] dark:before:bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.5)_50%,transparent_75%,transparent_100%)] cursor-pointer"
-                            >
-                                <FileText size={14} strokeWidth={2} />
-                                Resume
-                            </Link>
+                            <Button asChild size="sm">
+                                <Link href="/resume">
+                                    <FileText strokeWidth={2} />
+                                    Resume
+                                </Link>
+                            </Button>
                         </div>
 
                         {/* Theme Toggle */}

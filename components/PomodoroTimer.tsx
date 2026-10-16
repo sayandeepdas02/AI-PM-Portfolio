@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Play, Pause, RotateCcw, Coffee, Timer as TimerIcon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Panel, PanelHeader, PanelTitle } from "@/components/ui/panel";
+import { Button } from "@/components/ui/button";
 
 export function PomodoroTimer() {
     const [workDuration, setWorkDuration] = useState(25);
@@ -187,21 +188,13 @@ export function PomodoroTimer() {
                                         </button>
                                     </div>
 
-                                    <div className="flex items-center gap-2">
-                                        <button
-                                            onClick={toggleTimer}
-                                            className="flex h-10 w-10 items-center justify-center rounded-full bg-foreground text-background transition-transform hover:scale-105 active:scale-95"
-                                            aria-label={isActive ? "Pause" : "Start"}
-                                        >
-                                            {isActive ? <Pause size={18} fill="currentColor" /> : <Play size={18} fill="currentColor" className="ml-0.5" />}
-                                        </button>
-                                        <button
-                                            onClick={resetTimer}
-                                            className="flex h-10 w-10 items-center justify-center rounded-full border border-edge text-muted-foreground transition-all hover:bg-secondary hover:text-foreground"
-                                            aria-label="Reset"
-                                        >
-                                            <RotateCcw size={18} />
-                                        </button>
+                                    <div className="flex items-center gap-3">
+                                        <Button size="icon" onClick={toggleTimer} aria-label={isActive ? "Pause" : "Start"}>
+                                            {isActive ? <Pause fill="currentColor" /> : <Play fill="currentColor" className="ml-0.5" />}
+                                        </Button>
+                                        <Button size="icon" variant="neutral" onClick={resetTimer} aria-label="Reset">
+                                            <RotateCcw />
+                                        </Button>
                                     </div>
                                 </div>
                             </motion.div>

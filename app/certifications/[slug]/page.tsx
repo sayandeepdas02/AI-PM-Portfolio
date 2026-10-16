@@ -2,6 +2,7 @@ import { certifications } from "@/data/certifications";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Download } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { Metadata } from "next";
 import { Panel, PanelHeader, PanelTitle } from "@/components/ui/panel";
 import { Separator } from "@/components/ui/separator";
@@ -50,15 +51,12 @@ export default async function CertificatePage({
                                 {cert.issuer} · {cert.date}
                             </p>
                         </div>
-                        <a
-                            href={driveViewUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-2 px-3 py-1.5 text-sm font-medium bg-foreground text-background hover:bg-foreground/90 transition-colors rounded shadow-sm relative overflow-hidden before:absolute before:inset-0 before:rounded-[inherit] before:bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.7)_50%,transparent_75%,transparent_100%)] before:bg-[length:250%_250%,100%_100%] before:bg-[position:200%_0,0_0] before:bg-no-repeat before:transition-[background-position_0s_ease] before:duration-1000 hover:before:bg-[position:-100%_0,0_0] dark:before:bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.5)_50%,transparent_75%,transparent_100%)] cursor-pointer"
-                        >
-                            <Download size={14} strokeWidth={2} />
-                            Open in Drive
-                        </a>
+                        <Button asChild size="sm">
+                            <a href={driveViewUrl} target="_blank" rel="noopener noreferrer">
+                                <Download strokeWidth={2} />
+                                Open in Drive
+                            </a>
+                        </Button>
                     </PanelHeader>
 
                     <div className="w-full h-[800px] bg-secondary/20 relative">
