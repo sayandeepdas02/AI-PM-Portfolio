@@ -366,3 +366,42 @@
     @apply scroll-mt-18;
   }
 }
+
+/* Custom cursor: Lucide's mouse-pointer-2 outline arrow (mouse/trackpad only). Clickable elements get
+   the same arrow filled with the button blue so they still read as clickable; dark mode flips the outline. */
+:root {
+  --cursor-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 24 24'%3E%3Cpath d='M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z' fill='%23fff' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") 4 4, auto;
+  --cursor-arrow-pointer: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 24 24'%3E%3Cpath d='M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z' fill='%231e40af' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") 4 4, pointer;
+}
+
+.dark {
+  --cursor-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 24 24'%3E%3Cpath d='M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z' fill='%230a0a0a' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") 4 4, auto;
+  --cursor-arrow-pointer: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 24 24'%3E%3Cpath d='M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z' fill='%231e40af' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") 4 4, pointer;
+}
+
+@layer base {
+  @media (pointer: fine) {
+    html {
+      cursor: var(--cursor-arrow);
+    }
+
+    a[href],
+    button:not(:disabled),
+    [role="button"],
+    summary,
+    label[for],
+    select,
+    input[type="range"],
+    input[type="checkbox"],
+    input[type="radio"] {
+      cursor: var(--cursor-arrow-pointer);
+    }
+  }
+}
+
+/* Unlayered so it beats Tailwind's `cursor-pointer` utility (utilities layer) */
+@media (pointer: fine) {
+  .cursor-pointer {
+    cursor: var(--cursor-arrow-pointer);
+  }
+}
