@@ -315,7 +315,7 @@
   --nb-bg: #272933;
   --nb-bw: #212121;
   --nb-blank: #fff;
-  --nb-border: #000;
+  --nb-border: #fff; /* white border + offset shadow so buttons read on the near-black page */
   --nb-text: #e6e6e6;
   --nb-mtext: #fff;
   --nb-ring: #fff;
