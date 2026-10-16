@@ -2,7 +2,7 @@
 
 My personal developer portfolio showcasing my journey as a Full-Stack Developer, featuring major projects, professional experience, and technical expertise.
 
-**Live Portfolio**: [View Portfolio](#) <!-- Add your deployed URL here -->
+**Live Portfolio**: [deepmaxxing.fun](https://www.deepmaxxing.fun)
 
 ---
 

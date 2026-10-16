@@ -32,8 +32,7 @@ export const projects: Project[] = [
             "Designed structured workflows for retrieving meeting insights, improving post-meeting productivity."
         ],
         techStack: ["React.js", "Node.js", "Google Meet API", "OpenAI API", "Tailwind CSS"],
-        githubUrl: "https://github.com/sayandeepdas02/Notemind-ai",
-        liveUrl: "https://notemind.sayandeep.space/"
+        githubUrl: "https://github.com/sayandeepdas02/Notemind-ai"
     },
     {
         name: "Fluxberry AI: AI Native Automation for Technical Hiring",
@@ -49,7 +48,7 @@ export const projects: Project[] = [
         image: "/logos/fluxberry-icon.png", // from fluxberry.in/logo-mark.png
         techStack: ["React.js", "Redux", "Node.js", "OpenAI API", "Tailwind CSS"],
         githubUrl: "https://github.com/sayandeepdas02/Interview-AI",
-        liveUrl: "https://fluxberry.sayandeep.space/",
+        liveUrl: "https://fluxberry.in/",
         demoUrl: "https://www.youtube.com/embed/y3-m6mOWieA"
     },
     {

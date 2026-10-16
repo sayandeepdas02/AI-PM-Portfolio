@@ -1,9 +1,10 @@
 import { MetadataRoute } from 'next'
 import { projects } from '@/data/projects'
+import { SITE_URL } from '@/lib/site';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const projectUrls = projects.map((p) => ({
-    url: `https://ai.sayandeep.space/projects/${p.slug}`,
+    url: `${SITE_URL}/projects/${p.slug}`,
     lastModified: new Date(),
     changeFrequency: 'monthly' as const,
     priority: p.type === 'indie' ? 0.8 : 0.7,
@@ -11,13 +12,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     {
-      url: 'https://ai.sayandeep.space',
+      url: SITE_URL,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 1,
     },
     {
-      url: 'https://ai.sayandeep.space/resume',
+      url: `${SITE_URL}/resume`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.7,
