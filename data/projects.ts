@@ -31,8 +31,10 @@ export const projects: Project[] = [
             "AI Notetaker for transcription and summarization, reducing manual note-taking effort by 60%.",
             "Designed structured workflows for retrieving meeting insights, improving post-meeting productivity."
         ],
+        image: "/logos/notemind-icon.png", // from notemind.space/icon.svg
         techStack: ["React.js", "Node.js", "Google Meet API", "OpenAI API", "Tailwind CSS"],
-        githubUrl: "https://github.com/sayandeepdas02/Notemind-ai"
+        githubUrl: "https://github.com/sayandeepdas02/Notemind-ai",
+        liveUrl: "https://notemind.space/"
     },
     {
         name: "Fluxberry AI: AI Native Automation for Technical Hiring",
